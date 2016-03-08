@@ -6,10 +6,10 @@
 <hibernate-configuration>
 <session-factory>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://hackglhs@server194.web-hosting.com:21098/budgetSpoon</property>
+    <property name="hibernate.connection.url">jdbc:mysql://budgetspoondb.cm6l5hslk6or.us-west-2.rds.amazonaws.com:3306/BudgetSpoondb</property>
    
-    <property name="hibernate.connection.username">hackglhs</property>
-    <property name="hibernate.connection.password">qDtWwnVkuFGFa</property>
+    <property name="hibernate.connection.username">budgetspoon</property>
+    <property name="hibernate.connection.password">gcbudgetspoon</property>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="show_sql">true</property>
     <mapping resource="budgetSpoon.hbm.xml" />
