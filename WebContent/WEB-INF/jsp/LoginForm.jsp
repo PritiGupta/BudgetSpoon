@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<link type=text/css rel=stylesheet href=login.css />
+<title>Login Page</title>
 </head>
 <body>
 <h1 style="color: blue">Welcome to BudgetSpoon!</h1>
@@ -15,7 +16,7 @@
 <form action="index.html" method="post">
 <table>
 
-	<tr><td><label>Restaurant Name :</label></td><td><input type="text" name="restaurantName" required></td></tr>
+	<tr><td><label>Contact Person :</label></td><td><input type="text" name="restaurantName" required></td></tr>
 	<tr><td><label>Password :</label></td><td><input type="text" name="password" required></td></tr>
 
 
