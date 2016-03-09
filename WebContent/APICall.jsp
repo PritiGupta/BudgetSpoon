@@ -1,3 +1,6 @@
+<%@page import="com.BudgetSpoon.dao.RestaurantDao"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.BudgetSpoon.controller.Restaurants"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="org.apache.http.*" %>
@@ -5,6 +8,8 @@
 <%@ page import="org.apache.http.impl.client.DefaultHttpClient" %>
 <%@ page import="org.apache.http.util.EntityUtils" %>
 <%@ page import="org.json.*" %>
+<%@ page import="com.*" %>
+<%@ page import="java.util.ArrayList" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -15,6 +20,9 @@
 <body>
 <%
 	DefaultHttpClient httpclient = new DefaultHttpClient();
+	
+	RestaurantDao restDao = new RestaurantDao();
+	ArrayList<Restaurants> addRests = new ArrayList<Restaurants>();
 	
 	for (int c = 0; c <= 80; c += 20) {
 		HttpGet search = new HttpGet("https://developers.zomato.com/api/v2.1/search?q=48226&start="+c);
@@ -36,15 +44,11 @@
 			String restAddress = rests.getJSONObject(i).getJSONObject("restaurant").getJSONObject("location").getString("address");
 			String restCuisine = (rests.getJSONObject(i).getJSONObject("restaurant").getString("cuisines"));
 			
-			System.out.println(restId);
-			System.out.println(restName);
-			System.out.println(restAddress);
-			System.out.println(restCuisine);
-			System.out.println(c+i);
-			System.out.println();
+			addRests.add(new Restaurants(restId, restName, restAddress, restCuisine));
 		}
-		
 	}
+	
+	restDao.addRestaurants(addRests);
 %>
 
 
