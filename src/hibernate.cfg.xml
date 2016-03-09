@@ -6,7 +6,7 @@
 <hibernate-configuration>
 <session-factory>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://budgetspoondb.cm6l5hslk6or.us-west-2.rds.amazonaws.com:3306/BudgetSpoondb</property>
+    <property name="hibernate.connection.url">jdbc:mysql://budgetspoondb.cm6l5hslk6or.us-west-2.rds.amazonaws.com:3306/BudgetSpoonDB</property>
    
     <property name="hibernate.connection.username">budgetspoon</property>
     <property name="hibernate.connection.password">gcbudgetspoon</property>
