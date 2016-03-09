@@ -7,6 +7,14 @@ public class Restaurants {
 	private String address;
 	private String cuisine;
 	
+	
+	public Restaurants(int id, String name, String address, String cuisine) {
+		this.id = id;
+		this.name = name;
+		this.address = address;
+		this.cuisine = cuisine;
+	}
+
 	public String getCuisine() {
 		return cuisine;
 	}
