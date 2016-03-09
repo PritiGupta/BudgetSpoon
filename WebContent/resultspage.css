@@ -1,0 +1,80 @@
+body {
+  /*background: url("Detroit.jpg") no-repeat center center fixed;
+    background-size: cover;
+    /*background-color: gray;*/
+    background-blend-mode: darken;*/
+    font-size: 18px;
+    font-family: montserrat;
+    color: black;
+    background-color: #F0F0F0;
+}
+
+nav {
+  padding: 20px;
+  font-size: 15px;
+}
+
+nav a {
+  padding-left: 20px;
+  text-decoration: none;
+  font-family: montserrat;
+  text-weight: bold;
+}
+
+#BudgetSpoon {
+  border: 2px solid #707070;
+  border-radius: 8px;
+  text-align: center;
+  padding: 5px;
+}
+
+.header-banner {
+  background: url("http://www.anothermonkeythai.com/wp-content/uploads/2015/06/rest3.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-blend-mode: darken;
+  height: 180px;
+  text-align: center;
+  padding-bottom: 40px;
+
+}
+
+h3 {
+  padding-top: 50px;
+  font-family: montserrat;
+  font-weight: bold;
+}
+
+h4 {
+  font-weight: bold;
+}
+table {
+  border-radius: 8px;
+  padding-top: 80px;
+  min-width: 100%;
+}
+
+thead {
+  padding-top: 30px;
+}
+
+tr {
+  height: 80px;
+}
+
+td {
+  padding-top: 30px;
+}
+
+label {
+  justify-content: center;
+  padding-top: 10px;
+}
+
+img {
+  margin-left: 15px;
+  display: block;
+  width: 120px;
+  height: 100px;
+}
+
+}
