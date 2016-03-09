@@ -3,7 +3,9 @@ package com.BudgetSpoon.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import com.BudgetSpoon.controller.Restaurants;
@@ -16,6 +18,28 @@ public class RestaurantDao {
 	//The Restaurant object is built inside of a POJO(plain-old-java-object) called Restaurants.
 	//All POJO's are kept in a separate package specifially for files that contain the private fields along
 	//with the getters and setters for each obect.
+	
+	public void addRestaurants(List<Restaurants> rList) {
+		
+		Session session = (new Configuration().configure().buildSessionFactory()).openSession();
+
+		Transaction tx = session.beginTransaction();
+		
+		
+	      try{
+	    	 for (Restaurants restaurant : rList) {
+	         session.save(restaurant); 
+	    	 }
+	         tx.commit();
+	      }catch (HibernateException e) {
+	         if (tx!=null) tx.rollback();
+	         e.printStackTrace(); 
+	      }finally {
+	         session.close(); 
+	      }
+	      
+	}
+	
 	public List<Restaurants> getRestaurantList() {
 		
 		//The next 2 statements are always required to open a session and begin to extract data from a database

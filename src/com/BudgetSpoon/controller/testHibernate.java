@@ -3,6 +3,7 @@
 
 package com.BudgetSpoon.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.BudgetSpoon.dao.AveragesDao;
@@ -51,6 +52,15 @@ public class testHibernate {
 				+ "meal_average: " + resultsAverages.get(0).getMeal_average() + ", " + "\n" 
 				+ "type_average: " + resultsAverages.get(0).getType_average()); 
 		System.out.println();
+		
+		
+		
+		List<Restaurants> myList = new ArrayList<Restaurants>();
+		myList.add(new Restaurants(1, "Bungy Food", "12808 Pentfield", "Mexican"));
+		myList.add(new Restaurants(2, "Kohl's Kitchen", "4280 Griswold", "Asian"));
+		
+		
+		restDao.addRestaurants(myList);
 		
 	}
 

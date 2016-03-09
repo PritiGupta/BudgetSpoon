@@ -8,6 +8,8 @@ public class Restaurants {
 	private String cuisine;
 	
 	
+	public Restaurants() {}
+
 	public Restaurants(int id, String name, String address, String cuisine) {
 		this.id = id;
 		this.name = name;
