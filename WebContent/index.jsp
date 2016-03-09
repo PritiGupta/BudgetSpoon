@@ -39,11 +39,11 @@
     <h2>Find the perfect meal in Detroit for your budget</h3>
   </div>
 
-    <form id = "searchForm" method = "get">
+    <form action = "search
+" id = "searchForm" method = "get">
     <div class="container">
       <!-- <h1>BudgetSpoon</h1>
       <h3>Find the perfect meal for your budget</h3> -->
-      <form id = "searchForm" method = "get">
       <div class="searchbox">
         <div class="row">
           <div class="col-md-3">

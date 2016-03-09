@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE>
 <html>
 
@@ -30,34 +31,35 @@
   </header>
 
   <div class = "header-banner">
-    <h3>Pick a Place to Eat</h2>
+    <h3>Pick a Place to Eat</h3>
       <h4>Where would you like to eat?</h4>
   </div>
     <!-- <div class = "container"> -->
     <table class = "table">
       <thead>
         <tr>
-          <td class></td>
           <td>Restaurant</td>
           <td>Cuisine</td>
           <td>Address</td>
-          <td>Price Range</td>
+        <!--   <td>Price Range</td>  -->
         </tr>
       </thead>
       <tbody>
+        <c:forEach items="${restList}" var="restaurant">
         <tr>
-          <td><img src ="bob's_burgers.jpg"></td>
-          <td>Bob's Burger</td>
-          <td><p>Comfort Food</p>American</p></td>
-          <td>3223 Tuscarora Drive</td>
-          <td>$10-20</td>
+          <td>${restaurant.getName()}</td>
+          <td>${restaurant.getCuisine()}</td>
+          <td>${restaurant.getAddress()}</td>
+        <!--   <td>3223 Tuscarora Drive</td>
+          <td>$10-20</td>  -->
         </tr>
-          <td><img src = "happy's_pizza.jpg"></td>
+        </c:forEach>
+          <!-- <td><img src = "happy's_pizza.jpg"></td>
           <td>Happy's Pizza</td>
           <td><p>Italian</p><p>Pizza</p></td>
           <td>343 Woodward Avenue</td>
           <td>$20-30</td>
-        </tr>
+        </tr>  -->
       </tbody>
 
     </table>
