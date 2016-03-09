@@ -6,8 +6,33 @@ public class Restaurants {
 	private String name;
 	private String address;
 	private String cuisine;
-	
-	
+	private double breakfast_price;
+	public double getBreakfast_price() {
+		return breakfast_price;
+	}
+
+	public void setBreakfast_price(double breakfast_price) {
+		this.breakfast_price = breakfast_price;
+	}
+
+	public double getLunch_price() {
+		return lunch_price;
+	}
+
+	public void setLunch_price(double lunch_price) {
+		this.lunch_price = lunch_price;
+	}
+
+	public double getDinner_price() {
+		return dinner_price;
+	}
+
+	public void setDinner_price(double dinner_price) {
+		this.dinner_price = dinner_price;
+	}
+
+	private double lunch_price;
+	private double dinner_price;
 	public Restaurants() {}
 
 	public Restaurants(int id, String name, String address, String cuisine) {
