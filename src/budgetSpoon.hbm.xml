@@ -3,15 +3,64 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.BudgetSpoon.controller.firstPage" table="resturant" catalog="budgetSpoon">
-		<id name="resturantid" type="int">
-			<column name="resturantid" />
+<class name="com.BudgetSpoon.controller.Restaurants" table="restaurants" catalog="BudgetSpoonDB">
+		<id name="id" type="int">
+			<column name="id" />
 			
 		</id>
-		<property name="resturantname" type="string">
-			<column name="resturantname" not-null="true" unique="false" />
+		<property name="name" type="string">
+			<column name="name" not-null="true" unique="false" />
 		</property>
 		
+		<property name="address" type="string">
+			<column name="address" not-null="true" unique="false" />
+		</property>
+		
+		<property name="cuisine" type="string">
+			<column name="cuisine" not-null="true" unique="false" />
+		</property>
+		
+	</class>
+	
+	<class name="com.BudgetSpoon.controller.Categories" table="categories" catalog="BudgetSpoonDB">
+		<id name="categories_id" type="int">
+			<column name="categories_id" />
+			
+		</id>
+		<property name="categories_name" type="string">
+			<column name="categories_name" not-null="true" unique="false" />
+		</property>
+		
+	</class>
+	
+	<class name="com.BudgetSpoon.controller.mealTypes" table="meal_types" catalog="BudgetSpoonDB">
+		<id name="type_id" type="int">
+			<column name="type_id" />
+			
+		</id>
+		<property name="type_name" type="string">
+			<column name="type_name" not-null="true" unique="false" />
+		</property>
+		
+	</class>
+	
+	<class name="com.BudgetSpoon.controller.Averages" table="price_average" catalog="BudgetSpoonDB">
+		<id name="restaurant_id" type="int">
+			<column name="type_id" />
+			
+		</id>
+		
+		<property name="base_average" type="int">
+			<column name="base_average" not-null="true" unique="false" />
+		</property>
+		
+		<property name="meal_average" type="int">
+			<column name="meal_average" not-null="true" unique="false" />
+		</property>
+		
+		<property name="type_average" type="int">
+			<column name="type_average" not-null="true" unique="false" />
+		</property>
 		
 	</class>
 </hibernate-mapping>
