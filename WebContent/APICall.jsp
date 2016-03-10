@@ -39,12 +39,11 @@
 		JSONArray rests = jsonResult.getJSONArray("restaurants");
 		
 		for(int i = 0; i < rests.length(); i++) {
-			int restId = rests.getJSONObject(i).getJSONObject("restaurant").getInt("id");
 			String restName = rests.getJSONObject(i).getJSONObject("restaurant").getString("name");
 			String restAddress = rests.getJSONObject(i).getJSONObject("restaurant").getJSONObject("location").getString("address");
 			String restCuisine = (rests.getJSONObject(i).getJSONObject("restaurant").getString("cuisines"));
 			
-			addRests.add(new Restaurants(restId, restName, restAddress, restCuisine));
+			addRests.add(new Restaurants(restName, restAddress, restCuisine));
 		}
 	}
 	

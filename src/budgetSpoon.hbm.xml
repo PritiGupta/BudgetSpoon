@@ -4,10 +4,12 @@
 
 <hibernate-mapping>
 <class name="com.BudgetSpoon.controller.Restaurants" table="restaurants" catalog="BudgetSpoonDB">
+		
 		<id name="id" type="int">
 			<column name="id" />
-			
+			<generator class="increment"/>
 		</id>
+		
 		<property name="name" type="string">
 			<column name="name" not-null="true" unique="false" />
 		</property>
@@ -32,15 +34,15 @@
 			<column name="dinner_price"/>
 		</property>
 		
-		<property name="email_id" type="String">
+		<property name="emailAddress" type="string">
 			<column name="email"/>
 		</property>
 		
-		<property name="pass" type="String">
+		<property name="password" type="string">
 			<column name="password"/>
 		</property>
 		
-		<property name="rest_url" type="String">
+		<property name="website" type="string">
 			<column name="url"/>
 		</property>
 		
