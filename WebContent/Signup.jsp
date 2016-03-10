@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -41,14 +41,14 @@
           <div class="col-md-3">
              Restaurant Address<br>
              Street:<input type="text" name="address" />
-<!--             Street:<input type="text" name="address1" /> -->
+<!--          Street:<input type=name="address1" />  -->
 <!--             City:<input type="text" name="address2" /> -->
 <!--             Zip:<input type="text" name="address3" /> -->
           </div>
           <div class="row">
           <div class="col-md-3">
-            Contact Email:<input type="text" name="emailAddress" /> 
-            Restaurant website:<input type="text" name="website" />     
+            Contact Email:<input type="email" name="emailAddress" /> 
+            Restaurant website:<input type="url" name="website" />     
             </div>
           </div>
           <div class = "col-md-3">
@@ -63,9 +63,9 @@
       <div class="searchbox">
         <div class="row">
           <div class="col-md-3">
-             Average Breakfast Price: <input type="text" name="breakfast_price" maxlength=5>
-              Average Lunch Price: <input type="text" name="lunch_price" maxlength=5>
-              Average Dinner Price: <input type="text" name="dinner_price" maxlength=5>
+             Average Breakfast Price: <input type="number" name="breakfast_price" maxlength=5 step="0.1">
+              Average Lunch Price: <input type="number" name="lunch_price" maxlength=5>
+              Average Dinner Price: <input type="number" name="dinner_price" maxlength=5>
           </div>
      
   </div>
