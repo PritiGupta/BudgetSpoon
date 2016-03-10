@@ -33,7 +33,7 @@ public class searchingPage {
 		Criteria criteria = session.createCriteria(Restaurants.class);
 		
 		if(mealChoice.equalsIgnoreCase("breakfast")) {
-			criteria.add(Restrictions.isNotNull("breakfast_price"));
+			criteria.add(Restrictions.between("breakfast_price", 0, 1));
 			results = (ArrayList<Restaurants>)criteria.list();
 		}
 		

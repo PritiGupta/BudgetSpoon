@@ -22,15 +22,15 @@
 			<column name="cuisine" not-null="true" unique="false" />
 		</property>
 		
-		<property name="breakfast_price" type="double">
+		<property name="breakfast_price" type="int">
 			<column name="breakfast_price"/>
 		</property>
 		
-		<property name="lunch_price" type="double">
+		<property name="lunch_price" type="int">
 			<column name="lunch_price"/>
 		</property>
 		
-		<property name="dinner_price" type="double">
+		<property name="dinner_price" type="int">
 			<column name="dinner_price"/>
 		</property>
 		
