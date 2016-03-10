@@ -32,7 +32,7 @@
     <h2>Find the perfect meal in Detroit for your budget</h3>
   </div>
 
-    <form id = "SignupForm" method = "get">
+    <form id = "Signup" method = "get" action="Signupsuccess"> 
     <div class="container">
          <h3>New Restaurant SignUp</h3>
          Restaurant Name: <input type="text" name="name" required/> 
@@ -40,9 +40,10 @@
         <div class="row">
           <div class="col-md-3">
              Restaurant Address<br>
-            Street:<input type="text" name="address1" />
-            City:<input type="text" name="address2" />
-            Zip:<input type="text" name="address3" />
+             Street:<input type="text" name="address" />
+<!--             Street:<input type="text" name="address1" /> -->
+<!--             City:<input type="text" name="address2" /> -->
+<!--             Zip:<input type="text" name="address3" /> -->
           </div>
           <div class="row">
           <div class="col-md-3">

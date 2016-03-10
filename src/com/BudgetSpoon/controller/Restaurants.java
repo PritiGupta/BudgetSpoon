@@ -22,13 +22,10 @@ public class Restaurants {
 		this.cuisine = cuisine;
 	}
 	
-	public Restaurants(
+	public Restaurants(String name, String address, String cuisine,
 			double breakfast_price, double lunch_price, double dinner_price, 
 			String emailAddress, String password, String website) {
-		this();
-//		this.name = name;
-//		this.address = address;
-//		this.cuisine = cuisine;
+		this(name,address,cuisine);
 		this.breakfast_price = breakfast_price;
 		this.lunch_price = lunch_price;
 		this.dinner_price = dinner_price;

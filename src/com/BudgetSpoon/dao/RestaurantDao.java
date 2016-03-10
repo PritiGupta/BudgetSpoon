@@ -40,6 +40,8 @@ public class RestaurantDao {
 	      
 	}
 	
+	
+	
 	public List<Restaurants> getRestaurantList() {
 		
 		//The next 2 statements are always required to open a session and begin to extract data from a database
