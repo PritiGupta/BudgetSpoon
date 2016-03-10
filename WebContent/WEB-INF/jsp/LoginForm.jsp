@@ -13,15 +13,18 @@
 
 <h2 style="color: blue">Fill Out the Information Below to Log In</h2>
 
-<form action="index.html" method="post">
+<form action="loginSuccess.html" method="post">
+<center>
 <table>
 
-	<tr><td><label>Contact Person :</label></td><td><input type="text" name="restaurantName" required></td></tr>
+	<tr><td><label>Email :</label></td><td><input type="text" name="email" required></td></tr>
 	<tr><td><label>Password :</label></td><td><input type="text" name="password" required></td></tr>
 
 
-</table>
 <input type="submit" value="Click Here to Submit Form" >
+<input type="reset" value="Reset" >
+</table>
+</center>
 
 </form>
 </body>
