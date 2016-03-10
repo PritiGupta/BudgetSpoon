@@ -24,6 +24,26 @@
 			<column name="breakfast_price"/>
 		</property>
 		
+		<property name="lunch_price" type="double">
+			<column name="lunch_price"/>
+		</property>
+		
+		<property name="dinner_price" type="double">
+			<column name="dinner_price"/>
+		</property>
+		
+		<property name="email_id" type="String">
+			<column name="email"/>
+		</property>
+		
+		<property name="pass" type="String">
+			<column name="password"/>
+		</property>
+		
+		<property name="rest_url" type="String">
+			<column name="url"/>
+		</property>
+		
 	</class>
 	
 	<class name="com.BudgetSpoon.controller.Categories" table="categories" catalog="BudgetSpoonDB">
@@ -67,4 +87,7 @@
 		</property>
 		
 	</class>
+	
+	
+	
 </hibernate-mapping>

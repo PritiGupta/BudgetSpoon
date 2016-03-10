@@ -35,8 +35,8 @@
     <form id = "SignupForm" method = "get">
     <div class="container">
          <h3>New Restaurant SignUp</h3>
-         Restaurant Name: <input type="text" name="name" /> 
-            Password: <input type="password" name"pass" />
+         Restaurant Name: <input type="text" name="name" required/> 
+            Password: <input type="password" name="pass" required/>
         <div class="row">
           <div class="col-md-3">
              Restaurant Address<br>
@@ -46,7 +46,7 @@
           </div>
           <div class="row">
           <div class="col-md-3">
-            Restaurant Email:<input type="text" name="email_id" /> 
+            Contact Email:<input type="text" name="email_id" /> 
             Restaurant website:<input type="text" name="rest_url" />     
             </div>
           </div>
@@ -62,9 +62,9 @@
       <div class="searchbox">
         <div class="row">
           <div class="col-md-3">
-             Average Breakfast Price: <input type="text" name="breakfast_price">
-              Average Lunch Price: <input type="text" name="lunch_price">
-              Average Dinner Price: <input type="text" name="dinner_price">
+             Average Breakfast Price: <input type="text" name="breakfast_price" maxlength=5>
+              Average Lunch Price: <input type="text" name="lunch_price" maxlength=5>
+              Average Dinner Price: <input type="text" name="dinner_price" maxlength=5>
           </div>
      
   </div>
@@ -83,14 +83,5 @@
   <script src="jquery-ui.js"></script>
   <script type = "text/javascript" src="script.js"></script>
 
-</body>
-
-</html>
-
-
-
-
-</table>
-</form>
 </body>
 </html>
