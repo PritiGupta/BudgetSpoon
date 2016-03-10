@@ -47,16 +47,16 @@ public class Signup {
 //	Session session = (new Configuration().configure().buildSessionFactory()).openSession();
 //	Transaction tx = null;
 	
-	 ((Model) model).addAttribute("name", rest.getName());
-	 ((Model) model).addAttribute("pass", rest.getPassword());
-     ((Model) model).addAttribute("address", rest.getAddress());
-	 ((Model) model).addAttribute("cuisine", rest.getCuisine());
-     ((Model) model).addAttribute("breakfast_price", rest.getBreakfast_price());
-     ((Model) model).addAttribute("lunch_price", rest.getLunch_price());
-     ((Model) model).addAttribute("dinner_price", rest.getDinner_price());
-     ((Model) model).addAttribute("email_id", rest.getEmailAddress());
-     ((Model) model).addAttribute("rest_url", rest.getWebsite());
-     
+//	 ((Model) model).addAttribute("name", rest.getName());
+//	 ((Model) model).addAttribute("password", rest.getPassword());
+//     ((Model) model).addAttribute("address", rest.getAddress());
+//	 ((Model) model).addAttribute("cuisine", rest.getCuisine());
+//     ((Model) model).addAttribute("breakfast_price", rest.getBreakfast_price());
+//     ((Model) model).addAttribute("lunch_price", rest.getLunch_price());
+//     ((Model) model).addAttribute("dinner_price", rest.getDinner_price());
+//     ((Model) model).addAttribute("emailAddress", rest.getEmailAddress());
+//     ((Model) model).addAttribute("website", rest.getWebsite());
+//     
      ArrayList<Restaurants> ls = new ArrayList<Restaurants>();
      ls.add(rest);
      

@@ -36,7 +36,7 @@
     <div class="container">
          <h3>New Restaurant SignUp</h3>
          Restaurant Name: <input type="text" name="name" required/> 
-            Password: <input type="password" name="pass" required/>
+            Password: <input type="password" name="password" required/>
         <div class="row">
           <div class="col-md-3">
              Restaurant Address<br>
@@ -47,8 +47,8 @@
           </div>
           <div class="row">
           <div class="col-md-3">
-            Contact Email:<input type="text" name="email_id" /> 
-            Restaurant website:<input type="text" name="rest_url" />     
+            Contact Email:<input type="text" name="emailAddress" /> 
+            Restaurant website:<input type="text" name="website" />     
             </div>
           </div>
           <div class = "col-md-3">
