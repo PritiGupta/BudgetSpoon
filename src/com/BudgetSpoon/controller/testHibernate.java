@@ -56,8 +56,8 @@ public class testHibernate {
 		
 		
 		List<Restaurants> myList = new ArrayList<Restaurants>();
-		myList.add(new Restaurants(1, "Bungy Food", "12808 Pentfield", "Mexican"));
-		myList.add(new Restaurants(2, "Kohl's Kitchen", "4280 Griswold", "Asian"));
+		myList.add(new Restaurants("Bungy Food", "12808 Pentfield", "Mexican"));
+		myList.add(new Restaurants("Kohl's Kitchen", "4280 Griswold", "Asian"));
 		
 		
 		restDao.addRestaurants(myList);

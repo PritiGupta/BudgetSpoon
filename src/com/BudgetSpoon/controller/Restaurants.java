@@ -7,6 +7,37 @@ public class Restaurants {
 	private String address;
 	private String cuisine;
 	private double breakfast_price;
+	private double lunch_price;
+	private double dinner_price;
+	private String emailAddress;
+	private String password;
+	private String website;
+
+	
+	public Restaurants() {}
+
+	public Restaurants(String name, String address, String cuisine) {
+		this.name = name;
+		this.address = address;
+		this.cuisine = cuisine;
+	}
+	
+	public Restaurants(String name, String address, String cuisine,
+			double breakfast_price, double lunch_price, double dinner_price, 
+			String emailAddress, String password, String website) {
+		
+		this.name = name;
+		this.address = address;
+		this.cuisine = cuisine;
+		this.breakfast_price = breakfast_price;
+		this.lunch_price = lunch_price;
+		this.dinner_price = dinner_price;
+		this.emailAddress = emailAddress;
+		this.password = password;
+		this.website = website;
+	}
+	
+	
 	public double getBreakfast_price() {
 		return breakfast_price;
 	}
@@ -29,17 +60,6 @@ public class Restaurants {
 
 	public void setDinner_price(double dinner_price) {
 		this.dinner_price = dinner_price;
-	}
-
-	private double lunch_price;
-	private double dinner_price;
-	public Restaurants() {}
-
-	public Restaurants(int id, String name, String address, String cuisine) {
-		this.id = id;
-		this.name = name;
-		this.address = address;
-		this.cuisine = cuisine;
 	}
 
 	public String getCuisine() {
@@ -72,6 +92,30 @@ public class Restaurants {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getEmailAddress() {
+		return emailAddress;
+	}
+
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getWebsite() {
+		return website;
+	}
+
+	public void setWebsite(String website) {
+		this.website = website;
 	}
 
 }
