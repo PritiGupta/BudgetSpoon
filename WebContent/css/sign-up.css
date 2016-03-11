@@ -45,7 +45,7 @@ h2 {
   width: 100%;
 }
 .row {
-  margin-left: 300px;
+  margin-left: 200px;
   padding-bottom: 70px;
   display: flex;
 }
@@ -125,4 +125,8 @@ input.submit {
   -o-transition: all 0.6s ease-in;
   transition: all 0.6s ease-in;
   letter-spacing:1px;
+}
+
+#globe {
+	width: 400px;
 }

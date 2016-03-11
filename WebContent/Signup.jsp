@@ -135,7 +135,7 @@
       </div>
         </div>
         </div>
-      <div class="row">
+<!--       <div class="row" id  = "globe">
           <div id="map" style="width: 420px; height: 220px;" ></div>
               </div>
                <div class="row">
@@ -172,7 +172,7 @@
             });
           }
 
-       </script>
+       </script> -->
 
   
   </form>
