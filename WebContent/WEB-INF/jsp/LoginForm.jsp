@@ -18,7 +18,7 @@
         <a href = "" style = "text-decoration:none; color">Log In</a>
       </div>
       <div class = "comp pull-right">
-        <a href = "" style = "text-decoration:none;">Sign Up</a>
+        <a href = "http://localhost:8080/BudgetSpoon/Signup.jsp" style = "text-decoration:none;">Sign Up</a>
       </div>
       <div class = "comp pull-right">
         <a href = "" style = "text-decoration:none;">About Us</a>

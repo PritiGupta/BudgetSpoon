@@ -41,7 +41,7 @@ public class testLogin {
 			
 			//Use prepared statement below: This allows us to leave the value of email and password unspecified, 
 			//and take the input from the form fields to plug into the mySQL statement
-			PreparedStatement pst = myConn.prepareStatement("SELECT email,password FROM business_users WHERE email=? AND password=?");
+			PreparedStatement pst = myConn.prepareStatement("SELECT email,password FROM restaurants WHERE email=? AND password=?");
 			
 			pst.setString(1, email);
 			pst.setString(2, password);
