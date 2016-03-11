@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +10,13 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 <link href="${pageContext.request.contextPath}/css/sign-up.css" type = "text/css" rel = "stylesheet" />
+<!--  The Google Maps API is a JavaScript library. It can be added to a web page with a <script> tag:-->
+ <script src="http://maps.googleapis.com/maps/api/js"></script> 
+ 
 </head>
 
-<body>
+<body onload="initialize()">
+  
   <header>
     <nav>
       <div class = "comp pull-left" id = "logo">
@@ -46,9 +51,67 @@
           <label>Password:</label><input class = "textbox" type="password" name="password" required/>
         </div>
         <div class = "row">
-             <label>Address:</label><input class = "textbox" type="text" name="address" />
+             <label>Street Address:</label><input class = "textbox" type="text" name="address" />
+             <label>City:</label><input class = "textbox" type="text" name="address" />
+             <label>State:</label>
+               <select name ="state">
+                 <option value="AL">AL</option>
+               	<option value="AK">AK</option>
+               	<option value="AZ">AZ</option>
+               	<option value="AR">AR</option>
+               	<option value="CA">CA</option>
+               	<option value="CO">CO</option>
+               	<option value="CT">CT</option>
+               	<option value="DE">DE</option>
+               	<option value="DC">DC</option>
+               	<option value="FL">FL</option>
+               	<option value="GA">GA</option>
+               	<option value="HI">HI</option>
+               	<option value="ID">ID</option>
+               	<option value="IL">IL</option>
+               	<option value="IN">IN</option>
+               	<option value="IA">IA</option>
+               	<option value="KS">KS</option>
+               	<option value="KY">KY</option>
+               	<option value="LA">LA</option>
+               	<option value="ME">ME</option>
+               	<option value="MD">MD</option>
+               	<option value="MA">MA</option>
+               	<option value="MI">MI</option>
+               	<option value="MN">MN</option>
+               	<option value="MS">MS</option>
+               	<option value="MO">MO</option>
+               	<option value="MT">MT</option>
+               	<option value="NE">NE</option>
+               	<option value="NV">NV</option>
+               	<option value="NH">NH</option>
+               	<option value="NJ">NJ</option>
+               	<option value="NM">NM</option>
+               	<option value="NY">NY</option>
+               	<option value="NC">NC</option>
+               	<option value="ND">ND</option>
+               	<option value="OH">OH</option>
+               	<option value="OK">OK</option>
+               	<option value="OR">OR</option>
+               	<option value="PA">PA</option>
+               	<option value="RI">RI</option>
+               	<option value="SC">SC</option>
+               	<option value="SD">SD</option>
+               	<option value="TN">TN</option>
+               	<option value="TX">TX</option>
+               	<option value="UT">UT</option>
+               	<option value="VT">VT</option>
+               	<option value="VA">VA</option>
+               	<option value="WA">WA</option>
+               	<option value="WV">WV</option>
+               	<option value="WI">WI</option>
+               	<option value="WY">WY</option>
+</select>
+
              <label>Zip Code:</label><input class = "textbox" id = "zip" type="text" name="address2" />
           </div>
+        </div>
+
           <div class="row">
             <label>Email:</label><input class = "textbox" type="email" name="emailAddress" />
             <label>Website:</label><input class = "textbox" type="url" name="website" />
@@ -64,13 +127,52 @@
              <label>Average Dinner Price:</label><input class = "textbox" id = "prices" type="number" name="dinner_price" maxlength=5 step="0.01" >
         </div>
       </div>
-
-  <div class = "row">
+      <div class ="row">
           <div id = "button">
             <input class="submit" id="submit" name="submit" type="submit" value="Submit">
           </div>
         </div>
-        </div>
+        
+      <div class="row">
+          <div id="map" style="width: 420px; height: 220px;" ></div>
+              </div>
+               <div class="row">
+     <input id="address" type="textbox" value="Detroit,MI">
+     <input type="button" value="Maps" onclick="codeAddress()">
+   </div>
+		
+    
+         <script>
+        var geocoder;
+          var map;
+          function initialize() {
+            geocoder = new google.maps.Geocoder();
+            var latlng = new google.maps.LatLng(42.331429,-83.045753);
+            var mapOptions = {
+              zoom:10,
+              center: latlng
+            }
+            map = new google.maps.Map(document.getElementById("map"), mapOptions);
+          }
+
+          function codeAddress() {
+            var address = document.getElementById("address").value;
+            geocoder.geocode( { 'address': address}, function(results, status) {
+              if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                });
+              } else {
+                alert("Geocode was not successful for the following reason: " + status);
+              }
+            });
+          }
+
+       </script>
+
+  
   </form>
 
   <script type = "text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
