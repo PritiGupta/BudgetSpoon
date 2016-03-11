@@ -60,8 +60,8 @@
 
         <div class="row">
              <label>Average Breakfast Price:</label><input class = "textbox" id = "prices" type="number" name="breakfast_price" maxlength=5 step="0.1">
-             <label>Average Lunch Price:</label><input class = "textbox" id = "prices" type="number" name="lunch_price" maxlength=5>
-             <label>Average Dinner Price:</label><input class = "textbox" id = "prices" type="number" name="dinner_price" maxlength=5>
+             <label>Average Lunch Price:</label><input class = "textbox" id = "prices" type="number" name="lunch_price" maxlength=5 step="0.01">
+             <label>Average Dinner Price:</label><input class = "textbox" id = "prices" type="number" name="dinner_price" maxlength=5 step="0.01" >
         </div>
       </div>
 

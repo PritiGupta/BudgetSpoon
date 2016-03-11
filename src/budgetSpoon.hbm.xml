@@ -14,8 +14,16 @@
 			<column name="name" not-null="true" unique="false" />
 		</property>
 		
-		<property name="address" type="string">
-			<column name="address" not-null="true" unique="false" />
+		<property name="streetAddress" type="string">
+			<column name="street_address" not-null="true" unique="false" />
+		</property>
+		
+		<property name="cityAddress" type="string">
+			<column name="city" not-null="true" unique="false" />
+		</property>
+		
+		<property name="zipcodeAddress" type="string">
+			<column name="zipcode" not-null="true" unique="false" />
 		</property>
 		
 		<property name="cuisine" type="string">
