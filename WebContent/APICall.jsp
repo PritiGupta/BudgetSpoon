@@ -25,6 +25,8 @@
 	ArrayList<Restaurants> addRests = new ArrayList<Restaurants>();
 	
 	for (int c = 0; c <= 80; c += 20) {
+		
+		//HttpGet search = new HttpGet("https://developers.zomato.com/api/v2.1/search?q=48226");
 		HttpGet search = new HttpGet("https://developers.zomato.com/api/v2.1/search?q=48226&start="+c);
 		search.setHeader(HttpHeaders.CONTENT_TYPE, "application/json");
 		search.setHeader("user-key", "abb7b97a85c11187d156105e6f3e77dc");
@@ -32,7 +34,7 @@
 		HttpResponse resp = httpclient.execute(search);
 	
 		String results = EntityUtils.toString(resp.getEntity());
-		out.print(results);
+		//out.print(results);
 	
 	
 		JSONObject jsonResult = new JSONObject(results);
@@ -42,8 +44,22 @@
 			String restName = rests.getJSONObject(i).getJSONObject("restaurant").getString("name");
 			String restAddress = rests.getJSONObject(i).getJSONObject("restaurant").getJSONObject("location").getString("address");
 			String restCuisine = (rests.getJSONObject(i).getJSONObject("restaurant").getString("cuisines"));
+			//System.out.println(restAddress);
+			//System.out.println(restAddress.indexOf(","));
+			int indexEndOfStreet = restAddress.indexOf(",");
+			int indexEndOfCity = restAddress.lastIndexOf(",");
+			String street =  restAddress.substring(0, indexEndOfStreet);
+			String city = restAddress.substring(indexEndOfStreet+2, indexEndOfCity);
+			String state = restAddress.substring(indexEndOfCity+2, indexEndOfCity+4);
+			String zip = restAddress.substring(indexEndOfCity+5, restAddress.length());
+			//System.out.println(street);
+			//System.out.println(city);
+			//System.out.println(state);
+			//System.out.println(zip);
 			
-			addRests.add(new Restaurants(restName, restAddress, restCuisine));
+			//System.out.println();
+			
+			addRests.add(new Restaurants(restName, street, city, state, zip, restCuisine));
 		}
 	}
 	
