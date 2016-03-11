@@ -53,6 +53,8 @@
         <div class = "row">
              <label>Street Address:</label><input class = "textbox" type="text" name="streetAddress" />
              <label>City:</label><input class = "textbox" type="text" name="cityAddress" />
+        </div>
+        <div class = "row">
              <label>State:</label>
                <select id ="states" name ="stateAddress">
                 <option value="AL">AL</option>
@@ -110,7 +112,7 @@
 
              <label>Zip Code:</label><input class = "textbox" id = "zip" type="text" name="zipcodeAddress" />
           </div>
-        </div>
+        
 
           <div class="row">
             <label>Email:</label><input class = "textbox" type="email" name="emailAddress" />
@@ -126,13 +128,13 @@
              <label>Average Lunch Price:</label><input class = "textbox" id = "prices" type="number" name="lunch_price" maxlength=5 step="0.01">
              <label>Average Dinner Price:</label><input class = "textbox" id = "prices" type="number" name="dinner_price" maxlength=5 step="0.01" >
         </div>
-      </div>
       <div class ="row">
           <div id = "button">
             <input class="submit" id="submit" name="submit" type="submit" value="Submit">
           </div>
+      </div>
         </div>
-        
+        </div>
       <div class="row">
           <div id="map" style="width: 420px; height: 220px;" ></div>
               </div>
