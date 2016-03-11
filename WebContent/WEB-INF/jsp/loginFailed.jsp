@@ -9,8 +9,7 @@
 <body>
 <h1>${msg }</h1><br><br><br>
 <h2>OH NO! Your login Credentials failed. Please try again.</h2><br>
-<form action="LoginPage.html" method="get">
+
 <input type="submit" value="Return to Login Page" />
-</form>
 </body>
 </html>
