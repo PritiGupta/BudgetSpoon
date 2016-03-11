@@ -34,8 +34,33 @@
     <h3>Pick a Place to Eat</h3>
       <h4>Where would you like to eat?</h4>
   </div>
+  
+    <section class = "search-results-container">
+        <c:forEach items="${restList}" var="restaurant">
+        <ol id = "search-list">
+          <li class = "search-result-li">
+            <div class = "row">
+              <div class = "col-md-6" id = "restaurant">
+              <h3><a href = "${restaurant.getWebsite()}">${restaurant.getName()}</a></h3>
+              <p>${restaurant.getCuisine()}</p>
+              <p>${restaurant.getStreetAddress()}</p>
+            </div>
+            <div class = "col-md-6" id = "prices">
+              <p>Breakfast Price: ${restaurant.getBreakfast_price()}</p>
+              <p>Lunch Price: ${restaurant.getLunch_price()}</p>
+              <p>Dinner Price: ${restaurant.getDinner_price()}</p>
+            </div>
+          </div>
+          </li>
+        </ol>
+        </c:forEach>
+      </section>
+
+
     <!-- <div class = "container"> -->
-    <table class = "table">
+    
+    
+<%--     <table class = "table">
       <thead>
         <tr>
           <td>Restaurant</td>
@@ -62,7 +87,7 @@
         </tr>  -->
       </tbody>
 
-    </table>
+    </table> --%>
     <!-- </div> -->
 </body>
 </html>

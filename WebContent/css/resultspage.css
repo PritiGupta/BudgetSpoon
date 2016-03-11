@@ -28,8 +28,12 @@ nav a {
   padding: 5px;
 }
 
+section {
+
+}
+
 .header-banner {
-  background: url("http://www.anothermonkeythai.com/wp-content/uploads/2015/06/rest3.jpg") no-repeat center center fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("http://www.anothermonkeythai.com/wp-content/uploads/2015/06/rest3.jpg") no-repeat center center fixed;
   background-size: cover;
   background-blend-mode: darken;
   height: 180px;
@@ -38,41 +42,56 @@ nav a {
 
 }
 
-h3 {
+.header-banner h3 {
   padding-top: 50px;
-  font-family: montserrat;
-  font-weight: bold;
 }
 
+.search-results-container {
+  padding-left: 400px;
+  justify-content: center;
+  height: 20%;
+}
+
+.row {
+  justify-content: center;
+  width: 50%;
+  text-align: left;
+}
+
+h3 {
+  font-family: montserrat;
+  color:	#680000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.search-results-container{
+  padding-top: 20px;
+}
+
+#search-list {
+  list-style-type: none;
+}
+
+.search-results-li {
+  border-bottom: 1px dotted;
+}
+
+#prices {
+  padding-top: 35px;
+}
 h4 {
   font-weight: bold;
+  color:	#680000;
 }
-table {
-  border-radius: 8px;
-  padding-top: 80px;
-  min-width: 100%;
-}
-
-thead {
-  padding-top: 30px;
+a {
+  color:inherit;
 }
 
-tr {
-  height: 80px;
-}
-
-td {
-  padding-top: 30px;
-}
-
-label {
-  justify-content: center;
-  padding-top: 10px;
-}
 
 img {
-  margin-left: 15px;
-  display: block;
+
+  display: block-inline;
   width: 120px;
   height: 100px;
 }
