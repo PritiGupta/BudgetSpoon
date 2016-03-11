@@ -1,0 +1,122 @@
+body {
+  text-align: center;
+  font-size: 14px;
+  color: black;
+  background-color: #F0F0F0;
+}
+
+nav {
+  padding: 20px;
+  font-size: 15px;
+}
+
+nav a {
+  padding-left: 20px;
+  text-decoration: none;
+  font-family: montserrat;
+  font-size: 18px;
+  text-weight: bold;
+}
+
+.header-banner {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("http://www.anothermonkeythai.com/wp-content/uploads/2015/06/rest3.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background: darken;
+  height: 180px;
+  text-align: center;
+  padding-bottom: 40px;
+  color: #680000;
+
+}
+
+.title {
+  padding-bottom: 30px;
+}
+
+h2 {
+  color:	#680000;
+  padding-top: 50px;
+  line-height: 50px;
+  font-weight: bold;
+}
+
+.container {
+  width: 100%;
+}
+.row {
+  margin-left: 300px;
+  padding-bottom: 70px;
+  display: flex;
+}
+
+label {
+  display: inline-block;
+  float: right;
+  clear: left;
+  width: 180px;
+}
+
+input {
+  display: inline-block;
+  float: left;
+  width: 150px;
+  border-radius: 5px;
+
+
+}
+
+input.textbox {
+  width:260px;
+  height:30px;
+  position: inherit;
+  line-height:20px;
+  border:1px solid #333333;
+  border-radius: 5px;
+  text-transform:uppercase;
+  text-align:center;
+  color:#333333;
+  cursor:pointer;
+  font-size:10px;
+  background:#f8f7f7;
+  -webkit-transition: all 0.6s ease-in;
+  -moz-transition: all 0.6s ease-in;
+  -ms-transition: all 0.6s ease-in;
+  -o-transition: all 0.6s ease-in;
+  transition: all 0.6s ease-in;
+  letter-spacing:1px;
+}
+#zip {
+  width: 260px;
+}
+
+#prices {
+  width: 130px;
+}
+
+#button {
+  justify-content: center;
+  text-align: center;
+  float: none;
+  margin-left: 450px;
+}
+
+input.submit {
+  width:150px;
+  height:30px;
+  position: relative;;
+  line-height:20px;
+  border:1px solid #333333;
+  border-radius: 5px;
+  text-transform:uppercase;
+  text-align:center;
+  color:#333333;
+  cursor:pointer;
+  font-size:10px;
+  background:#f8f7f7;
+  -webkit-transition: all 0.6s ease-in;
+  -moz-transition: all 0.6s ease-in;
+  -ms-transition: all 0.6s ease-in;
+  -o-transition: all 0.6s ease-in;
+  transition: all 0.6s ease-in;
+  letter-spacing:1px;
+}

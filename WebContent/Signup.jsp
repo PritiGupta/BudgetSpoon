@@ -1,79 +1,72 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+<link href="${pageContext.request.contextPath}/css/sign-up.css" type = "text/css" rel = "stylesheet" />
 </head>
-<header>
+
+<body>
+  <header>
     <nav>
       <div class = "comp pull-left" id = "logo">
         <a href = "" style = "text-decoration:none;" id = "BudgetSpoon">BudgetSpoon</a><br />
-      <!-- </div>
+      </div>
       <div class = "comp pull-right">
         <a href = "" style = "text-decoration:none;">Log In</a>
       </div>
       <div class = "comp pull-right">
-        <a href = "Signup.jsp" style = "text-decoration:none;">Sign Up</a>
+        <a href = "" style = "text-decoration:none;">Sign Up</a>
       </div>
       <div class = "comp pull-right">
         <a href = "" style = "text-decoration:none;">About Us</a>
       </div>
-      <ul>
-        <li>BudgetSpoon</li>
-        <li>About Us</li>
-        <li>Log In</li>
-        <li>Sign Up</li>
-      </ul> -->
     </nav>
   </header>
-  <div class="title">
-    <h2>Find the perfect meal in Detroit for your budget</h3>
+
+  <div class = "header-banner">
+    <h2>Create a Profile</h2>
+      <h4>Where would you like to eat?</h4>
   </div>
 
-    <form id = "Signup" method = "get" action="Signupsuccess"> 
+  <div class="title">
+    <h2>New Restaurant Sign Up</h2>
+  </div>
+
+    <form id = "Signup" method = "get" action="Signupsuccess">
     <div class="container">
-         <h3>New Restaurant SignUp</h3>
-         Restaurant Name: <input type="text" name="name" required/> 
-            Password: <input type="password" name="password" required/>
-        <div class="row">
-          <div class="col-md-3">
-             Restaurant Address<br>
-             Street:<input type="text" name="address" />
-<!--          Street:<input type=name="address1" />  -->
-<!--             City:<input type="text" name="address2" /> -->
-<!--             Zip:<input type="text" name="address3" /> -->
+    	<div class = "sign-up">
+         <div class = "row">
+          <label>Restaurant:</label><input class = "textbox" type="text" name="name" required/>
+          <label>Password:</label><input class = "textbox" type="password" name="password" required/>
+        </div>
+        <div class = "row">
+             <label>Address:</label><input class = "textbox" type="text" name="address" />
+             <label>Zip Code:</label><input class = "textbox" id = "zip" type="text" name="address2" />
           </div>
           <div class="row">
-          <div class="col-md-3">
-            Contact Email:<input type="email" name="emailAddress" /> 
-            Restaurant website:<input type="url" name="website" />     
-            </div>
+            <label>Email:</label><input class = "textbox" type="email" name="emailAddress" />
+            <label>Website:</label><input class = "textbox" type="url" name="website" />
           </div>
-          <div class = "col-md-3">
-            
-          </div>
-          
+
         <div class = "row">
-        <div class="col-md-2" id="button">
-             Cuisine Type: <input type="text" name="cuisine">
-          </div>
-      </div>
-      <div class="searchbox">
+             <label>Cuisine:</label><input class = "textbox" type="text" name="cuisine">
+        </div>
+
         <div class="row">
-          <div class="col-md-3">
-             Average Breakfast Price: <input type="number" name="breakfast_price" maxlength=5 step="0.1">
-              Average Lunch Price: <input type="number" name="lunch_price" maxlength=5>
-              Average Dinner Price: <input type="number" name="dinner_price" maxlength=5>
-          </div>
-     
-  </div>
-  </div>
-  
+             <label>Average Breakfast Price:</label><input class = "textbox" id = "prices" type="number" name="breakfast_price" maxlength=5 step="0.1">
+             <label>Average Lunch Price:</label><input class = "textbox" id = "prices" type="number" name="lunch_price" maxlength=5>
+             <label>Average Dinner Price:</label><input class = "textbox" id = "prices" type="number" name="dinner_price" maxlength=5>
+        </div>
+      </div>
+
   <div class = "row">
-          <div class="col-md-2" id="button">
-           <div class = "comp pull-right">
+          <div id = "button">
             <input class="submit" id="submit" name="submit" type="submit" value="Submit">
           </div>
         </div>
@@ -83,6 +76,18 @@
   <script type = "text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
   <script src="jquery-ui.js"></script>
   <script type = "text/javascript" src="script.js"></script>
+
+</body>
+</html>
+
+  <script type = "text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script src="jquery-ui.js"></script>
+  <script type = "text/javascript" src="script.js"></script>
+
+
+
+</body>
+</html>
 
 </body>
 </html>
