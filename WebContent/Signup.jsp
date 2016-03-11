@@ -51,10 +51,10 @@
           <label>Password:</label><input class = "textbox" type="password" name="password" required/>
         </div>
         <div class = "row">
-             <label>Street Address:</label><input class = "textbox" type="text" name="address" />
-             <label>City:</label><input class = "textbox" type="text" name="address" />
+             <label>Street Address:</label><input class = "textbox" type="text" name="streetAddress" />
+             <label>City:</label><input class = "textbox" type="text" name="cityAddress" />
              <label>State:</label>
-               <select name ="state">
+               <select name ="stateAddress">
                  <option value="AL">AL</option>
                	<option value="AK">AK</option>
                	<option value="AZ">AZ</option>
@@ -108,7 +108,7 @@
                	<option value="WY">WY</option>
 </select>
 
-             <label>Zip Code:</label><input class = "textbox" id = "zip" type="text" name="address2" />
+             <label>Zip Code:</label><input class = "textbox" id = "zip" type="text" name="zipcodeAddress" />
           </div>
         </div>
 
