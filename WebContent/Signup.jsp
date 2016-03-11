@@ -54,8 +54,8 @@
              <label>Street Address:</label><input class = "textbox" type="text" name="streetAddress" />
              <label>City:</label><input class = "textbox" type="text" name="cityAddress" />
              <label>State:</label>
-               <select name ="stateAddress">
-                 <option value="AL">AL</option>
+               <select id ="states" name ="stateAddress">
+                <option value="AL">AL</option>
                	<option value="AK">AK</option>
                	<option value="AZ">AZ</option>
                	<option value="AR">AR</option>

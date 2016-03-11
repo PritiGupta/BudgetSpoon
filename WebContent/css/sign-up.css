@@ -73,8 +73,8 @@ input.textbox {
   line-height:20px;
   border:1px solid #333333;
   border-radius: 5px;
-  text-transform:uppercase;
-  text-align:center;
+  /*text-transform:uppercase;*/
+  /*text-align:center;*/
   color:#333333;
   cursor:pointer;
   font-size:10px;
@@ -86,6 +86,11 @@ input.textbox {
   transition: all 0.6s ease-in;
   letter-spacing:1px;
 }
+
+#states {
+	width:100px;
+}
+
 #zip {
   width: 260px;
 }
