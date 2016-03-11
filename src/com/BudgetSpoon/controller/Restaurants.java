@@ -7,6 +7,7 @@ public class Restaurants {
 	private String streetAddress;
 	private String cityAddress;
 	private String zipcodeAddress;
+	private String stateAddress;
 	private String cuisine;
 	private double breakfast_price;
 	private double lunch_price;
@@ -14,22 +15,24 @@ public class Restaurants {
 	private String emailAddress;
 	private String password;
 	private String website;
+	
 
 	
 	public Restaurants() {}
 
-	public Restaurants(String name, String streetAddress, String cityAddress, String zipcodeAddress, String cuisine) {
+	public Restaurants(String name, String streetAddress, String cityAddress, String stateAddress, String zipcodeAddress, String cuisine) {
 		this.name = name;
 		this.streetAddress = streetAddress;
 		this.cityAddress = cityAddress;
+		this.stateAddress = stateAddress;
 		this.zipcodeAddress = zipcodeAddress;
 		this.cuisine = cuisine;
 	}
 	
-	public Restaurants(String name, String streetAddress, String cityAddress, String zipcodeAddress, String cuisine,
+	public Restaurants(String name, String streetAddress, String cityAddress, String stateAddress, String zipcodeAddress, String cuisine,
 			double breakfast_price, double lunch_price, double dinner_price, 
 			String emailAddress, String password, String website) {
-		this(name, streetAddress, cityAddress, zipcodeAddress,cuisine);
+		this(name, streetAddress, cityAddress, stateAddress, zipcodeAddress, cuisine);
 		this.breakfast_price = breakfast_price;
 		this.lunch_price = lunch_price;
 		this.dinner_price = dinner_price;
@@ -85,6 +88,15 @@ public class Restaurants {
 
 	public void setCityAddress(String cityAddress) {
 		this.cityAddress = cityAddress;
+	}
+
+	
+	public String getStateAddress() {
+		return stateAddress;
+	}
+
+	public void setStateAddress(String stateAddress) {
+		this.stateAddress = stateAddress;
 	}
 
 	public String getZipcodeAddress() {

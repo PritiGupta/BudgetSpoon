@@ -26,6 +26,10 @@
 			<column name="zipcode" not-null="true" unique="false" />
 		</property>
 		
+		<property name="stateAddress" type="string">
+			<column name="state" not-null="true" unique="false" />
+		</property>
+		
 		<property name="cuisine" type="string">
 			<column name="cuisine" not-null="true" unique="false" />
 		</property>

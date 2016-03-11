@@ -49,7 +49,7 @@
         <tr>
           <td>${restaurant.getName()}</td>
           <td>${restaurant.getCuisine()}</td>
-          <td>${restaurant.getAddress()}</td>
+          <td>${restaurant.getStreetAddress()}</td>
         <!--   <td>3223 Tuscarora Drive</td>
           <td>$10-20</td>  -->
         </tr>
