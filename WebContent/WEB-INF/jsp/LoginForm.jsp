@@ -12,13 +12,13 @@
   <header>
     <nav>
       <div class = "comp pull-left" id = "logo">
-        <a href = "" style = "text-decoration:none;" id = "BudgetSpoon">BudgetSpoon</a><br />
+        <a href = "index.jsp" style = "text-decoration:none;" id = "BudgetSpoon">BudgetSpoon</a><br />
       </div>
       <div class = "comp pull-right">
-        <a href = "" style = "text-decoration:none; color">Log In</a>
+        <a href = "LoginForm.html" style = "text-decoration:none; color">Log In</a>
       </div>
       <div class = "comp pull-right">
-        <a href = "http://localhost:8080/BudgetSpoon/Signup.jsp" style = "text-decoration:none;">Sign Up</a>
+        <a href = "Account.jsp" style = "text-decoration:none;">Sign Up</a>
       </div>
       <div class = "comp pull-right">
         <a href = "" style = "text-decoration:none;">About Us</a>
