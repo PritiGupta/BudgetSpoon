@@ -81,48 +81,5 @@
 		
 	</class>
 	
-	<class name="com.BudgetSpoon.controller.Categories" table="categories" catalog="BudgetSpoonDB">
-		<id name="categories_id" type="int">
-			<column name="categories_id" />
-			
-		</id>
-		<property name="categories_name" type="string">
-			<column name="categories_name" not-null="true" unique="false" />
-		</property>
-		
-	</class>
-	
-	<class name="com.BudgetSpoon.controller.mealTypes" table="meal_types" catalog="BudgetSpoonDB">
-		<id name="type_id" type="int">
-			<column name="type_id" />
-			
-		</id>
-		<property name="type_name" type="string">
-			<column name="type_name" not-null="true" unique="false" />
-		</property>
-		
-	</class>
-	
-	<class name="com.BudgetSpoon.controller.Averages" table="price_average" catalog="BudgetSpoonDB">
-		<id name="restaurant_id" type="int">
-			<column name="restaurant_id" />
-			
-		</id>
-		
-		<property name="base_average" type="int">
-			<column name="base_average" not-null="true" unique="false" />
-		</property>
-		
-		<property name="meal_average" type="int">
-			<column name="meal_average" not-null="true" unique="false" />
-		</property>
-		
-		<property name="type_average" type="int">
-			<column name="type_average" not-null="true" unique="false" />
-		</property>
-		
-	</class>
-	
-	
 	
 </hibernate-mapping>
