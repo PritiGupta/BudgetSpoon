@@ -16,7 +16,7 @@ public class RestaurantDao {
 
 	//Create a method that when called, returns a list of Restaurant Objects. 
 	//The Restaurant object is built inside of a POJO(plain-old-java-object) called Restaurants.
-	//All POJO's are kept in a separate package specifially for files that contain the private fields along
+	//All POJO's are kept in a separate package specifically for files that contain the private fields along
 	//with the getters and setters for each obect.
 	
 	public void addRestaurants(List<Restaurants> rList) {
