@@ -48,6 +48,9 @@
         <input class="submit" id="submit" name="submit" type="submit" value="Submit">
       </div>
     </div>
+    <div class = "row" id = "buttonrow">
+      <a href = "Signup.jsp">Click here to add a restaurant profile</a>
+    </div>
     </div>
     </div>
 </form>

@@ -39,6 +39,7 @@ nav a {
 .row {
   justify-content: center;
   padding-bottom: 70px;
+  position: relative;
 }
 
 label {
@@ -99,4 +100,8 @@ input.submit {
   -o-transition: all 0.6s ease-in;
   transition: all 0.6s ease-in;
   letter-spacing:1px;
+}
+
+.row #buttonrow {
+	padding-bottom: 20px;
 }

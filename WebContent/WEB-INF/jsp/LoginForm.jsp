@@ -5,7 +5,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-<link href="${pageContext.request.contextPath}/css/sign-up.css" type = "text/css" rel = "stylesheet" />
+<link href="${pageContext.request.contextPath}/css/account.css" type = "text/css" rel = "stylesheet" />
 </head>
 
 <body>
@@ -27,8 +27,7 @@
   </header>
 
   <div class = "header-banner">
-    <h1 style="color: white; font-weight: bold">Login</h1>
-      <h4 style="color: white; font-weight: bold">Enter Your Email and Password Below</h4>
+    <h2>Login to your Account</h2>
   </div>
 
   </div>
@@ -36,21 +35,18 @@
     <form id = "Signup" method = "post" action="loginSuccess.html">
     <div class="container">
     	<div class = "sign-up">
-				<table>
-
- 					<tr><td><label>Email :</label></td><td><input type="text" name="email" required></td></tr>
- 					<tr><td><label>Password :</label></td><td><input type="text" name="password" required></td></tr>
-
-
-				</table>
-      </div>
-
-  <div class = "row">
+    		<div class = "row">
+ 					<label>Email:</label><input class = "textbox" type="text" name="email" required />
+ 			</div>
+ 			<div class = "row">
+ 					<label>Password:</label><input class = "textbox" type="text" name="password" required />
+			</div>
+			<div class = "row">
           <div id = "button">
-						<input type="submit" value="Login" >
-						<input type="reset" value="Reset" >
+						<input class = "submit" type="submit" value="Login" >
+						<input class = "submit" type="reset" value="Reset" >
           </div>
-
+        </div>
         </div>
         </div>
   </form>
