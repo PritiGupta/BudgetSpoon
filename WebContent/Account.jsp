@@ -8,7 +8,7 @@
 <title>Create a Profile</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-<link href="${pageContext.request.contextPath}/css/sign-up.css" type = "text/css" rel = "stylesheet" />
+<link href="${pageContext.request.contextPath}/css/account.css" type = "text/css" rel = "stylesheet" />
 </head>
 <body>
   <header>
@@ -36,17 +36,18 @@
   <div class = "sign-up">
      <div class = "row">
       <label>Username:</label><input class = "textbox" type="text" name="username" required/>
+     </div>
+     <div class = "row">
       <label>Password:</label><input class = "textbox" type="password" name="password" required/>
     </div>
       <div class="row">
         <label>Email:</label><input class = "textbox" type="email" name="emailAddress" />
       </div>
-  </div>
-
-<div class = "row">
+	<div class = "row">
       <div id = "button">
         <input class="submit" id="submit" name="submit" type="submit" value="Submit">
       </div>
+    </div>
     </div>
     </div>
 </form>
