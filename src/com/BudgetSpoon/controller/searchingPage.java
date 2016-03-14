@@ -88,7 +88,7 @@ public class searchingPage {
 		}
 		
 		
-		return new ModelAndView("resultspage", "restList", results);
+		return new ModelAndView("resultspage2", "restList", results);
 	}
 
 }

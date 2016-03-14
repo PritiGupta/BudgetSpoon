@@ -10,12 +10,11 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 <link href="${pageContext.request.contextPath}/css/sign-up.css" type = "text/css" rel = "stylesheet" />
-<!--  The Google Maps API is a JavaScript library. It can be added to a web page with a <script> tag:-->
- <script src="http://maps.googleapis.com/maps/api/js"></script> 
+
  
 </head>
 
-<body onload="initialize()">
+<body >
   
   <header>
     <nav>
@@ -135,44 +134,6 @@
       </div>
         </div>
         </div>
-<!--       <div class="row" id  = "globe">
-          <div id="map" style="width: 420px; height: 220px;" ></div>
-              </div>
-               <div class="row">
-     <input id="address" type="textbox" value="Detroit,MI">
-     <input type="button" value="Maps" onclick="codeAddress()">
-   </div>
-		
-    
-         <script>
-        var geocoder;
-          var map;
-          function initialize() {
-            geocoder = new google.maps.Geocoder();
-            var latlng = new google.maps.LatLng(42.331429,-83.045753);
-            var mapOptions = {
-              zoom:10,
-              center: latlng
-            }
-            map = new google.maps.Map(document.getElementById("map"), mapOptions);
-          }
-
-          function codeAddress() {
-            var address = document.getElementById("address").value;
-            geocoder.geocode( { 'address': address}, function(results, status) {
-              if (status == google.maps.GeocoderStatus.OK) {
-                map.setCenter(results[0].geometry.location);
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: results[0].geometry.location
-                });
-              } else {
-                alert("Geocode was not successful for the following reason: " + status);
-              }
-            });
-          }
-
-       </script> -->
 
   
   </form>
@@ -181,17 +142,7 @@
   <script src="jquery-ui.js"></script>
   <script type = "text/javascript" src="script.js"></script>
 
-</body>
-</html>
 
-  <script type = "text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-  <script src="jquery-ui.js"></script>
-  <script type = "text/javascript" src="script.js"></script>
-
-
-
-</body>
-</html>
 
 </body>
 </html>
