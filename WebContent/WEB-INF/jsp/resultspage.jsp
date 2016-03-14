@@ -9,10 +9,11 @@
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
   <link href="css/jquery-ui.min.css" rel="stylesheet">
   <link href="css/resultspage.css" type="text/css" rel="stylesheet" />
- 
+ <!--  The Google Maps API is a JavaScript library. It can be added to a web page with a <script> tag:-->
+ <script src="http://maps.googleapis.com/maps/api/js"></script> 
 </head>
 
-<body>
+<body onload="initialize()">
 
   <header>
     <nav>
@@ -51,45 +52,52 @@
               <p>Lunch Price: ${restaurant.getLunch_price()}</p>
               <p>Dinner Price: ${restaurant.getDinner_price()}</p>
             </div>
-            
-          </div>
+           
+           </div>
           </li>
         </ol>
         </c:forEach>
       </section>
 
 
-    <!-- <div class = "container"> -->
+      <section>
+     <div class="col-md-6" id  = "globe">
+          <div id="map" style="width: 370px; height: 720px;"></div>
+              </div>
+               <div class="col-md-6" id="address" >
+    <p><label onload="codeAddress()">${restaurant.getStreetAddress()}</label></p>
     
-    
-<%--     <table class = "table">
-      <thead>
-        <tr>
-          <td>Restaurant</td>
-          <td>Cuisine</td>
-          <td>Address</td>
-        <!--   <td>Price Range</td>  -->
-        </tr>
-      </thead>
-      <tbody>
-        <c:forEach items="${restList}" var="restaurant">
-        <tr>
-          <td>${restaurant.getName()}</td>
-          <td>${restaurant.getCuisine()}</td>
-          <td>${restaurant.getStreetAddress()}</td>
-        <!--   <td>3223 Tuscarora Drive</td>
-          <td>$10-20</td>  -->
-        </tr>
-        </c:forEach>
-          <!-- <td><img src = "happy's_pizza.jpg"></td>
-          <td>Happy's Pizza</td>
-          <td><p>Italian</p><p>Pizza</p></td>
-          <td>343 Woodward Avenue</td>
-          <td>$20-30</td>
-        </tr>  -->
-      </tbody>
+   </div>
+    </section>
+         <script>
+        var geocoder;
+          var map;
+          function initialize() {
+            geocoder = new google.maps.Geocoder();
+            var latlng = new google.maps.LatLng(42.331429,-83.045753);
+            var mapOptions = {
+              zoom:10,
+              center: latlng
+            }
+            map = new google.maps.Map(document.getElementById("map"), mapOptions);
+          }
 
-    </table> --%>
-    <!-- </div> -->
+          function codeAddress() {
+            var address = document.getElementById("address").value;
+            geocoder.geocode( { 'address': address}, function(results, status) {
+              if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                });
+              } else {
+                alert("Geocode was not successful for the following reason: " + status);
+              }
+            });
+          }
+
+       </script>
+    
 </body>
 </html>
