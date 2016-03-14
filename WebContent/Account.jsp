@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,7 @@
 <title>Create a Profile</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-<link href="sign-up.css" type = "text/css" rel = "stylesheet" />
+<link href="${pageContext.request.contextPath}/css/sign-up.css" type = "text/css" rel = "stylesheet" />
 </head>
 <body>
   <header>
@@ -49,5 +50,9 @@
     </div>
     </div>
 </form>
+
+<script type = "text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="jquery-ui.js"></script>
+<script type = "text/javascript" src="${pageContext.request.contextPath}/js/validation.js"></script>
 </body>
 </html>
