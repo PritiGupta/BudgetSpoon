@@ -32,11 +32,11 @@
 
   </div>
 
-    <form id = "Signup" method = "post" action="loginSuccess.html">
+    <form id = "Signup" method = "post" action="userLogin.html">
     <div class="container">
     	<div class = "sign-up">
     		<div class = "row">
- 					<label>Email:</label><input class = "textbox" type="text" name="email" required />
+ 					<label>Username:</label><input class = "textbox" type="text" name="username" required />
  			</div>
  			<div class = "row">
  					<label>Password:</label><input class = "textbox" type="text" name="password" required />

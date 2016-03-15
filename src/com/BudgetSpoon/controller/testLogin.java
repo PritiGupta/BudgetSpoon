@@ -20,12 +20,12 @@ public class testLogin {
 	
 	//The RequestMethod.PUT will enable us to take that data from the form fields, and use it in the body below.
 	@RequestMapping(value="/loginSuccess.html", method = RequestMethod.POST)
-	public ModelAndView submitAdmissionsForm(@RequestParam("email") String email, 
+	public ModelAndView submitAdmissionsForm(@RequestParam("username") String username, 
 			@RequestParam("password") String password) {
 		
 		
-		String infoFromDatabase = "Email: " + email 
-				+ " Password: " + password;
+		//String infoFromDatabase = "Email: " + email 
+		//		+ " Password: " + password;
 
 		try {
 			
@@ -41,9 +41,9 @@ public class testLogin {
 			
 			//Use prepared statement below: This allows us to leave the value of email and password unspecified, 
 			//and take the input from the form fields to plug into the mySQL statement
-			PreparedStatement pst = myConn.prepareStatement("SELECT email,password FROM restaurants WHERE email=? AND password=?");
+			PreparedStatement pst = myConn.prepareStatement("SELECT username,password FROM users WHERE username=? AND password=?");
 			
-			pst.setString(1, email);
+			pst.setString(1, username);
 			pst.setString(2, password);
 			
 			//Execute the mySQL prepared statement to query our table

@@ -23,7 +23,7 @@ public class LoginSuccess {
 	@RequestMapping(value = "/loginSuccess", method = RequestMethod.GET)
 	public ArrayList<Favorite> registerFavorite(@ModelAttribute("SpringWeb")Favorite f, Model model ) {
 		FavoriteDao fDao = new FavoriteDao();
-		System.out.println(model.addAttribute(f.getUser_id() +"this is it"));
+		System.out.println(model.addAttribute(f.getUsername() +"this is it"));
 		
 	 ArrayList<Favorite> ls = new ArrayList<Favorite>();
 	 ls.add(f);

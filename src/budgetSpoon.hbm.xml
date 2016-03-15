@@ -86,7 +86,7 @@
 			<column name = "restaurant_id" />
 		</id>
 		
-		<property name = "username" type = "String">
+		<property name = "username" type = "string">
 			<column name = "username" />
 		</property>
 		
