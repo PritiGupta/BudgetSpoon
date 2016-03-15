@@ -80,18 +80,7 @@
             <input class="submit" id="submit" name="submit" type="submit" value="SEARCH">
           </div>
         </div>
-        <div class = "row">
-        <div id="searchInContainer">
-          <label>Includes:</label><input type="checkbox" name="activity" value="Appetizers" id = "Appetizers" />
-            <label for = "Appetizers" id = "course">Appetizers</label>
-          <input type="checkbox" name="activity" value="Drinks" id = "Drinks" />
-            <label for = "Drinks" id = "courseType">Drinks</label>
-          <input type="checkbox" name="activity" value="Entrees" id = "Entrees" />
-          <label for = "Entrees" id = "courseType">Entrees</label>
-          <input type="checkbox" name="activity" value="Desserts" id = "Deserts"/>
-          <label for = "Desserts" id = "courseType">Desserts</label>
-        </div>
-      </div>
+        
       </div>
       </div>
       </form>

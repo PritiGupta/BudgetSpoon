@@ -10,10 +10,54 @@
   <link href="css/jquery-ui.min.css" rel="stylesheet">
   <link href="css/resultspage.css" type="text/css" rel="stylesheet" />
  <!--  The Google Maps API is a JavaScript library. It can be added to a web page with a <script> tag:-->
- <script src="http://maps.googleapis.com/maps/api/js"></script> 
+ 
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDB8NwjBc0moypQd_PXWddjggTAS3Tbb_k"
+  type="text/javascript"></script>
+ 
 </head>
 
-<body onload="initialize()">
+<body>
+ <script>
+        var geocoder;
+          var map;
+          var myData=[];
+             function initialize() {
+        	  console.log("init")
+            geocoder = new google.maps.Geocoder();
+            var latlng = new google.maps.LatLng(42.331429,-83.045753);
+            var mapOptions = {
+              zoom:15,
+              center: latlng,
+              mapTypeId: google.maps.MapTypeId.ROADMAP,
+            }
+            map = new google.maps.Map(document.getElementById("map"), mapOptions);
+            
+			for(var i =0; i<myData.length;i++){
+            	codeAddress(myData[i]);
+			}
+                      
+          }
+                   google.maps.event.addDomListener(window, "load", initialize);
+                  
+                   function codeAddress(address) {
+                	                 	   
+                  		 geocoder.geocode( {'address': address}, function(results, status) {
+                  	     if (status == google.maps.GeocoderStatus.OK) {
+                  	        	    
+                          map.setCenter(results[0].geometry.location);
+                          var marker = new google.maps.Marker({
+                              map: map,
+                              position: results[0].geometry.location
+                            
+                          });
+                         } else {
+                          alert("Geocode was not successful for the following reason: " + status);
+                        }
+                  	  	   });
+//                   	  }
+                    } 	  
+        
+       </script>
 
   <header>
     <nav>
@@ -38,6 +82,7 @@
   </div>
   
     <section class = "search-results-container">
+
         <c:forEach items="${restList}" var="restaurant">
         <ol id = "search-list">
           <li class = "search-result-li">
@@ -46,17 +91,25 @@
               <h3><a href = "${restaurant.getWebsite()}">${restaurant.getName()}</a></h3>
               <p>${restaurant.getCuisine()}</p>
               <p>${restaurant.getStreetAddress()}</p>
-            </div>
+              <p>${restaurant.getCityAddress()}</p>
+              <p>${restaurant.getStateAddress()}</p>
+                     
+                     </div>
+                     <script>
+                       myData.push('${restaurant.getStreetAddress()}'+","+'${restaurant.getCityAddress()}'+","+'${restaurant.getStateAddress()}') ;
+                                            
+                    </script> 
             <div class = "col-md-6" id = "prices">
               <p>Breakfast Price: ${restaurant.getBreakfast_price()}</p>
               <p>Lunch Price: ${restaurant.getLunch_price()}</p>
               <p>Dinner Price: ${restaurant.getDinner_price()}</p>
             </div>
-           
+
            </div>
           </li>
         </ol>
         </c:forEach>
+        
       </section>
 
 
@@ -64,40 +117,10 @@
      <div class="col-md-6" id  = "globe">
           <div id="map" style="width: 370px; height: 720px;"></div>
               </div>
-               <div class="col-md-6" id="address" >
-    <p><label onload="codeAddress()">${restaurant.getStreetAddress()}</label></p>
-    
-   </div>
-    </section>
-         <script>
-        var geocoder;
-          var map;
-          function initialize() {
-            geocoder = new google.maps.Geocoder();
-            var latlng = new google.maps.LatLng(42.331429,-83.045753);
-            var mapOptions = {
-              zoom:10,
-              center: latlng
-            }
-            map = new google.maps.Map(document.getElementById("map"), mapOptions);
-          }
-
-          function codeAddress() {
-            var address = document.getElementById("address").value;
-            geocoder.geocode( { 'address': address}, function(results, status) {
-              if (status == google.maps.GeocoderStatus.OK) {
-                map.setCenter(results[0].geometry.location);
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: results[0].geometry.location
-                });
-              } else {
-                alert("Geocode was not successful for the following reason: " + status);
-              }
-            });
-          }
-
-       </script>
-    
+              <script>
+              
+              </script>
+                  </section>
+            
 </body>
 </html>
