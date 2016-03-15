@@ -40,8 +40,7 @@
     <h2>Find the perfect meal in Detroit for your budget</h3>
   </div>
 
-    <form action = "search
-" id = "searchForm" method = "get">
+    <form action = "search" id = "searchForm" method = "get">
     <div class="container">
       <!-- <h1>BudgetSpoon</h1>
       <h3>Find the perfect meal for your budget</h3> -->
@@ -68,7 +67,7 @@
 
           <div class = "col-md-3">
             <select name = "numofdiners" id ="selectmenu">
-              <option selected disabled>#ofDiners</option>
+              <option selected disabled>Number of Diners</option>
               <option value = "1">1</option>
               <option value = "2">2</option>
               <option value = "3">3</option>

@@ -47,14 +47,14 @@ section {
 }
 
 .search-results-container {
-  padding-left: 400px;
+  padding-left: 50px;
   justify-content: center;
   height: 20%;
 }
 
 .row {
   justify-content: center;
-  width: 50%;
+  width: 100%;
   text-align: left;
 }
 
@@ -78,7 +78,7 @@ h3 {
 }
 
 #prices {
-  padding-top: 35px;
+  padding-top: 60px;
 }
 h4 {
   font-weight: bold;
@@ -94,6 +94,12 @@ img {
   display: block-inline;
   width: 120px;
   height: 100px;
+}
+
+#globe {
+	padding-top: 30px;
+}
+
 }
 
 }

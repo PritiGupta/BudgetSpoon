@@ -64,13 +64,13 @@
   <header>
     <nav>
       <div class = "comp pull-left" id = "logo">
-        <a href = "" style = "text-decoration:none;" id = "BudgetSpoon">BudgetSpoon</a><br />
+        <a href = "index.jsp" style = "text-decoration:none;" id = "BudgetSpoon">BudgetSpoon</a><br />
       </div>
       <div class = "comp pull-right">
-        <a href = "" style = "text-decoration:none;">Log In</a>
+        <a href = "LoginForm" style = "text-decoration:none;">Log In</a>
       </div>
       <div class = "comp pull-right">
-        <a href = "" style = "text-decoration:none;">Sign Up</a>
+        <a href = "Account.jsp" style = "text-decoration:none;">Sign Up</a>
       </div>
       <div class = "comp pull-right">
         <a href = "" style = "text-decoration:none;">About Us</a>
@@ -84,47 +84,41 @@
   </div>
   
     <section class = "search-results-container">
-
-        <c:forEach items="${restList}" var="restaurant">
+    	<div class = "row">
+    	<div class = "col-md-6">
         <ol id = "search-list">
+        <c:forEach items="${restList}" var="restaurant">
           <li class = "search-result-li">
             <div class = "row">
               <div class = "col-md-6" id = "restaurant">
               <h3><a href = "${restaurant.getWebsite()}">${restaurant.getName()}</a></h3>
               <p>${restaurant.getCuisine()}</p>
               <p>${restaurant.getStreetAddress()}</p>
-              <p>${restaurant.getCityAddress()}</p>
-              <p>${restaurant.getStateAddress()}</p>
-                     
-                     </div>
+              <p>${restaurant.getCityAddress()}, ${restaurant.getStateAddress()}</p>
+               </div>
                      <script>
                        myData.push('${restaurant.getStreetAddress()}'+","+'${restaurant.getCityAddress()}'+","+'${restaurant.getStateAddress()}'+","+'${restaurant.getZipcodeAddress()}') ;
                                           
                     </script> 
-            <div class = "col-md-6" id = "prices">
-                 
-              <p>Breakfast Price:</p>
-              <c:out value="${restaurant.getBreakfast_price() * numberofdiners}"/>
-              <p>Lunch Price:</p>
-              <c:out value="${restaurant.getLunch_price()* numberofdiners}" />
-              <p>Dinner Price: </p>
-             <c:out value="${restaurant.getDinner_price()* numberofdiners}"/>
+            <div class = "col-md-6" id = "prices"> 
+              <p>Breakfast Price: <c:out value="${restaurant.getBreakfast_price() * numberofdiners}"/></p>
+              <p>Lunch Price: <c:out value="${restaurant.getLunch_price()* numberofdiners}" /></p>
+              <p>Dinner Price: <c:out value="${restaurant.getDinner_price()* numberofdiners}"/></p>
             </div>
- 
-           </div>
+            </div>
           </li>
+          </c:forEach>
         </ol>
-        </c:forEach>
-        </section>
-     
-      <section>
-     <div class="col-md-6" id  = "globe">
-          <div id="map" style="width: 370px; height: 720px;"></div>
-              </div>
+        </div>
+        <div class="col-md-6" id  = "globe">
+          	<div id="map" style="width: 100%; height: 720px;"></div>
+     	</div>
               <script>
               
               </script>
-                  </section>
+        
+        </div>
+    </section>
             
 </body>
 </html>

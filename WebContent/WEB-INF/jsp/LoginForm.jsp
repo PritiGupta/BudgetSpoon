@@ -39,7 +39,7 @@
  					<label>Username:</label><input class = "textbox" type="text" name="username" required />
  			</div>
  			<div class = "row">
- 					<label>Password:</label><input class = "textbox" type="text" name="password" required />
+ 					<label>Password:</label><input class = "textbox" type="password" name="password" required />
 			</div>
 			<div class = "row">
           <div id = "button">
