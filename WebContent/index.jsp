@@ -67,13 +67,13 @@
           </div>
 
           <div class = "col-md-3">
-            <select name = "Cuisine" id ="selectmenu">
-              <option selected disabled>Cuisine</option>
-              <option value = "American">American</option>
-              <option value = "Asian">Asian</option>
-              <option value = "Mexican">Mexican</option>
-              <option value = "French">French</option>
-              <option value = "South American">South American</option>
+            <select name = "numofdiners" id ="selectmenu">
+              <option selected disabled>#ofDiners</option>
+              <option value = "1">1</option>
+              <option value = "2">2</option>
+              <option value = "3">3</option>
+              <option value = "4">4</option>
+              <option value = "5">5</option>
             </select>
           </div>
           <div class="col-md-2" id="button">

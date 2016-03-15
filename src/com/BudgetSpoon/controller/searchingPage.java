@@ -6,6 +6,8 @@ package com.BudgetSpoon.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
@@ -23,13 +25,14 @@ import org.springframework.web.servlet.ModelAndView;
 public class searchingPage {
 	
 	@RequestMapping("search")
-	public ModelAndView searchByMealType(@RequestParam("meal") String mealChoice, @RequestParam("price") String priceChoice) {
+	public ModelAndView searchByMealType(@RequestParam("meal") String mealChoice, @RequestParam("price") String priceChoice,@RequestParam("numofdiners") int numberofdiners,HttpSession httpsession) {
 		
 		ArrayList<Restaurants> results = new ArrayList<Restaurants>();
+		
 		Session session = (new Configuration().configure().buildSessionFactory()).openSession();
 
 		session.beginTransaction();
-		
+		httpsession.setAttribute("numberofdiners",numberofdiners);
 		Criteria criteria = session.createCriteria(Restaurants.class);
 		
 		if(mealChoice.equalsIgnoreCase("breakfast")) {
@@ -90,5 +93,5 @@ public class searchingPage {
 		
 		return new ModelAndView("resultspage", "restList", results);
 	}
-
+ 
 }

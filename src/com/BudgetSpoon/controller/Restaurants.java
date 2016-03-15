@@ -15,9 +15,12 @@ public class Restaurants {
 	private String emailAddress;
 	private String password;
 	private String website;
+	private int numofdiners;
 	
 
 	
+	
+
 	public Restaurants() {}
 
 	public Restaurants(String name, String streetAddress, String cityAddress, String stateAddress, String zipcodeAddress, String cuisine) {
@@ -27,6 +30,7 @@ public class Restaurants {
 		this.stateAddress = stateAddress;
 		this.zipcodeAddress = zipcodeAddress;
 		this.cuisine = cuisine;
+		
 	}
 	
 	public Restaurants(String name, String streetAddress, String cityAddress, String stateAddress, String zipcodeAddress, String cuisine,
@@ -146,5 +150,5 @@ public class Restaurants {
 	public void setWebsite(String website) {
 		this.website = website;
 	}
-
+	
 }

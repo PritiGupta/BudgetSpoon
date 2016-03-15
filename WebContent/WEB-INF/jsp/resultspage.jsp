@@ -1,4 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions"
+    prefix="fn" %>
 <!DOCTYPE>
 <html>
 
@@ -97,22 +99,24 @@
                      </div>
                      <script>
                        myData.push('${restaurant.getStreetAddress()}'+","+'${restaurant.getCityAddress()}'+","+'${restaurant.getStateAddress()}') ;
-                                            
+                                          
                     </script> 
             <div class = "col-md-6" id = "prices">
-              <p>Breakfast Price: ${restaurant.getBreakfast_price()}</p>
-              <p>Lunch Price: ${restaurant.getLunch_price()}</p>
-              <p>Dinner Price: ${restaurant.getDinner_price()}</p>
+                 
+              <p>Breakfast Price:</p>
+              <c:out value="${restaurant.getBreakfast_price() * numberofdiners}"/>
+              <p>Lunch Price:</p>
+              <c:out value="${restaurant.getLunch_price()* numberofdiners}" />
+              <p>Dinner Price: </p>
+             <c:out value="${restaurant.getDinner_price()* numberofdiners}"/>
             </div>
-
+ 
            </div>
           </li>
         </ol>
         </c:forEach>
-        
-      </section>
-
-
+        </section>
+     
       <section>
      <div class="col-md-6" id  = "globe">
           <div id="map" style="width: 370px; height: 720px;"></div>
