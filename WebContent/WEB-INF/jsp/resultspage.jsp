@@ -98,7 +98,7 @@
                      
                      </div>
                      <script>
-                       myData.push('${restaurant.getStreetAddress()}'+","+'${restaurant.getCityAddress()}'+","+'${restaurant.getStateAddress()}') ;
+                       myData.push('${restaurant.getStreetAddress()}'+","+'${restaurant.getCityAddress()}'+","+'${restaurant.getStateAddress()}'+","+'${restaurant.getZipcodeAddress()}') ;
                                           
                     </script> 
             <div class = "col-md-6" id = "prices">
