@@ -80,6 +80,17 @@
 		</property>
 		
 	</class>
+
+	<class name = "com.BudgetSpoon.controller.Favorite" table = "favorite" catalog = "BudgetSpoonDB">
+		<id name = "restaurant_id">
+			<column name = "restaurant_id" />
+		</id>
+		
+		<property name = "username" type = "String">
+			<column name = "username" />
+		</property>
+		
+	</class>
 	
 	
 </hibernate-mapping>

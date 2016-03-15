@@ -10,6 +10,9 @@
 </head>
 <body>
 ${msg }
+			<c:forEach items="${fList}" var="favorite">
+              <p>${restaurant.getRestaurant_id()}</p>
+            </c:forEach>
 
 <h1>This page confirms that your Login Validation works.</h1><br><br>
 <h2>Now go and Change where you want the user to be redirected to.</h2>
