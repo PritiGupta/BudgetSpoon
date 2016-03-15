@@ -20,7 +20,7 @@
         <a href = "index.jsp" style = "text-decoration:none;" id = "BudgetSpoon">BudgetSpoon</a><br />
       </div>
       <div class = "comp pull-right">
-        <a href = "LoginForm.html" style = "text-decoration:none;">Log In</a>
+        <a href = "LoginUser.jsp" style = "text-decoration:none;">Log In</a>
       </div>
       <div class = "comp pull-right">
         <a href = "Account.jsp" style = "text-decoration:none;">Sign Up</a>
