@@ -17,8 +17,7 @@ nav {
   height: 60px;
   font-size: 15px;
   background-color: #1F849F;
-  border-bottom: 1px solid black;
-  border-radius: 5px;
+  position: relative;
 }
 
 nav a {
@@ -37,11 +36,11 @@ nav a {
 
 
 .header-banner {
-	background-color: #EDEFED;
+	background-color: #FFFFFF;
  /*  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("http://www.anothermonkeythai.com/wp-content/uploads/2015/06/rest3.jpg") no-repeat center center fixed;
   background-size: cover;
   background-blend-mode: darken; */
-  height: 100px;
+  height: 120px;
   text-align: center;
   padding-bottom: 0px;
   display: block;
@@ -49,6 +48,14 @@ nav a {
 }
 
 .header-banner h3 {
+  font-size: 30px;
+  padding-top: 25px;
+  font-weight: bold;
+  margin: 0;
+}
+
+header-banner h4 {
+  font-size: 20px;
   padding-top: 25px;
   font-weight: bold;
 }
@@ -58,6 +65,7 @@ nav a {
   height: 100vh;
   width: 100vw;
   display: flex;
+  margin: 0;
 }
 
 #view {
@@ -71,11 +79,12 @@ nav a {
 }
 
 #results {
+	font-size: 15px;
 	background-color:F1F1F1;
 	height: 100vh;
 	overflow: scroll;
 	overflow-x:hidden;
-	border: 1px solid black;
+	/* border: 1px solid black; */
 }
 
 h3 {
@@ -87,7 +96,6 @@ h3 {
 
 .search-results-container{
   height: 100vh;
-  padding-top: 20px;
 }
 
 #search-list {
@@ -120,5 +128,9 @@ img {
 #globe {
 	height: 100vh;
 	width: 50vw;
+	margin: 0;
+}
+#map {
+	margin: 0;
 }
 
