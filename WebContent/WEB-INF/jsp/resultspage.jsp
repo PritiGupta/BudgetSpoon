@@ -113,6 +113,7 @@
               <p>${restaurant.getCuisine()}</p>
               <p>${restaurant.getStreetAddress()}</p>
               <p>${restaurant.getCityAddress()}, ${restaurant.getStateAddress()}. ${restaurant.getZipcodeAddress()}</p>
+              
                </div>
                      <script>
                        myData.push(["${restaurant.getStreetAddress()}"+","+"${restaurant.getCityAddress()}"+","+"${restaurant.getStateAddress()}"+","+"${restaurant.getZipcodeAddress()}","${restaurant.getName()}","${restaurant.getWebsite()}"]);
@@ -139,6 +140,7 @@
 
 	            
             </c:choose>
+            <input type = "submit" name = "submit" value = "favorite">
             </div>
             </div>
           </li>

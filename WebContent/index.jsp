@@ -48,7 +48,7 @@
         <div class="row">
           <div class="col-md-3">
               <!--<input class="priceSelect" type="number" name="price" min=5.00 step=0.01 value=10.00 pattern="(d{3})([.])(d{2})" required>-->
-              <input class="priceSelect" type="text" name="price" pattern="^\d*(\.\d{2}$)?" size="4" value ="Give A Budget$$" required/>
+              <input class="priceSelect" type="text" name="price" pattern="^\d*(\.\d{2}$)?" size="4" placeholder ="Give A Budget$$" required/>
               <!--
               <select name="price">
                 <option selected disabled>Select price range</option>
