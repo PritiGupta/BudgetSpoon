@@ -70,7 +70,7 @@
           </div>
 
           <div class = "col-md-3">
-            <select name = "numofdiners" id ="selectmenu">
+            <select name = "numofdiners" id ="selectmenu" required>
               <option selected disabled>Number of Diners</option>
               <option value = "1">1</option>
               <option value = "2">2</option>
