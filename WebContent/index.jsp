@@ -47,7 +47,7 @@
       <div class="searchbox">
         <div class="row">
           <div class="col-md-3">
-              <input class="priceSelect" type="number" name="price" min=0.0 step=0.01 value=10.00>
+              <input class="priceSelect" type="number" name="price" min=5.00 step=0.01 value=10.00>
               <!--
               <select name="price">
                 <option selected disabled>Select price range</option>
@@ -91,7 +91,7 @@
 
 </div>
   <script type = "text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-  <script src="jquery-ui.js"></script>
+  <!-- <script src="jquery-ui.js"></script>  -->
   <script type = "text/javascript" src="script.js"></script>
 
 </body>

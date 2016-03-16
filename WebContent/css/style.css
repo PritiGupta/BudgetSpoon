@@ -82,7 +82,7 @@ searchbox {
     height:30px;
     position:relative;
     margin:10px auto 100px;
-    line-height:68px;
+    /*line-height:68px;*/
     border:1px solid #333333;
     text-transform:uppercase;
     text-align:center;
