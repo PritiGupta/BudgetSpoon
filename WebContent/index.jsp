@@ -47,7 +47,8 @@
       <div class="searchbox">
         <div class="row">
           <div class="col-md-3">
-              <input class="priceSelect" type="number" name="price" min=5.00 step=0.01 value=10.00>
+              <!--<input class="priceSelect" type="number" name="price" min=5.00 step=0.01 value=10.00 pattern="(d{3})([.])(d{2})" required>-->
+              <input class="priceSelect" type="text" name="price" pattern="^\d*(\.\d{2}$)?" size="4" required/>
               <!--
               <select name="price">
                 <option selected disabled>Select price range</option>
@@ -60,7 +61,7 @@
           </div>
 
           <div class="col-md-3">
-            <select name="meal">
+            <select name="meal" required>
               <option selected disabled>Select meal</option>
               <option value="breakfast">Breakfast</option>
               <option value="lunch">Lunch</option>
@@ -69,7 +70,7 @@
           </div>
 
           <div class = "col-md-3">
-            <select name = "numofdiners" id ="selectmenu">
+            <select name = "numofdiners" id ="selectmenu" required>
               <option selected disabled>Number of Diners</option>
               <option value = "1">1</option>
               <option value = "2">2</option>
@@ -91,8 +92,10 @@
 
 </div>
   <script type = "text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-  <!-- <script src="jquery-ui.js"></script>  -->
+  <script src="jquery-ui.js"></script>
   <script type = "text/javascript" src="script.js"></script>
+  <script type = "text/javascript" src="${pageContext.request.contextPath}/js/validation.js"></script>
+  
 
 </body>
 
