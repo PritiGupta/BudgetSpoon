@@ -28,12 +28,7 @@
       <div class = "comp pull-right">
         <a href = "" style = "text-decoration:none;">About Us</a>
       </div>
-      <!-- <ul>
-        <li>BudgetSpoon</li>
-        <li>About Us</li>
-        <li>Log In</li>
-        <li>Sign Up</li>
-      </ul> -->
+      
     </nav>
   </header>
   <div class="title">
@@ -47,17 +42,9 @@
       <div class="searchbox">
         <div class="row">
           <div class="col-md-3">
-              <!--<input class="priceSelect" type="number" name="price" min=5.00 step=0.01 value=10.00 pattern="(d{3})([.])(d{2})" required>-->
+              
               <input class="priceSelect" type="text" name="price" pattern="^\d*(\.\d{2}$)?" size="4" placeholder ="Give A Budget$$" required/>
-              <!--
-              <select name="price">
-                <option selected disabled>Select price range</option>
-                <option value="$10-20">$10-20</option>
-                <option value="$20-30">$20-30</option>
-                <option value="$30-40">$30-40</option>
-                <option value="$50-60">$50-60</option>
-              </select>
-              -->
+              
           </div>
 
           <div class="col-md-3">

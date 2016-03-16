@@ -60,30 +60,17 @@ public class login {
 				for (int i = 0; i < results.size(); i++) {
 					favoritedRestaurants.add(results.get(i).getRestaurant_id());
 				}
-//				session.disconnect();
-//				System.out.println("ArrayList " + favoritedRestaurants);
 
 				ArrayList<Restaurants> favRestResults = new ArrayList<Restaurants>();
 				
-//				for(int i = 0; i < favoritedRestaurants.size(); i++) {
-//					PreparedStatement pst1 = myConn.prepareStatement("select * from restaurants where id=?");
-//					pst1.setInt(1, favoritedRestaurants.get(i));
-//					ResultSet restResults = pst1.executeQuery();
-//					System.out.println(restResults + " " + restResults.getString(2));
-//					Restaurants favRest = new Restaurants(restResults.getString(2), restResults.getString(3), restResults.getString(4),
-//							restResults.getString(5), restResults.getString(6), restResults.getString(7), restResults.getDouble(8),
-//							restResults.getDouble(9), restResults.getDouble(10), restResults.getString(11), restResults.getString(12),
-//							restResults.getString(13));
-//					System.out.println(favRest.getName());
-//					favRestResults.add(favRest);
-//				}
+			
 				
+						
 				Statement pst1 = myConn.createStatement();
 				String favRest = favoritedRestaurants.toString();
 				int end = favRest.lastIndexOf("]");
 				favRest = favRest.substring(1, end);
-				//System.out.println("String " + favRest);
-				//pst1.setInt(1, favRest);
+				
 				ResultSet restResults = pst1.executeQuery("select * from restaurants where id in ("+favRest+")");
 				
 				while (restResults.next())
@@ -97,8 +84,7 @@ public class login {
 					
 					
 				}
-				//System.out.println("select * from restaurants where id in ("+favRest+")");
-//				favRestResults = (ArrayList<Restaurants>) restResults;
+				
 				// Below just says to keep querying through to the next line
 				// until
 				// we find the match.
