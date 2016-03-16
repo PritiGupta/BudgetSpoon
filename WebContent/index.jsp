@@ -47,6 +47,8 @@
       <div class="searchbox">
         <div class="row">
           <div class="col-md-3">
+              <input class="priceSelect" type="number" name="price" min=0.0 step=0.01 value=10.00>
+              <!--
               <select name="price">
                 <option selected disabled>Select price range</option>
                 <option value="$10-20">$10-20</option>
@@ -54,6 +56,7 @@
                 <option value="$30-40">$30-40</option>
                 <option value="$50-60">$50-60</option>
               </select>
+              -->
           </div>
 
           <div class="col-md-3">

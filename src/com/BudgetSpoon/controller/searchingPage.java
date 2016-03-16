@@ -26,7 +26,7 @@ public class searchingPage {
 
 	@RequestMapping("search")
 	public ModelAndView searchByMealType(@RequestParam("meal") String mealChoice,
-			@RequestParam("price") String priceChoice, @RequestParam("numofdiners") int numberofdiners,
+			@RequestParam("price") double priceChoice, @RequestParam("numofdiners") int numberofdiners,
 			HttpSession httpsession) {
 
 		ArrayList<Restaurants> results = new ArrayList<Restaurants>();
@@ -35,6 +35,7 @@ public class searchingPage {
 //	
 //			session.beginTransaction();
 			httpsession.setAttribute("numberofdiners", numberofdiners);
+			httpsession.setAttribute("mealChoice", mealChoice);
 //			Criteria criteria = session.createCriteria(Restaurants.class);
 //	
 //			if (mealChoice.equalsIgnoreCase("breakfast")) {
@@ -80,10 +81,10 @@ public class searchingPage {
 //					results = (ArrayList<Restaurants>) criteria.list();
 //				}
 //			}
-		
+		double pricePerDiner = priceChoice / numberofdiners;
 		
 		String mealOption = getResultForMeal(mealChoice);
-		results = getResultsForPrice(priceChoice, mealOption);
+		results = getResultsForPrice(pricePerDiner, mealOption);
 		return new ModelAndView("resultspage", "restList", results);
 	}
 
@@ -101,25 +102,25 @@ public class searchingPage {
 
 	}
 	
-	public ArrayList<Restaurants> getResultsForPrice (String priceChoice, String meal) {
+	public ArrayList<Restaurants> getResultsForPrice (double pricePerDiner, String meal) {
 		ArrayList<Restaurants> results = new ArrayList<Restaurants>();
 		Session session = (new Configuration().configure().buildSessionFactory()).openSession();
 		session.beginTransaction();
 		Criteria criteria = session.createCriteria(Restaurants.class);
 		
-		if (priceChoice.equalsIgnoreCase("$10-20")) {
-			criteria.add(Restrictions.between(meal, 10.00, 20.00));
+//		if (priceChoice.equalsIgnoreCase("$10-20")) {
+			criteria.add(Restrictions.between(meal, 0.01, pricePerDiner));
 			results = (ArrayList<Restaurants>) criteria.list();
-		} else if (priceChoice.equalsIgnoreCase("$20-30")) {
-			criteria.add(Restrictions.between(meal, 20.00, 30.00));
-			results = (ArrayList<Restaurants>) criteria.list();
-		} else if (priceChoice.equalsIgnoreCase("$30-40")) {
-			criteria.add(Restrictions.between(meal, 30.00, 40.00));
-			results = (ArrayList<Restaurants>) criteria.list();
-		} else if (priceChoice.equalsIgnoreCase("$40-50")) {
-			criteria.add(Restrictions.between(meal, 40.00, 50.00));
-			results = (ArrayList<Restaurants>) criteria.list();
-		}
+//		} else if (priceChoice.equalsIgnoreCase("$20-30")) {
+//			criteria.add(Restrictions.between(meal, 20.00, 30.00));
+//			results = (ArrayList<Restaurants>) criteria.list();
+//		} else if (priceChoice.equalsIgnoreCase("$30-40")) {
+//			criteria.add(Restrictions.between(meal, 30.00, 40.00));
+//			results = (ArrayList<Restaurants>) criteria.list();
+//		} else if (priceChoice.equalsIgnoreCase("$40-50")) {
+//			criteria.add(Restrictions.between(meal, 40.00, 50.00));
+//			results = (ArrayList<Restaurants>) criteria.list();
+//		}
 		return results;
 	}
 	
