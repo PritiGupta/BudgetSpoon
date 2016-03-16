@@ -119,9 +119,33 @@
                                         
                     </script> 
             <div class = "col-md-6" id = "prices"> 
-              <p>Breakfast Price: $<c:out value="${restaurant.getBreakfast_price() * numberofdiners}"/></p>
-              <p>Lunch Price: $<c:out value="${restaurant.getLunch_price()* numberofdiners}" /></p>
-              <p>Dinner Price: $<c:out value="${restaurant.getDinner_price()* numberofdiners}"/></p>
+             <c:choose>
+            
+	            <c:when test="${restaurant.getBreakfast_price() == 0.00}">
+	              <p><c:out value="Breakfast Not Served" /></p>
+	              <p>Lunch Price: $<c:out value="${restaurant.getLunch_price()* numberofdiners}" /></p>
+	              <p>Dinner Price: $<c:out value="${restaurant.getDinner_price()* numberofdiners}"/></p>
+	            </c:when>
+	            
+	            <c:when test="${restaurant.getLunch_price() == 0.00}">
+	              <p>Breakfast Price: $<c:out value="${restaurant.getBreakfast_price()* numberofdiners}" /></p>
+	              <p><c:out value="Lunch Not Served" /></p>
+	              <p>Dinner Price: $<c:out value="${restaurant.getDinner_price()* numberofdiners}"/></p>
+	            </c:when>
+	            
+	            <c:when test="${restaurant.getDinner_price() == 0.00}">
+	              <p>Breakfast Price: $<c:out value="${restaurant.getBreakfast_price()* numberofdiners}" /></p>
+	              <p>Lunch Price: $<c:out value="${restaurant.getLunch_price()* numberofdiners}" /></p>
+	              <p><c:out value="Dinner Not Served"/></p>
+	            </c:when>
+	            
+	            <c:otherwise>
+	              <p>Breakfast Price: $<c:out value="${restaurant.getBreakfast_price()* numberofdiners}" /></p>
+	              <p>Lunch Price: $<c:out value="${restaurant.getLunch_price()* numberofdiners}" /></p>
+	              <p>Dinner Price: $<c:out value="${restaurant.getDinner_price()* numberofdiners}"/></p>
+	            </c:otherwise>
+	            
+            </c:choose>
             </div>
             </div>
           </li>
