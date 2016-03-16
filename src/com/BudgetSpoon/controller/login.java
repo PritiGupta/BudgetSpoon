@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,20 +21,16 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class login {
 
-	@RequestMapping(value="userLogin", method = RequestMethod.POST)
+	@RequestMapping(value = "userLogin", method = RequestMethod.POST)
 	public ModelAndView userLogin(@RequestParam("username") String username,
 			@RequestParam("password") String password) {
 
 		try {
 
 			String url = "jdbc:mysql://budgetspoondb.cm6l5hslk6or.us-west-2.rds.amazonaws.com:3306/BudgetSpoonDB";
-
 			String user = "budgetspoon";
-
 			String database_password = "gcbudgetspoon";
-
 			Class.forName("com.mysql.jdbc.Driver"); // MySQL database connection
-
 			Connection myConn = DriverManager.getConnection(url, user, database_password);
 
 			// Use prepared statement below: This allows us to leave the value
@@ -42,33 +39,75 @@ public class login {
 			// statement
 			PreparedStatement pst = myConn
 					.prepareStatement("SELECT username,password FROM users WHERE username=? AND password=?");
-
 			pst.setString(1, username);
 			pst.setString(2, password);
-
 			// Execute the mySQL prepared statement to query our table
 			ResultSet myRs = pst.executeQuery();
 
-			ArrayList<Favorite> results = new ArrayList<Favorite>();
-			Session session = (new Configuration().configure().buildSessionFactory()).openSession();
+			if (myRs.next()) {
+				
+				ArrayList<Favorite> results = new ArrayList<Favorite>();
+				
+				Session session = (new Configuration().configure().buildSessionFactory()).openSession();
+				session.beginTransaction();
+				Criteria criteria = session.createCriteria(Favorite.class);
 
-			session.beginTransaction();
+				//username = "bryan"; // whatever you want here.
+				criteria.add(Restrictions.like("username", username));
+				results = (ArrayList<Favorite>) criteria.list();
 
-			username = "bryan"; // whatever you want here.
-			Criteria criteria = session.createCriteria(Favorite.class);
-			criteria.add(Restrictions.like("username", username));
-			results = (ArrayList<Favorite>) criteria.list();
-			for (int i = 0; i < results.size(); i++) {
-				System.out.println(results.get(i).getRestaurant_id());
-			}
+				ArrayList<Integer> favoritedRestaurants = new ArrayList<Integer>();
+				for (int i = 0; i < results.size(); i++) {
+					favoritedRestaurants.add(results.get(i).getRestaurant_id());
+				}
+//				session.disconnect();
+//				System.out.println("ArrayList " + favoritedRestaurants);
 
-			// Below just says to keep querying through to the next line until
-			// we find the match.
-			// If there is a match, take the user to the loginSuccess page.
-			// Else, send them to loginFailed page.
-			if (myRs.next())
-				return new ModelAndView("loginSuccess", "msg", "Information validated");
-			else
+				ArrayList<Restaurants> favRestResults = new ArrayList<Restaurants>();
+				
+//				for(int i = 0; i < favoritedRestaurants.size(); i++) {
+//					PreparedStatement pst1 = myConn.prepareStatement("select * from restaurants where id=?");
+//					pst1.setInt(1, favoritedRestaurants.get(i));
+//					ResultSet restResults = pst1.executeQuery();
+//					System.out.println(restResults + " " + restResults.getString(2));
+//					Restaurants favRest = new Restaurants(restResults.getString(2), restResults.getString(3), restResults.getString(4),
+//							restResults.getString(5), restResults.getString(6), restResults.getString(7), restResults.getDouble(8),
+//							restResults.getDouble(9), restResults.getDouble(10), restResults.getString(11), restResults.getString(12),
+//							restResults.getString(13));
+//					System.out.println(favRest.getName());
+//					favRestResults.add(favRest);
+//				}
+				
+				Statement pst1 = myConn.createStatement();
+				String favRest = favoritedRestaurants.toString();
+				int end = favRest.lastIndexOf("]");
+				favRest = favRest.substring(1, end);
+				//System.out.println("String " + favRest);
+				//pst1.setInt(1, favRest);
+				ResultSet restResults = pst1.executeQuery("select * from restaurants where id in ("+favRest+")");
+				
+				while (restResults.next())
+				{
+					
+					Restaurants favRestObject = new Restaurants(restResults.getString(2), restResults.getString(3), restResults.getString(4),
+							restResults.getString(5), restResults.getString(6), restResults.getString(7), restResults.getDouble(8),
+							restResults.getDouble(9), restResults.getDouble(10), restResults.getString(11), restResults.getString(12),
+							restResults.getString(13));
+					favRestResults.add(favRestObject);
+					
+					
+				}
+				//System.out.println("select * from restaurants where id in ("+favRest+")");
+//				favRestResults = (ArrayList<Restaurants>) restResults;
+				// Below just says to keep querying through to the next line
+				// until
+				// we find the match.
+				// If there is a match, take the user to the loginSuccess page.
+				// Else, send them to loginFailed page.
+
+				return new ModelAndView("loginSuccess", "favRest", favRestResults);
+				
+			} else
 				return new ModelAndView("loginFailed", "msg", "Login Failed");
 
 		} catch (Exception e) {
