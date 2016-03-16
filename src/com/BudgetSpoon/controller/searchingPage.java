@@ -23,75 +23,105 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class searchingPage {
-	
-	@RequestMapping("search")
-	public ModelAndView searchByMealType(@RequestParam("meal") String mealChoice, @RequestParam("price") String priceChoice,@RequestParam("numofdiners") int numberofdiners,HttpSession httpsession) {
-		
-		ArrayList<Restaurants> results = new ArrayList<Restaurants>();
-		
-		Session session = (new Configuration().configure().buildSessionFactory()).openSession();
 
-		session.beginTransaction();
-		httpsession.setAttribute("numberofdiners",numberofdiners);
-		Criteria criteria = session.createCriteria(Restaurants.class);
-		
-		if(mealChoice.equalsIgnoreCase("breakfast")) {
-			if(priceChoice.equalsIgnoreCase("$10-20")) {
-				criteria.add(Restrictions.between("breakfast_price", 10.00, 20.00));
-				results = (ArrayList<Restaurants>)criteria.list();
-			}
-			else if(priceChoice.equalsIgnoreCase("$20-30")) {
-				criteria.add(Restrictions.between("breakfast_price", 20.00, 30.00));
-				results = (ArrayList<Restaurants>)criteria.list();
-			}
-			else if(priceChoice.equalsIgnoreCase("$30-40")) {
-				criteria.add(Restrictions.between("breakfast_price", 30.00, 40.00));
-				results = (ArrayList<Restaurants>)criteria.list();
-			}
-			else if(priceChoice.equalsIgnoreCase("$40-50")) {
-				criteria.add(Restrictions.between("breakfast_price", 40.00, 50.00));
-				results = (ArrayList<Restaurants>)criteria.list();
-			}
-		}
-		else if(mealChoice.equalsIgnoreCase("lunch")) {
-			if(priceChoice.equalsIgnoreCase("$10-20")) {
-				criteria.add(Restrictions.between("lunch_price", 10.00, 20.00));
-				results = (ArrayList<Restaurants>)criteria.list();
-			}
-			else if(priceChoice.equalsIgnoreCase("$20-30")) {
-				criteria.add(Restrictions.between("lunch_price", 20.00, 30.00));
-				results = (ArrayList<Restaurants>)criteria.list();
-			}
-			else if(priceChoice.equalsIgnoreCase("$30-40")) {
-				criteria.add(Restrictions.between("lunch_price", 30.00, 40.00));
-				results = (ArrayList<Restaurants>)criteria.list();
-			}
-			else if(priceChoice.equalsIgnoreCase("$40-50")) {
-				criteria.add(Restrictions.between("lunch_price", 40.00, 50.00));
-				results = (ArrayList<Restaurants>)criteria.list();
-			}
-		}
-		else if(mealChoice.equalsIgnoreCase("dinner")) {
-			if(priceChoice.equalsIgnoreCase("$10-20")) {
-				criteria.add(Restrictions.between("dinner_price", 10.00, 20.00));
-				results = (ArrayList<Restaurants>)criteria.list();
-			}
-			else if(priceChoice.equalsIgnoreCase("$20-30")) {
-				criteria.add(Restrictions.between("dinner_price", 20.00, 30.00));
-				results = (ArrayList<Restaurants>)criteria.list();
-			}
-			else if(priceChoice.equalsIgnoreCase("$30-40")) {
-				criteria.add(Restrictions.between("dinner_price", 30.00, 40.00));
-				results = (ArrayList<Restaurants>)criteria.list();
-			}
-			else if(priceChoice.equalsIgnoreCase("$40-50")) {
-				criteria.add(Restrictions.between("dinner_price", 40.00, 50.00));
-				results = (ArrayList<Restaurants>)criteria.list();
-			}
-		}
+	@RequestMapping("search")
+	public ModelAndView searchByMealType(@RequestParam("meal") String mealChoice,
+			@RequestParam("price") String priceChoice, @RequestParam("numofdiners") int numberofdiners,
+			HttpSession httpsession) {
+
+		ArrayList<Restaurants> results = new ArrayList<Restaurants>();
+
+//			Session session = (new Configuration().configure().buildSessionFactory()).openSession();
+//	
+//			session.beginTransaction();
+			httpsession.setAttribute("numberofdiners", numberofdiners);
+//			Criteria criteria = session.createCriteria(Restaurants.class);
+//	
+//			if (mealChoice.equalsIgnoreCase("breakfast")) {
+//				if (priceChoice.equalsIgnoreCase("$10-20")) {
+//					criteria.add(Restrictions.between("breakfast_price", 10.00, 20.00));
+//					results = (ArrayList<Restaurants>) criteria.list();
+//				} else if (priceChoice.equalsIgnoreCase("$20-30")) {
+//					criteria.add(Restrictions.between("breakfast_price", 20.00, 30.00));
+//					results = (ArrayList<Restaurants>) criteria.list();
+//				} else if (priceChoice.equalsIgnoreCase("$30-40")) {
+//					criteria.add(Restrictions.between("breakfast_price", 30.00, 40.00));
+//					results = (ArrayList<Restaurants>) criteria.list();
+//				} else if (priceChoice.equalsIgnoreCase("$40-50")) {
+//					criteria.add(Restrictions.between("breakfast_price", 40.00, 50.00));
+//					results = (ArrayList<Restaurants>) criteria.list();
+//				}
+//			} else if (mealChoice.equalsIgnoreCase("lunch")) {
+//				if (priceChoice.equalsIgnoreCase("$10-20")) {
+//					criteria.add(Restrictions.between("lunch_price", 10.00, 20.00));
+//					results = (ArrayList<Restaurants>) criteria.list();
+//				} else if (priceChoice.equalsIgnoreCase("$20-30")) {
+//					criteria.add(Restrictions.between("lunch_price", 20.00, 30.00));
+//					results = (ArrayList<Restaurants>) criteria.list();
+//				} else if (priceChoice.equalsIgnoreCase("$30-40")) {
+//					criteria.add(Restrictions.between("lunch_price", 30.00, 40.00));
+//					results = (ArrayList<Restaurants>) criteria.list();
+//				} else if (priceChoice.equalsIgnoreCase("$40-50")) {
+//					criteria.add(Restrictions.between("lunch_price", 40.00, 50.00));
+//					results = (ArrayList<Restaurants>) criteria.list();
+//				}
+//			} else if (mealChoice.equalsIgnoreCase("dinner")) {
+//				if (priceChoice.equalsIgnoreCase("$10-20")) {
+//					criteria.add(Restrictions.between("dinner_price", 10.00, 20.00));
+//					results = (ArrayList<Restaurants>) criteria.list();
+//				} else if (priceChoice.equalsIgnoreCase("$20-30")) {
+//					criteria.add(Restrictions.between("dinner_price", 20.00, 30.00));
+//					results = (ArrayList<Restaurants>) criteria.list();
+//				} else if (priceChoice.equalsIgnoreCase("$30-40")) {
+//					criteria.add(Restrictions.between("dinner_price", 30.00, 40.00));
+//					results = (ArrayList<Restaurants>) criteria.list();
+//				} else if (priceChoice.equalsIgnoreCase("$40-50")) {
+//					criteria.add(Restrictions.between("dinner_price", 40.00, 50.00));
+//					results = (ArrayList<Restaurants>) criteria.list();
+//				}
+//			}
 		
 		
+		String mealOption = getResultForMeal(mealChoice);
+		results = getResultsForPrice(priceChoice, mealOption);
 		return new ModelAndView("resultspage", "restList", results);
 	}
- 
+
+	public String getResultForMeal(String mealChoice) {
+		
+		if (mealChoice.equalsIgnoreCase("breakfast")) {
+			return "breakfast_price";
+		} else if (mealChoice.equalsIgnoreCase("lunch")) {
+			return "lunch_price";
+		} else if (mealChoice.equalsIgnoreCase("dinner")) {
+			return "dinner_price";
+		} else {
+			return null;
+		}
+
+	}
+	
+	public ArrayList<Restaurants> getResultsForPrice (String priceChoice, String meal) {
+		ArrayList<Restaurants> results = new ArrayList<Restaurants>();
+		Session session = (new Configuration().configure().buildSessionFactory()).openSession();
+		session.beginTransaction();
+		Criteria criteria = session.createCriteria(Restaurants.class);
+		
+		if (priceChoice.equalsIgnoreCase("$10-20")) {
+			criteria.add(Restrictions.between(meal, 10.00, 20.00));
+			results = (ArrayList<Restaurants>) criteria.list();
+		} else if (priceChoice.equalsIgnoreCase("$20-30")) {
+			criteria.add(Restrictions.between(meal, 20.00, 30.00));
+			results = (ArrayList<Restaurants>) criteria.list();
+		} else if (priceChoice.equalsIgnoreCase("$30-40")) {
+			criteria.add(Restrictions.between(meal, 30.00, 40.00));
+			results = (ArrayList<Restaurants>) criteria.list();
+		} else if (priceChoice.equalsIgnoreCase("$40-50")) {
+			criteria.add(Restrictions.between(meal, 40.00, 50.00));
+			results = (ArrayList<Restaurants>) criteria.list();
+		}
+		return results;
+	}
+	
+	
 }
