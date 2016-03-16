@@ -23,6 +23,8 @@
         var geocoder;
           var map;
           var myData=[];
+          var infowindow;
+          var contentString=[];
              function initialize() {
         	  console.log("init")
             geocoder = new google.maps.Geocoder();
@@ -36,11 +38,19 @@
             
 			for(var i =0; i<myData.length;i++){
             	codeAddress(myData[i]);
-			}
-                      
-          }
+            	contentString = myData[i];
+            	console.log(contentString)
+            	   	
+			//for(var a =0; a<contentString.length; a++){
+			 infowindow = new google.maps.InfoWindow({
+			//content:contentString[a],
+			content:contentString,
+			maxHeight:400
+          });
+             }
+           }
                    google.maps.event.addDomListener(window, "load", initialize);
-                  
+             
                    function codeAddress(address) {
                 	                 	   
                   		 geocoder.geocode( {'address': address}, function(results, status) {
@@ -50,15 +60,21 @@
                           var marker = new google.maps.Marker({
                               map: map,
                               position: results[0].geometry.location
-                            
+                             
                           });
+                      //    marker.setContent(contentString);
+                          marker.addListener('click', function() {
+                        	 
+                        	    infowindow.open(map, marker);
+                        	    
+                        	  });
+                          
                          } else {
                           alert("Geocode was not successful for the following reason: " + status);
                         }
                   	  	   });
-//                   	  }
-                    } 	  
-        
+                     }  
+             
        </script>
 
   <header>
@@ -94,16 +110,16 @@
               <h3><a href = "${restaurant.getWebsite()}">${restaurant.getName()}</a></h3>
               <p>${restaurant.getCuisine()}</p>
               <p>${restaurant.getStreetAddress()}</p>
-              <p>${restaurant.getCityAddress()}, ${restaurant.getStateAddress()}</p>
+              <p>${restaurant.getCityAddress()}, ${restaurant.getStateAddress()}. ${restaurant.getZipcodeAddress()}</p>
                </div>
                      <script>
                        myData.push('${restaurant.getStreetAddress()}'+","+'${restaurant.getCityAddress()}'+","+'${restaurant.getStateAddress()}'+","+'${restaurant.getZipcodeAddress()}') ;
                                           
                     </script> 
             <div class = "col-md-6" id = "prices"> 
-              <p>Breakfast Price: <c:out value="${restaurant.getBreakfast_price() * numberofdiners}"/></p>
-              <p>Lunch Price: <c:out value="${restaurant.getLunch_price()* numberofdiners}" /></p>
-              <p>Dinner Price: <c:out value="${restaurant.getDinner_price()* numberofdiners}"/></p>
+              <p>Breakfast Price: $<c:out value="${restaurant.getBreakfast_price() * numberofdiners}"/></p>
+              <p>Lunch Price: $<c:out value="${restaurant.getLunch_price()* numberofdiners}" /></p>
+              <p>Dinner Price: $<c:out value="${restaurant.getDinner_price()* numberofdiners}"/></p>
             </div>
             </div>
           </li>
