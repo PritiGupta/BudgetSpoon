@@ -80,12 +80,12 @@
 
   <div class = "header-banner">
     <h3>Pick a Place to Eat</h3>
-      <h4>Where would you like to eat?</h4>
+      <h4>Where would you like to eat today?</h4>
   </div>
   
     <section class = "search-results-container">
-    	<div class = "row">
-    	<div class = "col-md-6">
+    	<div class = "row" id = "view">
+    	<div class = "col-md-6" id = "results">
         <ol id = "search-list">
         <c:forEach items="${restList}" var="restaurant">
           <li class = "search-result-li">
@@ -111,7 +111,7 @@
         </ol>
         </div>
         <div class="col-md-6" id  = "globe">
-          	<div id="map" style="width: 100%; height: 720px;"></div>
+          	<div id="map" style="width: 100%; height: 100%;"></div>
      	</div>
               <script>
               
