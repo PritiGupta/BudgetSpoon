@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
@@ -23,8 +25,10 @@ public class login {
 
 	@RequestMapping(value = "userLogin", method = RequestMethod.POST)
 	public ModelAndView userLogin(@RequestParam("username") String username,
-			@RequestParam("password") String password) {
-
+			@RequestParam("password") String password, HttpSession httpsession) {
+		
+		httpsession.setAttribute("username", username);
+		
 		try {
 
 			String url = "jdbc:mysql://budgetspoondb.cm6l5hslk6or.us-west-2.rds.amazonaws.com:3306/BudgetSpoonDB";

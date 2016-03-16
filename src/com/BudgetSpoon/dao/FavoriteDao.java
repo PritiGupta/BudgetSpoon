@@ -12,7 +12,7 @@ import com.BudgetSpoon.controller.Favorite;
 
 public class FavoriteDao {
 
-public void addFavorites (List<Favorite> fList) {
+public void addFavorites (Favorite userFav) {
 		
 		Session session = (new Configuration().configure().buildSessionFactory()).openSession();
 
@@ -20,9 +20,7 @@ public void addFavorites (List<Favorite> fList) {
 		
 		
 	      try{
-	    	 for (Favorite f : fList) {
-	         session.save(f); 
-	    	 }
+	         session.save(userFav); 
 	         tx.commit();
 	      }catch (HibernateException e) {
 	         if (tx!=null) tx.rollback();

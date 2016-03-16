@@ -140,7 +140,10 @@
 
 	            
             </c:choose>
-            <input type = "submit" name = "submit" value = "favorite">
+            <form action="addFavorite" method="get">
+            	<input type="hidden" name="favorite" value=${restaurant.getId() }>
+            	<input type="submit" value="favorite">
+            </form>
             </div>
             </div>
           </li>

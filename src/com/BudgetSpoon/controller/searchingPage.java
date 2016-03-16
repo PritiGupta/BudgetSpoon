@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.BudgetSpoon.dao.FavoriteDao;
+
 /**
  * @author Priti
  *
@@ -29,13 +31,15 @@ public class searchingPage {
 			@RequestParam("price") double priceChoice, @RequestParam("numofdiners") int numberofdiners,
 			HttpSession httpsession) {
 
+		httpsession.setAttribute("price", priceChoice);
+		httpsession.setAttribute("numberofdiners", numberofdiners);
+		httpsession.setAttribute("mealChoice", mealChoice);
+		
 		ArrayList<Restaurants> results = new ArrayList<Restaurants>();
 
 //			Session session = (new Configuration().configure().buildSessionFactory()).openSession();
 //	
 //			session.beginTransaction();
-			httpsession.setAttribute("numberofdiners", numberofdiners);
-			httpsession.setAttribute("mealChoice", mealChoice);
 //			Criteria criteria = session.createCriteria(Restaurants.class);
 //	
 //			if (mealChoice.equalsIgnoreCase("breakfast")) {
@@ -87,7 +91,30 @@ public class searchingPage {
 		results = getResultsForPrice(pricePerDiner, mealOption);
 		return new ModelAndView("resultspage", "restList", results);
 	}
-
+	
+	@RequestMapping("addFavorite")
+	public ModelAndView addRestToFavs(@RequestParam("favorite") int restaurantId, HttpSession httpsession) {
+		
+		String username = (String) httpsession.getAttribute("username");
+		System.out.println(username);
+		FavoriteDao favDao = new FavoriteDao();
+		Favorite userFav = new Favorite(username, restaurantId);
+		favDao.addFavorites(userFav);
+		
+		double priceChoice = (double) httpsession.getAttribute("price");
+		int numberofdiners = (int) httpsession.getAttribute("numberofdiners");
+		String mealChoice = (String) httpsession.getAttribute("mealChoice");
+		
+		ArrayList<Restaurants> results = new ArrayList<Restaurants>();
+		double pricePerDiner = priceChoice / numberofdiners;
+		
+		String mealOption = getResultForMeal(mealChoice);
+		results = getResultsForPrice(pricePerDiner, mealOption);
+		return new ModelAndView("resultspage", "restList", results);
+	}
+	
+	
+	
 	public String getResultForMeal(String mealChoice) {
 		
 		if (mealChoice.equalsIgnoreCase("breakfast")) {
