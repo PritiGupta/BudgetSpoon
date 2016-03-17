@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -45,7 +45,7 @@
 
 	<div class = "form">
     <div class="container">
-    <form id = "Signup" method = "post" action="Signupsuccess" >
+    <form id = "Signup" method = "post" action="Signupsuccess" ) onSubmit ="alert('Restaurant successfully Registered');" >
     	<div class = "sign-up">
     	<div class="title">
   		  <h2>New Restaurant Sign Up</h2>
@@ -135,7 +135,7 @@
         </div>
       <div class ="row">
           <div id = "button">
-            <input class="submit" id="submit" name="submit" type="submit" value="Submit">
+            <input class="submit" id="submit" name="submit" type="submit" value="Submit" >
           </div>
       </div>
         </div>

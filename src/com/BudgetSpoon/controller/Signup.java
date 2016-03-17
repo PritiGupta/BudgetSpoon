@@ -36,14 +36,15 @@ public class Signup {
 			
 	@RequestMapping(value = "/Signup", method = RequestMethod.POST)
 		public ModelAndView signUp(Model model) {
+			
 		
 			return new ModelAndView("Signup", "command", new Restaurants());
 		}
 
 	@RequestMapping(value = "Signupsuccess", method = RequestMethod.POST)
-	public ArrayList<Restaurants> registerRestaurant(@ModelAttribute("SpringWeb")Restaurants rest, Model model ) {
+	public String registerRestaurant(@ModelAttribute("SpringWeb")Restaurants rest, Model model ) {
 		RestaurantDao restDao = new RestaurantDao();
-		//System.out.println(model.addAttribute(rest.getWebsite() +"this is it"));
+		
 		if(rest.getBreakfast_price()==null)
 		{
 			rest.setBreakfast_price(0.0);
@@ -60,8 +61,10 @@ public class Signup {
      ArrayList<Restaurants> ls = new ArrayList<Restaurants>();
      ls.add(rest);
      
+    	 
          restDao.addRestaurants(ls);
-         return ls;
+               	          
+         return "index";
 	}
 	
 }
