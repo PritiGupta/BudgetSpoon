@@ -27,7 +27,7 @@
         <a href = "LoginForm.html" style = "text-decoration:none;">Log In</a>
       </div>
       <div class = "comp pull-right">
-        <a href = "Account.jsp" style = "text-decoration:none;">Sign Up</a>
+        <a href = "userSignup.html" style = "text-decoration:none;">Sign Up</a>
       </div>
       </c:if>
       <c:if test="${username != null}">
