@@ -119,9 +119,9 @@
         </div>
 		<h4>Average Prices</h4>
 		<div class="row">
-             <input class = "textbox" id = "bkprices" type="number" name="breakfast_price" maxlength=5 step="0.1" placeholder = "Breakfast">
-             <input class = "textbox" id = "lunchprices" type="number" name="lunch_price" maxlength=5 step="0.01" placeholder = "Lunch">
-             <input class = "textbox" id = "dinnerprices" type="number" name="dinner_price" maxlength=5 step="0.01" placeholder = "Dinner" >
+             <input class = "textbox" id = "prices" type="number" name="breakfast_price" maxlength=5 step="0.1" placeholder = "Breakfast">
+             <input class = "textbox" id = "prices" type="number" name="lunch_price" maxlength=5 step="0.01" placeholder = "Lunch">
+             <input class = "textbox" id = "prices" type="number" name="dinner_price" maxlength=5 step="0.01" placeholder = "Dinner" >
         </div>
       <div class ="row">
           <div id = "button">

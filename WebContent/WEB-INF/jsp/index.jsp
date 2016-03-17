@@ -56,7 +56,7 @@
         <div class="row">
           <div class="col-md-3">
               
-              <span title="00.00"><input class="priceSelect" id = "priceSelect" type="text" name="price" pattern="^\d*(\.\d{2}$)?" size="4" placeholder ="Give Your Budget" required/></span>
+              <span title="00.00"><input class="priceSelect" id = "priceSelect" type="number" name="price" pattern="^\d*(\.\d{2}$)?" size="4" placeholder ="Give Your Budget" required/></span>
               
           </div>
 

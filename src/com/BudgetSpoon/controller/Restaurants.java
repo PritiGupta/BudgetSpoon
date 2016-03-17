@@ -9,9 +9,9 @@ public class Restaurants {
 	private String zipcodeAddress;
 	private String stateAddress;
 	private String cuisine;
-	private double breakfast_price;
-	private double lunch_price;
-	private double dinner_price;
+	private Double breakfast_price;
+	private Double lunch_price;
+	private Double dinner_price;
 	private String emailAddress;
 	private String password;
 	private String website;
@@ -46,28 +46,37 @@ public class Restaurants {
 	}
 	
 	
-	public double getBreakfast_price() {
+	
+	public Double getBreakfast_price() {
 		return breakfast_price;
 	}
 
-	public void setBreakfast_price(double breakfast_price) {
+	public void setBreakfast_price(Double breakfast_price) {
 		this.breakfast_price = breakfast_price;
 	}
 
-	public double getLunch_price() {
+	public Double getLunch_price() {
 		return lunch_price;
 	}
 
-	public void setLunch_price(double lunch_price) {
+	public void setLunch_price(Double lunch_price) {
 		this.lunch_price = lunch_price;
 	}
 
-	public double getDinner_price() {
+	public Double getDinner_price() {
 		return dinner_price;
 	}
 
-	public void setDinner_price(double dinner_price) {
+	public void setDinner_price(Double dinner_price) {
 		this.dinner_price = dinner_price;
+	}
+
+	public int getNumofdiners() {
+		return numofdiners;
+	}
+
+	public void setNumofdiners(int numofdiners) {
+		this.numofdiners = numofdiners;
 	}
 
 	public String getCuisine() {
