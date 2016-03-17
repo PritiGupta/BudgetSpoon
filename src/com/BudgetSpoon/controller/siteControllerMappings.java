@@ -292,7 +292,10 @@ public class siteControllerMappings {
 		return "index";
 	}
 	
-	
+	@RequestMapping(value = "userSignup")
+	public String userSignup() {
+		return "Account";
+	}
 	
 	
 	
