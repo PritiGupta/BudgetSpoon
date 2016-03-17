@@ -77,6 +77,11 @@
               <option value = "3">3</option>
               <option value = "4">4</option>
               <option value = "5">5</option>
+              <option value = "6">6</option>
+              <option value = "7">7</option>
+              <option value = "8">8</option>
+              <option value = "9">9</option>
+              <option value = "10">10</option>
             </select>
           </div>
           <div class="col-md-2" id="button">
@@ -93,9 +98,9 @@
 </div>
 
   <script type = "text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-  <script src="jquery-ui.min.js"></script>
-  <script type = "text/javascript" src="${pageContext.request.contextPath}/js/script.js"></script>
-  <script type = "text/javascript" src="${pageContext.request.contextPath}/js/validation.js"></script>
+ <script src="${pageContext.request.contextPath}/js/jquery-ui.min.js"></script>
+ <script type = "text/javascript" src="${pageContext.request.contextPath}/js/script.js"></script>
+ <script type = "text/javascript" src="${pageContext.request.contextPath}/js/validation.js"></script>
   
   
 
