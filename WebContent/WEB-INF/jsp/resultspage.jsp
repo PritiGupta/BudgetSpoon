@@ -140,10 +140,12 @@
 
 	            
             </c:choose>
+            <c:if test="${username != null}">
             <form action="addFavorite" method="get">
             	<input type="hidden" name="favorite" value=${restaurant.getId() }>
             	<input type="submit" value="favorite">
             </form>
+            </c:if>
             </div>
             </div>
           </li>
