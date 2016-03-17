@@ -25,7 +25,7 @@ $(document).ready(function() {
 	  $(this).css("background-color", "#A0A0A0");
   },
   function() {
-	  $(this.css("background-color", "#f8f7f7"));
+	  $(this).css("background-color", "#f8f7f7");
   });
 
   $('select').hover(function() {
