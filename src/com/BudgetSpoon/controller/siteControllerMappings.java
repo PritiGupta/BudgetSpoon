@@ -130,20 +130,39 @@ public class siteControllerMappings {
 		return results;
 	}
 	
-	
+	/**Mapping used when the favorite button on resultspage.jsp is clicked.
+	 * When the button is clicked it submits a form containing the value of the restaurant's id.
+	 * That value is used along with the user's username, which was stored as a session attribute when they login.
+	 * This mapping then returns a view redirecting to resultspage.jsp.
+	 * To ensure that resultspage.jsp is still populated with the user's search results, this mapping executes
+	 * 		the same code as searchByMealType() as described above using the stored httpsession attributes.
+	 * 
+	 * @param restaurantId
+	 * @param httpsession
+	 * @return
+	 */
 	@RequestMapping("addFavorite")
 	public ModelAndView addRestToFavs(@RequestParam("favorite") int restaurantId, HttpSession httpsession) {
 		
+		//Obtain the attribute username that is stored when the user logs in
 		String username = (String) httpsession.getAttribute("username");
+		
+		//Calls method to establish a database connection so that JDBC Queries can be performed.
 		Connection myConn = establishDatabaseConnection();
 		
 		try {
+			//Declare, initialize, and set values in a prepared statement for the JDBC query
 			PreparedStatement pst = myConn.prepareStatement("SELECT username,restaurant_id FROM favorite WHERE username=? AND restaurant_id=?");
 			pst.setString(1, username);
 			pst.setInt(2, restaurantId);
-			// Execute the mySQL prepared statement to query our table
+			
+			//Execute the mySQL prepared statement to query our table
 			ResultSet myRs = pst.executeQuery();
 			
+			//If the query returns a result the program moves on.
+			//However, if the query doesn't return any results it means that the user hasn't favorited that restaurant yet.
+			//The code within this if statement creates a Favorite object containing the username and restaurantId.
+			//This object is then passed to a Data Access Object method defined in FavoriteDao.java where it is then saved to the database.
 			if(!myRs.next()) {
 				FavoriteDao favDao = new FavoriteDao();
 				Favorite userFav = new Favorite(username, restaurantId);
@@ -154,7 +173,7 @@ public class siteControllerMappings {
 			e.printStackTrace();
 		}
 		
-		
+		//Retrieve the stored attributes and execute same logic as described in searchByMealType mapping method
 		double priceChoice = (double) httpsession.getAttribute("price");
 		int numberofdiners = (int) httpsession.getAttribute("numberofdiners");
 		String mealChoice = (String) httpsession.getAttribute("mealChoice");
@@ -174,13 +193,6 @@ public class siteControllerMappings {
 		
 		httpsession.setAttribute("username", username);
 		Connection myConn = establishDatabaseConnection();
-		
-
-//			String url = "jdbc:mysql://budgetspoondb.cm6l5hslk6or.us-west-2.rds.amazonaws.com:3306/BudgetSpoonDB";
-//			String user = "budgetspoon";
-//			String database_password = "gcbudgetspoon";
-//			Class.forName("com.mysql.jdbc.Driver"); // MySQL database connection
-//			Connection myConn = DriverManager.getConnection(url, user, database_password);
 
 			// Use prepared statement below: This allows us to leave the value
 			// of email and password unspecified,
@@ -196,52 +208,6 @@ public class siteControllerMappings {
 			ResultSet myRs = pst.executeQuery();
 
 			if (myRs.next()) {
-				
-//				ArrayList<Favorite> results = new ArrayList<Favorite>();
-//				
-//				Session session = (new Configuration().configure().buildSessionFactory()).openSession();
-//				session.beginTransaction();
-//				Criteria criteria = session.createCriteria(Favorite.class);
-//
-//				//username = "bryan"; // whatever you want here.
-//				criteria.add(Restrictions.like("username", username));
-//				results = (ArrayList<Favorite>) criteria.list();
-//
-//				ArrayList<Integer> favoritedRestaurants = new ArrayList<Integer>();
-//				for (int i = 0; i < results.size(); i++) {
-//					favoritedRestaurants.add(results.get(i).getRestaurant_id());
-//				}
-//
-//				ArrayList<Restaurants> favRestResults = new ArrayList<Restaurants>();
-//				
-//			
-//				
-//						
-//				Statement pst1 = myConn.createStatement();
-//				String favRest = favoritedRestaurants.toString();
-//				int end = favRest.lastIndexOf("]");
-//				favRest = favRest.substring(1, end);
-//				
-//				ResultSet restResults = pst1.executeQuery("select * from restaurants where id in ("+favRest+")");
-//				
-//				while (restResults.next())
-//				{
-//					
-//					Restaurants favRestObject = new Restaurants(restResults.getString(2), restResults.getString(3), restResults.getString(4),
-//							restResults.getString(5), restResults.getString(6), restResults.getString(7), restResults.getDouble(8),
-//							restResults.getDouble(9), restResults.getDouble(10), restResults.getString(11), restResults.getString(12),
-//							restResults.getString(13));
-//					favRestResults.add(favRestObject);
-//					
-//					
-//				}
-				
-				// Below just says to keep querying through to the next line
-				// until
-				// we find the match.
-				// If there is a match, take the user to the loginSuccess page.
-				// Else, send them to loginFailed page.
-
 				return new ModelAndView("index", "favRest", username);
 				
 			} else
@@ -266,7 +232,6 @@ public class siteControllerMappings {
 		session.beginTransaction();
 		Criteria criteria = session.createCriteria(Favorite.class);
 
-		//username = "bryan"; // whatever you want here.
 		criteria.add(Restrictions.like("username", username));
 		results = (ArrayList<Favorite>) criteria.list();
 
