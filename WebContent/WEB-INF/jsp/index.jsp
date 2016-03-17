@@ -45,7 +45,7 @@
     </nav>
   </header>
   <div class="title">
-    <h2>Find the perfect meal in Detroit for your budget</h3>
+    <h2>Find the perfect meal in Detroit for your budget</h2>
   </div>
 
     <form action = "search" id = "searchForm" method = "get">
@@ -56,7 +56,7 @@
         <div class="row">
           <div class="col-md-3">
               
-              <input class="priceSelect" id = "priceSelect" type="text" name="price" pattern="^\d*(\.\d{2}$)?" size="4" placeholder ="Give Your Budget" required/>
+              <span title="00.00"><input class="priceSelect" id = "priceSelect" type="text" name="price" pattern="^\d*(\.\d{2}$)?" size="4" placeholder ="Give Your Budget" required/></span>
               
           </div>
 
@@ -93,11 +93,7 @@
       </div>
       </form>
 
-  </div>
-
-</div>
-
-  <script type = "text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+   <script type = "text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
  <script src="${pageContext.request.contextPath}/js/jquery-ui.min.js"></script>
  <script type = "text/javascript" src="${pageContext.request.contextPath}/js/script.js"></script>
  <script type = "text/javascript" src="${pageContext.request.contextPath}/js/validation.js"></script>

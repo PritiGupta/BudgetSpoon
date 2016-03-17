@@ -35,21 +35,21 @@
 
 	<div class = "form">
     <div class="container">
-    <form id = "Signup" method = "get" action="Signupsuccess">
+    <form id = "Signup" method = "get" action="index.jsp" onSubmit="alert('You have Successfully Registered.');">
     	<div class = "sign-up">
     	<div class="title">
   		  <h2>New Restaurant Sign Up</h2>
   		</div>
          <div class = "row" id = "name">
-          <!-- <label>Restaurant:</label> --><input class = "textbox" type="text" name="name" placeholder = "Restaurant Name" required/>
-          <!-- <label>Password:</label> --><input class = "textbox" id = "second" type="password" name="password" placeholder = "Password" required/>
+          <input class = "textbox" type="text" name="name" placeholder = "Restaurant Name" required/>
+          <input class = "textbox" id = "second" type="password" name="password" placeholder = "Password" required/>
         </div>
         <div class = "row">
-             <!-- <label>Street Address:</label> --><input class = "textbox" type="text" name="streetAddress" placeholder = "Street Address" />
-             <!-- <label>City:</label> --><input class = "textbox" type="text" id = "second" name="cityAddress" placeholder = "City" />
+           <input class = "textbox" type="text" name="streetAddress" placeholder = "Street Address" />
+            <input class = "textbox" type="text" id = "second" name="cityAddress" placeholder = "City" />
         </div>
         <div class = "row">
-             <!-- <label>State:</label> -->
+        
                <select id ="states" name ="stateAddress">
                <option selected disabled>State</option>
                 <option value="AL">AL</option>
@@ -105,23 +105,23 @@
                	<option value="WY">WY</option>
 </select>
 
-             <!-- <label>Zip Code:</label> --><input class = "textbox" id = "zip" type="text" name="zipcodeAddress" placeholder = "Zip Code" />
+            <input class = "textbox" id = "zip" type="text" name="zipcodeAddress" placeholder = "Zip Code" />
           </div>
         
 
           <div class="row">
-            <!-- <label>Email:</label> --><input class = "textbox" type="email" name="emailAddress" placeholder = "Email" />
-            <!-- <label>Website:</label> --><input class = "textbox" id = "second" type="url" name="website" placeholder = "Website" />
+            <input class = "textbox" type="email" name="emailAddress" placeholder = "Email" />
+            <input class = "textbox" id = "second" type="url" name="website" placeholder = "Website" />
           </div>
 
         <div class = "row">
-             <!-- <label>Cuisine:</label> --><input class = "textbox" type="text" name="cuisine" placeholder = "Cuisine">
+             <input class = "textbox" type="text" name="cuisine" placeholder = "Cuisine">
         </div>
 		<h4>Average Prices</h4>
 		<div class="row">
              <input class = "textbox" id = "prices" type="number" name="breakfast_price" maxlength=5 step="0.1" placeholder = "Breakfast">
-             <!-- <label>Average Lunch Price:</label> --><input class = "textbox" id = "prices" type="number" name="lunch_price" maxlength=5 step="0.01" placeholder = "Lunch">
-             <!-- <label>Average Dinner Price:</label> --><input class = "textbox" id = "prices" type="number" name="dinner_price" maxlength=5 step="0.01" placeholder = "Dinner" >
+             <input class = "textbox" id = "prices" type="number" name="lunch_price" maxlength=5 step="0.01" placeholder = "Lunch">
+             <input class = "textbox" id = "prices" type="number" name="dinner_price" maxlength=5 step="0.01" placeholder = "Dinner" >
         </div>
       <div class ="row">
           <div id = "button">
