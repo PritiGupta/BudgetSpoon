@@ -28,7 +28,7 @@ import com.BudgetSpoon.dao.FavoriteDao;
  *
  */
 @Controller
-public class searchingPage {
+public class siteControllerMappings {
 
 	@RequestMapping("search")
 	public ModelAndView searchByMealType(@RequestParam("meal") String mealChoice,
