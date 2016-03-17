@@ -80,7 +80,7 @@
   <header>
     <nav>
       <div class = "comp pull-left" id = "logo">
-        <a href = "index.jsp" style = "text-decoration:none;" id = "BudgetSpoon">BudgetSpoon</a><br />
+        <a href = "index.html" style = "text-decoration:none;" id = "BudgetSpoon">BudgetSpoon</a><br />
       </div>
       <div class = "comp pull-right">
         <a href = "LoginForm" style = "text-decoration:none;">Log In</a>
