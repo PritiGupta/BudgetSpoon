@@ -35,9 +35,6 @@
         <a href = "userFavorites.html" style = "text-decoration:none;">Favorites</a>
       </div>
       </c:if>
-      <div class = "comp pull-right">
-        <a href = "" style = "text-decoration:none;">About Us</a>
-      </div>
     </nav>
   </header>
 
