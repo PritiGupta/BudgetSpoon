@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -100,16 +101,10 @@ public class siteControllerMappings {
 	public ModelAndView addRestToFavs(@RequestParam("favorite") int restaurantId, HttpSession httpsession) {
 		
 		String username = (String) httpsession.getAttribute("username");
+		Connection myConn = establishDatabaseConnection();
 		
 		try {
-			String url = "jdbc:mysql://budgetspoondb.cm6l5hslk6or.us-west-2.rds.amazonaws.com:3306/BudgetSpoonDB";
-			String user = "budgetspoon";
-			String database_password = "gcbudgetspoon";
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection myConn = DriverManager.getConnection(url, user, database_password);
-			
-			PreparedStatement pst = myConn
-					.prepareStatement("SELECT username,restaurant_id FROM favorite WHERE username=? AND restaurant_id=?");
+			PreparedStatement pst = myConn.prepareStatement("SELECT username,restaurant_id FROM favorite WHERE username=? AND restaurant_id=?");
 			pst.setString(1, username);
 			pst.setInt(2, restaurantId);
 			// Execute the mySQL prepared statement to query our table
@@ -120,17 +115,11 @@ public class siteControllerMappings {
 				Favorite userFav = new Favorite(username, restaurantId);
 				favDao.addFavorites(userFav);
 			}
-			
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} // MySQL database connection
+		}
 		
-		
-//		System.out.println(username);
-//		FavoriteDao favDao = new FavoriteDao();
-//		Favorite userFav = new Favorite(username, restaurantId);
-//		favDao.addFavorites(userFav);
 		
 		double priceChoice = (double) httpsession.getAttribute("price");
 		int numberofdiners = (int) httpsession.getAttribute("numberofdiners");
@@ -142,6 +131,22 @@ public class siteControllerMappings {
 		String mealOption = getResultForMeal(mealChoice);
 		results = getResultsForPrice(pricePerDiner, mealOption);
 		return new ModelAndView("resultspage", "restList", results);
+	}
+	
+	
+	public Connection establishDatabaseConnection() {
+		try {
+			String url = "jdbc:mysql://budgetspoondb.cm6l5hslk6or.us-west-2.rds.amazonaws.com:3306/BudgetSpoonDB";
+			String user = "budgetspoon";
+			String database_password = "gcbudgetspoon";
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection myConn = DriverManager.getConnection(url, user, database_password);
+			return myConn;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 	
