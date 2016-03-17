@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions"
+    prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,14 +17,24 @@
   <header>
     <nav>
       <div class = "comp pull-left" id = "logo">
-        <a href = "index.jsp" style = "text-decoration:none;" id = "BudgetSpoon">BudgetSpoon</a><br />
+        <a href = "index.html" style = "text-decoration:none;" id = "BudgetSpoon">BudgetSpoon</a><br />
       </div>
+      <c:if test="${username == null}">
       <div class = "comp pull-right">
         <a href = "LoginForm.html" style = "text-decoration:none;">Log In</a>
       </div>
       <div class = "comp pull-right">
         <a href = "Account.jsp" style = "text-decoration:none;">Sign Up</a>
       </div>
+      </c:if>
+      <c:if test="${username != null}">
+      <div class = "comp pull-right">
+        <a href = "userLogout.html" style = "text-decoration:none;">Log Out</a>
+      </div>
+      <div class = "comp pull-right">
+        <a href = "userFavorites.html" style = "text-decoration:none;">Favorites</a>
+      </div>
+      </c:if>
       <div class = "comp pull-right">
         <a href = "" style = "text-decoration:none;">About Us</a>
       </div>
