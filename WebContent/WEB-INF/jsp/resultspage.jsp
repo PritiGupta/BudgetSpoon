@@ -135,12 +135,7 @@
                     
                    
             <div class = "col-md-6" id = "prices"> 
-             <c:if test="${username != null}">
-            <form action="addFavorite" method="get">
-            	<input type="hidden" name="favorite" value=${restaurant.getId() }>
-            	<input type="button" id = "favoriting" value="Favorite">
-            </form>
-            </c:if>
+             
              <c:choose>
            
            
@@ -153,10 +148,14 @@
             <c:when test="${mealChoice == 'dinner'}">
 	          <p>Dinner Price: <fmt:formatNumber type="currency" value="${restaurant.getDinner_price()* numberofdiners}" minFractionDigits="2" maxFractionDigits="2"/></p>
             </c:when>
-            
-
-	            
             </c:choose>
+            
+            <c:if test="${username != null}">
+            <form action="addFavorite" method="get">
+            	<input type="hidden" name="favorite" value=${restaurant.getId() }>
+            	<input type="submit" id = "favoriting" value="Favorite">
+            </form>
+            </c:if>
             </div>
             </div>
           </li>

@@ -108,12 +108,10 @@ h3 {
 }
 
 #prices {
-  padding-top: 20px;
+  padding-top: 45px;
+  padding-bottom: 45px;
 }
 
-#prices p {
-	margin-top: 40px;
-}
 h4 {
   font-weight: bold;
   color:	#680000;
@@ -124,6 +122,7 @@ a {
 
 
 #favoriting {
+	margin-top: 15px;
 	padding-left: 0px;
 	display: inline-block;
 	border-radius: 6px;

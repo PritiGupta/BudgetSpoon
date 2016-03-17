@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions"
     prefix="fn" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE>
 <html>
 
@@ -19,11 +20,11 @@
 </head>
 
 <body>
- <script>
+<script>
         var geocoder;
           var map;
           var myData=[];
-          var infowindow;
+        
           var contentString=[];
              function initialize() {
         	  console.log("init")
@@ -35,33 +36,35 @@
               mapTypeId: google.maps.MapTypeId.ROADMAP,
             }
             map = new google.maps.Map(document.getElementById("map"), mapOptions);
-            
+             
 			for(var i =0; i<myData.length;i++){
-            	codeAddress(myData[i]);
-            	contentString = myData[i];
-            	console.log(contentString)
-            	   	
-			//for(var a =0; a<contentString.length; a++){
-			 infowindow = new google.maps.InfoWindow({
-			//content:contentString[a],
-			content:contentString,
-			maxHeight:400
-          });
-             }
+			
+				codeAddress(myData[i][0],myData[i][1],myData[i][2]);
+            	
+			}
+             
            }
                    google.maps.event.addDomListener(window, "load", initialize);
              
-                   function codeAddress(address) {
+                   function codeAddress(address,name,url) {
                 	                 	   
                   		 geocoder.geocode( {'address': address}, function(results, status) {
                   	     if (status == google.maps.GeocoderStatus.OK) {
                   	        	    
                           map.setCenter(results[0].geometry.location);
+                          
+                         var infowindow = new google.maps.InfoWindow({
+                        	 content:'<a href="' + url + '">' + name + '</a><br/>' + address
+                    			
+                    		   });
+                         
+                         
                           var marker = new google.maps.Marker({
                               map: map,
-                              position: results[0].geometry.location
-                             
+                              position: results[0].geometry.location,
+                              title:name
                           });
+                          
                       //    marker.setContent(contentString);
                           marker.addListener('click', function() {
                         	 
@@ -105,8 +108,7 @@
   </header>
 
   <div class = "header-banner">
-    <h3>Pick a Place to Eat</h3>
-      <h4>Where would you like to eat today?</h4>
+    <h3>Your Personal Favorites</h3>
   </div>
   	
   	<c:choose>
@@ -129,7 +131,7 @@
               <p>${restaurant.getCityAddress()}, ${restaurant.getStateAddress()}. ${restaurant.getZipcodeAddress()}</p>
                </div>
                      <script>
-                       myData.push('${restaurant.getStreetAddress()}'+","+'${restaurant.getCityAddress()}'+","+'${restaurant.getStateAddress()}'+","+'${restaurant.getZipcodeAddress()}') ;
+                     myData.push(["${restaurant.getStreetAddress()}"+","+"${restaurant.getCityAddress()}"+","+"${restaurant.getStateAddress()}"+","+"${restaurant.getZipcodeAddress()}","${restaurant.getName()}","${restaurant.getWebsite()}"]);
                                           
                     </script> 
             <div class = "col-md-6" id = "prices"> 
@@ -137,19 +139,19 @@
               	<p><c:out value="Breakfast Not Served" /></p>
               </c:if>
               <c:if test="${restaurant.getBreakfast_price() != 0.00}">
-              	<p>Breakfast Price: $<c:out value="${restaurant.getBreakfast_price()}" /></p>
+              	<p>Breakfast Price: <fmt:formatNumber type="currency" value="${restaurant.getBreakfast_price()}" minFractionDigits="2" maxFractionDigits="2"/></p>
               </c:if>
               <c:if test="${restaurant.getLunch_price() == 0.00}">
               	 <p><c:out value="Lunch Not Served" /></p>
               </c:if>
               <c:if test="${restaurant.getLunch_price() != 0.00}">
-              	<p>Lunch Price: $<c:out value="${restaurant.getLunch_price()}" /></p>
+              	<p>Lunch Price: <fmt:formatNumber type="currency" value="${restaurant.getLunch_price()}" minFractionDigits="2" maxFractionDigits="2"/></p>
               </c:if>
               <c:if test="${restaurant.getDinner_price() == 0.00}">
               	 <p><c:out value="Dinner Not Served" /></p>
               </c:if>
               <c:if test="${restaurant.getDinner_price() != 0.00}">
-              	<p>Dinner Price: $<c:out value="${restaurant.getDinner_price()}" /></p>
+              	<p>Dinner Price: <fmt:formatNumber type="currency" value="${restaurant.getDinner_price()}" minFractionDigits="2" maxFractionDigits="2"/></p>
               </c:if>
             </div>
             </div>
