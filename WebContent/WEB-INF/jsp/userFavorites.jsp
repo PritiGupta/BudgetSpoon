@@ -111,15 +111,11 @@
     <h3>Your Personal Favorites</h3>
   </div>
   	
-  	<c:choose>
-  	<c:when test="${favRest == null}">
-  	  <h2>${noFavMsg}</h2>
-  	</c:when>
   	
-  	<c:when test="${favRest != null}">
     <section class = "search-results-container">
     	<div class = "row" id = "view">
     	<div class = "col-md-6" id = "results">
+        <h3>${noFavMsg}</h3>
         <ol id = "search-list">
         <c:forEach items="${favRest}" var="restaurant">
           <li class = "search-result-li">
@@ -168,8 +164,6 @@
         
         </div>
     </section>
-    </c:when>
-    </c:choose> 
 </body>
 </html>
 

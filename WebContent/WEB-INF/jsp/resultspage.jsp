@@ -115,8 +115,8 @@
     <section class = "search-results-container">
     	<div class = "row" id = "view">
     	<div class = "col-md-6" id = "results">
-        <ol id = "search-list">
         <h3>${noresults}</h3>
+        <ol id = "search-list">
         <c:forEach items="${restList}" var="restaurant">
           <li class = "search-result-li">
             <div class = "row">
