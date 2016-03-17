@@ -13,7 +13,7 @@ body {
 
 nav {
   padding: 20px;
-  font-size: 15px;
+  font-size: 25px;
 }
 
 nav a {
@@ -24,22 +24,17 @@ nav a {
   text-weight: bold;
 }
 
-img {
-	max-width: 256px;
-	max-height: 256px;
-	background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDk0LjY0NiA5NC42NDYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDk0LjY0NiA5NC42NDY7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8cGF0aCBkPSJNNjEuOTksMjVjMC0xMi4wMTItNi41NjYtMjUtMTQuNjY3LTI1Yy04LjEwMSwwLTE0LjY2NywxMi45ODgtMTQuNjY3LDI1YzAsMTAuNDYzLDQuOTg0LDE2LjczMSwxMS42MjMsMTguMTc0ICAgYy0xLjE0MSw5Ljg1Ny0xLjg3MywyMy42NDEtMS44NzMsMzMuODA1YzAsMTcuNjI3LDIuMjAxLDE3LjY2Niw0LjkxNywxNy42NjZzNC45MTctMC4wMzksNC45MTctMTcuNjY2ICAgYzAtMTAuMTY0LTAuNzMyLTIzLjk0Ny0xLjg3My0zMy44MDVDNTcuMDA1LDQxLjczMSw2MS45OSwzNS40NjMsNjEuOTksMjV6IiBmaWxsPSIjRkZGRkZGIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==)}
-}
-
 
 #BudgetSpoon {
   border: 2px solid #D8D8D8;
-  border-radius: 8px;
+/*   border: 2px solid #D8D8D8; */
+  border-radius: 10px;
   text-align: center;
   padding: 5px;
 }
 
 .title {
-  padding-top: 180px;
+  padding-top: 250px;
   font-family: montserrat;
   color: #D8D8D8;
   padding-bottom: 30px;
@@ -63,13 +58,13 @@ container {
   width: 80%;
 }
 searchbox {
-  height: 50px;
+  height: 70px;
   line-height: 50px;
   block: inline;
 }
   select {
     width:100%;
-    height:30px;
+    height:40px;
     position:relative;
     margin:10px auto 100px;
     line-height:68px;
@@ -78,23 +73,24 @@ searchbox {
     text-align:center;
     color:#333333;
     cursor:pointer;
-    font-size:14px;
+    font-size:20px;
     background:#f8f7f7;
     margin-bottom: 10px;
   }
 
   input.priceSelect {
   	width:100%;
-    height:30px;
+    height:40px;
     position:relative;
     margin:10px auto 100px;
     /*line-height:68px;*/
     border:1px solid #333333;
+    border-radius: 5px;
     text-transform:uppercase;
     text-align:center;
     color:#333333;
     cursor:pointer;
-    font-size:14px;
+    font-size:20px;
     background:#f8f7f7;
     margin-bottom: 10px;
   }
@@ -105,8 +101,10 @@ searchbox {
 
   input.submit {
     width:150px;
-    height:30px;
+    height:40px;
     position:fixed;
+    margin-top: 9px;
+    margin-left: 20px;
     line-height:25px;
     border:1px solid #333333;
     border-radius: 5px;
@@ -114,7 +112,7 @@ searchbox {
     text-align:center;
     color:#333333;
     cursor:pointer;
-    font-size:10px;
+    font-size:16px;
     background:#f8f7f7;
     -webkit-transition: all 0.6s ease-in;
   	-moz-transition: all 0.6s ease-in;
