@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions"
+    prefix="fn" %>
 <!DOCTYPE>
 <html>
 
@@ -19,12 +22,22 @@
       <div class = "comp pull-left" id = "logo">
         <a href = "index.jsp" style = "text-decoration:none;" id = "BudgetSpoon">BudgetSpoon</a><br />
       </div>
+      <c:if test="${username == null}">
       <div class = "comp pull-right">
         <a href = "LoginForm.html" style = "text-decoration:none;">Log In</a>
       </div>
       <div class = "comp pull-right">
         <a href = "Account.jsp" style = "text-decoration:none;">Sign Up</a>
       </div>
+      </c:if>
+      <c:if test="${username != null}">
+      <div class = "comp pull-right">
+        <a href = "LoginForm.html" style = "text-decoration:none;">Log Out</a>
+      </div>
+      <div class = "comp pull-right">
+        <a href = "Account.jsp" style = "text-decoration:none;">Favorites</a>
+      </div>
+      </c:if>
       <div class = "comp pull-right">
         <a href = "" style = "text-decoration:none;">About Us</a>
       </div>

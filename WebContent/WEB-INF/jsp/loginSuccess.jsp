@@ -117,50 +117,24 @@
                                           
                     </script> 
             <div class = "col-md-6" id = "prices"> 
-               <c:choose>
-       			
-       			<c:when test="${restaurant.getBreakfast_price() == 0.00}">
-	              <p><c:out value="Breakfast Not Served" /></p>
-	              <p>Lunch Price: $<c:out value="${restaurant.getLunch_price()}" /></p>
-	              <p>Dinner Price: $<c:out value="${restaurant.getDinner_price()}"/></p>
-	            </c:when>
-	            
-	            <c:when test="${restaurant.getLunch_price() == 0.00}">
-	              <p>Breakfast Price: $<c:out value="${restaurant.getBreakfast_price()}" /></p>
-	              <p><c:out value="Lunch Not Served" /></p>
-	              <p>Dinner Price: $<c:out value="${restaurant.getDinner_price()}"/></p>
-	            </c:when>
-	            
-	            <c:when test="${restaurant.getDinner_price() == 0.00}">
-	              <p>Breakfast Price: $<c:out value="${restaurant.getBreakfast_price()}" /></p>
-	              <p>Lunch Price: $<c:out value="${restaurant.getLunch_price()}" /></p>
-	              <p><c:out value="Dinner Not Served"/></p>
-	            </c:when>
-	            
-	           <c:when test="${restaurant.getBreakfast_price() == 0.00 && restaurant.getLunch_Price == 0.00}">
-	              <p><c:out value="Breakfast Not Served" /></p>
-	              <p><c:out value="Lunch Not Served" /></p>
-	              <p>Dinner Price: $<c:out value="${restaurant.getDinner_price()}"/></p>
-	            </c:when>
-	            
-	            <c:when test="${restaurant.getBreakfast_price() == 0.00 && restaurant.get_DinnerPrice == 0.00}">
-	              <p><c:out value="Breakfast Not Served" /></p>
-	              <p>Lunch Price: $<c:out value="${restaurant.getLunch_price()}" /></p>
-	              <p><c:out value="Dinner Not Served"/></p>
-	            </c:when>
-	            
-	            <c:when test="${restaurant.getLunch_price() == 0.00 && restaurant.getDinner_Price == 0.00}">
-	              <p>Breakfast Price: $<c:out value="${restaurant.getBreakfast_price()}" /></p>
-	              <p><c:out value="Lunch Not Served" /></p>
-	              <p><c:out value="Dinner Not Served"/></p>
-	            </c:when>
-	            
-	           <c:otherwise>
-	              <p>Breakfast Price: $<c:out value="${restaurant.getBreakfast_price()}" /></p>
-	              <p>Lunch Price: $<c:out value="${restaurant.getLunch_price()}" /></p>
-	              <p>Dinner Price: $<c:out value="${restaurant.getDinner_price()}"/></p>
-	            </c:otherwise>
-            </c:choose>
+              <c:if test="${restaurant.getBreakfast_price() == 0.00}">
+              	<p><c:out value="Breakfast Not Served" /></p>
+              </c:if>
+              <c:if test="${restaurant.getBreakfast_price() != 0.00}">
+              	<p>Breakfast Price: $<c:out value="${restaurant.getBreakfast_price()}" /></p>
+              </c:if>
+              <c:if test="${restaurant.getLunch_price() == 0.00}">
+              	 <p><c:out value="Lunch Not Served" /></p>
+              </c:if>
+              <c:if test="${restaurant.getLunch_price() != 0.00}">
+              	<p>Lunch Price: $<c:out value="${restaurant.getLunch_price()}" /></p>
+              </c:if>
+              <c:if test="${restaurant.getDinner_price() == 0.00}">
+              	 <p><c:out value="Dinner Not Served" /></p>
+              </c:if>
+              <c:if test="${restaurant.getDinner_price() != 0.00}">
+              	<p>Dinner Price: $<c:out value="${restaurant.getDinner_price()}" /></p>
+              </c:if>
             </div>
             </div>
           </li>
