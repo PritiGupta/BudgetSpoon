@@ -43,8 +43,20 @@ public class Signup {
 	@RequestMapping(value = "Signupsuccess", method = RequestMethod.POST)
 	public ArrayList<Restaurants> registerRestaurant(@ModelAttribute("SpringWeb")Restaurants rest, Model model ) {
 		RestaurantDao restDao = new RestaurantDao();
-		System.out.println(model.addAttribute(rest.getWebsite() +"this is it"));
+		//System.out.println(model.addAttribute(rest.getWebsite() +"this is it"));
+		if(rest.getBreakfast_price()==null)
+		{
+			rest.setBreakfast_price(0.0);
+		}
 		
+		if(rest.getLunch_price()==null)
+		{
+			rest.setLunch_price(0.0);
+		}
+		if(rest.getDinner_price()==null)
+		{
+			rest.setDinner_price(0.0);
+		}
      ArrayList<Restaurants> ls = new ArrayList<Restaurants>();
      ls.add(rest);
      
