@@ -33,29 +33,24 @@
     </nav>
   </header>
 
-  <div class = "header-banner">
-    <h2>Create a Profile</h2>
-      <h4>Where would you like to eat?</h4>
-  </div>
-
-  <div class="title">
-    <h2>New Restaurant Sign Up</h2>
-  </div>
-
-    <form id = "Signup" method = "get" action="Signupsuccess">
     <div class="container">
+    <form id = "Signup" method = "get" action="Signupsuccess">
     	<div class = "sign-up">
-         <div class = "row">
-          <label>Restaurant:</label><input class = "textbox" type="text" name="name" required/>
-          <label>Password:</label><input class = "textbox" type="password" name="password" required/>
+    	<div class="title">
+  		  <h2>New Restaurant Sign Up</h2>
+  		</div>
+         <div class = "row" id = "name">
+          <!-- <label>Restaurant:</label> --><input class = "textbox" type="text" name="name" placeholder = "Restaurant Name" required/>
+          <!-- <label>Password:</label> --><input class = "textbox" id = "second" type="password" name="password" placeholder = "Password" required/>
         </div>
         <div class = "row">
-             <label>Street Address:</label><input class = "textbox" type="text" name="streetAddress" />
-             <label>City:</label><input class = "textbox" type="text" name="cityAddress" />
+             <!-- <label>Street Address:</label> --><input class = "textbox" type="text" name="streetAddress" placeholder = "Street Address" />
+             <!-- <label>City:</label> --><input class = "textbox" type="text" id = "second" name="cityAddress" placeholder = "City" />
         </div>
         <div class = "row">
-             <label>State:</label>
+             <!-- <label>State:</label> -->
                <select id ="states" name ="stateAddress">
+               <option selected disabled>State</option>
                 <option value="AL">AL</option>
                	<option value="AK">AK</option>
                	<option value="AZ">AZ</option>
@@ -109,23 +104,23 @@
                	<option value="WY">WY</option>
 </select>
 
-             <label>Zip Code:</label><input class = "textbox" id = "zip" type="text" name="zipcodeAddress" />
+             <!-- <label>Zip Code:</label> --><input class = "textbox" id = "zip" type="text" name="zipcodeAddress" placeholder = "Zip Code" />
           </div>
         
 
           <div class="row">
-            <label>Email:</label><input class = "textbox" type="email" name="emailAddress" />
-            <label>Website:</label><input class = "textbox" type="url" name="website" />
+            <!-- <label>Email:</label> --><input class = "textbox" type="email" name="emailAddress" placeholder = "Email" />
+            <!-- <label>Website:</label> --><input class = "textbox" id = "second" type="url" name="website" placeholder = "Website" />
           </div>
 
         <div class = "row">
-             <label>Cuisine:</label><input class = "textbox" type="text" name="cuisine">
+             <!-- <label>Cuisine:</label> --><input class = "textbox" type="text" name="cuisine" placeholder = "Cuisine">
         </div>
-
-        <div class="row">
-             <label>Average Breakfast Price:</label><input class = "textbox" id = "prices" type="number" name="breakfast_price" maxlength=5 step="0.1">
-             <label>Average Lunch Price:</label><input class = "textbox" id = "prices" type="number" name="lunch_price" maxlength=5 step="0.01">
-             <label>Average Dinner Price:</label><input class = "textbox" id = "prices" type="number" name="dinner_price" maxlength=5 step="0.01" >
+		<h4>Average Prices</h4>
+		<div class="row">
+             <input class = "textbox" id = "prices" type="number" name="breakfast_price" maxlength=5 step="0.1" placeholder = "Breakfast">
+             <!-- <label>Average Lunch Price:</label> --><input class = "textbox" id = "prices" type="number" name="lunch_price" maxlength=5 step="0.01" placeholder = "Lunch">
+             <!-- <label>Average Dinner Price:</label> --><input class = "textbox" id = "prices" type="number" name="dinner_price" maxlength=5 step="0.01" placeholder = "Dinner" >
         </div>
       <div class ="row">
           <div id = "button">
@@ -133,10 +128,9 @@
           </div>
       </div>
         </div>
+        </form>
         </div>
 
-  
-  </form>
 
   <script type = "text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
   <script src="jquery-ui.js"></script>

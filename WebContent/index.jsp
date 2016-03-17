@@ -79,8 +79,8 @@
 
 </div>
   <script type = "text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-  <script src="jquery-ui.js"></script>
-  <script type = "text/javascript" src="script.js"></script>
+  <script src="${pageContext.request.contextPath}/js/jquery-ui.min.js"></script>
+  <script type = "text/javascript" src="${pageContext.request.contextPath}/js/script.js"></script>
   <script type = "text/javascript" src="${pageContext.request.contextPath}/js/validation.js"></script>
   
 

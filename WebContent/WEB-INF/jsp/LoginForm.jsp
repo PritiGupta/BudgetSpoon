@@ -26,20 +26,20 @@
     </nav>
   </header>
 
-  <div class = "header-banner">
-    <h2>Login to your Account</h2>
+<!--   <div class = "header-banner">
   </div>
-
-  </div>
-
+ -->
     <form id = "Signup" method = "post" action="userLogin.html">
     <div class="container">
     	<div class = "sign-up">
+    	<div class = "title">
+    		<h2>Login</h2>
+    	</div>
     		<div class = "row">
- 					<label>Username:</label><input class = "textbox" type="text" name="username" required />
+ 					<input class = "textbox" type="text" name="username" required placeholder = "username"/>
  			</div>
  			<div class = "row">
- 					<label>Password:</label><input class = "textbox" type="password" name="password" required />
+ 					<input class = "textbox" type="password" name="password" required placeholder = "password"/>
 			</div>
 			<div class = "row">
           <div id = "button">

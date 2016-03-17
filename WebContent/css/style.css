@@ -92,6 +92,10 @@ searchbox {
     background:#f8f7f7;
     margin-bottom: 10px;
   }
+  
+::-webkit-input-placeholder {
+	color: black;
+}
 
   input.submit {
     width:150px;

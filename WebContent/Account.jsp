@@ -27,21 +27,21 @@
       </div>
     </nav>
   </header>
-<div class = "header-banner">
-  <h2>Create an Account</h2>
-</div>
 
 <form id = "Signup" method = "get" action="AccountSuccess">
 <div class="container">
+<div id = "title">
+	<h2>Create a User Profile</h2>
+	</div>
   <div class = "sign-up">
-     <div class = "row">
-      <label>Username:</label><input class = "textbox" type="text" name="username" required/>
+     <div class = "row" id = "name">
+      <input class = "textbox" type="text" name="username" required placeholder = "Username"/>
      </div>
      <div class = "row">
-      <label>Password:</label><input class = "textbox" type="password" name="password" required/>
+      <input class = "textbox" type="password" name="password" required placeholder = "Password"/>
     </div>
       <div class="row">
-        <label>Email:</label><input class = "textbox" type="email" name="emailAddress" />
+        <input class = "textbox" type="email" name="emailAddress" placeholder = "Email"/>
       </div>
 	<div class = "row">
       <div id = "button">
