@@ -60,7 +60,7 @@
       </div>
     </div>
     <div class = "row" id = "buttonrow">
-      <a href = "Signup.jsp">Click here to add a restaurant profile</a>
+      <a href = "restaurantSignup.html">Click here to add a restaurant profile</a>
     </div>
     </div>
     </form>

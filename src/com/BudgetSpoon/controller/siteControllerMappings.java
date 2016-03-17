@@ -302,7 +302,10 @@ public class siteControllerMappings {
 		return "Account";
 	}
 	
-
+	@RequestMapping("restaurantSignup")
+	public String ResaurantSignup() {
+		return "Signup";
+	}
 	
 	
 	
