@@ -27,7 +27,7 @@
       </c:if>
       <c:if test="${username != null}">
       <div class = "comp pull-right">
-        <a href = "Logout.html" style = "text-decoration:none;">Log Out</a>
+        <a href = "userLogout.html" style = "text-decoration:none;">Log Out</a>
       </div>
       <div class = "comp pull-right">
         <a href = "userFavorites.html" style = "text-decoration:none;">Favorites</a>
