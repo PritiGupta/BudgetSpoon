@@ -286,7 +286,11 @@ public class siteControllerMappings {
 		}
 	}
 	
-	
+	@RequestMapping(value = "userLogout")
+	public String userLogout(HttpSession httpsession) {
+		httpsession.removeAttribute("username");
+		return "index";
+	}
 	
 	
 	
