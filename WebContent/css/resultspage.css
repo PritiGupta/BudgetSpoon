@@ -104,10 +104,15 @@ h3 {
 }
 
 .search-results-li {
+	display-inline: block;
 }
 
 #prices {
-  padding-top: 60px;
+  padding-top: 20px;
+}
+
+#prices p {
+	margin-top: 40px;
 }
 h4 {
   font-weight: bold;
@@ -118,8 +123,13 @@ a {
 }
 
 
-#myimage {
-max-width: 256px;max-height: 256px;background-image: black;
+#favoriting {
+	padding-left: 0px;
+	display: inline-block;
+	border-radius: 6px;
+	background: #E0E0E0;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#E0E0E0), to(#F8F8F8);
+	background: -webkit-linear-gradient(0% 0%, 0% 100%, from(#E0E0E0), to(#F8F8F8));
 }
 
 #globe {

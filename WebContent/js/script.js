@@ -35,10 +35,11 @@ $(document).ready(function() {
     $(this).css("background-color", "#f8f7f7");
   });
 
-   $('select').click(function() {
-   $('select').selectmenu({
-     background: "#A0A0A0"
-   });
+//  $('select').click(function() {
+//  });
+//   $('select').selectmenu({
+//     background: "#A0A0A0"
+//  });
 
   $(':submit').hover(function() {
     $(this).css("background-color", "#A0A0A0");
