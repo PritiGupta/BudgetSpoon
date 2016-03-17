@@ -34,13 +34,13 @@ import com.BudgetSpoon.dao.RestaurantDao;
 @Controller
 public class Signup {
 			
-	@RequestMapping(value = "/Signup", method = RequestMethod.GET)
+	@RequestMapping(value = "/Signup", method = RequestMethod.POST)
 		public ModelAndView signUp(Model model) {
 		
 			return new ModelAndView("Signup", "command", new Restaurants());
 		}
 
-	@RequestMapping(value = "/Signupsuccess", method = RequestMethod.GET)
+	@RequestMapping(value = "Signupsuccess", method = RequestMethod.POST)
 	public ArrayList<Restaurants> registerRestaurant(@ModelAttribute("SpringWeb")Restaurants rest, Model model ) {
 		RestaurantDao restDao = new RestaurantDao();
 		System.out.println(model.addAttribute(rest.getWebsite() +"this is it"));
