@@ -1,7 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions"
-    prefix="fn" %>
-<!DOCTYPE>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" 
+   prefix="fn" %> 
+ <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+ <!DOCTYPE>
 <html>
 
 <head>
@@ -129,22 +130,22 @@
                        myData.push(["${restaurant.getStreetAddress()}"+","+"${restaurant.getCityAddress()}"+","+"${restaurant.getStateAddress()}"+","+"${restaurant.getZipcodeAddress()}","${restaurant.getName()}","${restaurant.getWebsite()}"]);
                                         
                     </script> 
-                    <script>
                     
                     
-                    </script>
+                    
+                   
             <div class = "col-md-6" id = "prices"> 
              <c:choose>
            
            
             <c:when test="${mealChoice == 'breakfast'}">
-	          <p>Breakfast Price: $<c:out value="${restaurant.getBreakfast_price()* numberofdiners}" /></p>
+	          <p>Breakfast Price: <fmt:formatNumber type="currency" value="${restaurant.getBreakfast_price()* numberofdiners}" minFractionDigits="2" maxFractionDigits="2"/></p>
             </c:when> 
             <c:when test="${mealChoice == 'lunch'}">
-	          <p>Lunch Price: $<c:out value="${restaurant.getLunch_price()* numberofdiners}" /></p>
+	          <p>Lunch Price: <fmt:formatNumber type="currency" value="${restaurant.getLunch_price()* numberofdiners}" minFractionDigits="2" maxFractionDigits="2"/></p>
             </c:when>
             <c:when test="${mealChoice == 'dinner'}">
-	          <p>Dinner Price: $<c:out value="${restaurant.getDinner_price()* numberofdiners}" /></p>
+	          <p>Dinner Price: <fmt:formatNumber type="currency" value="${restaurant.getDinner_price()* numberofdiners}" minFractionDigits="2" maxFractionDigits="2"/></p>
             </c:when>
             
 
