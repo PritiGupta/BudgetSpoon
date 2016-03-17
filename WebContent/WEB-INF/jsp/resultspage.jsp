@@ -143,7 +143,7 @@
             <c:if test="${username != null}">
             <form action="addFavorite" method="get">
             	<input type="hidden" name="favorite" value=${restaurant.getId() }>
-            	<input type="submit" value="favorite">
+            	<input type="image" id = "myimage" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCIgdmlld0JveD0iMCAwIDk0LjY0NiA5NC42NDYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDk0LjY0NiA5NC42NDY7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8cGF0aCBkPSJNNjEuOTksMjVjMC0xMi4wMTItNi41NjYtMjUtMTQuNjY3LTI1Yy04LjEwMSwwLTE0LjY2NywxMi45ODgtMTQuNjY3LDI1YzAsMTAuNDYzLDQuOTg0LDE2LjczMSwxMS42MjMsMTguMTc0ICAgYy0xLjE0MSw5Ljg1Ny0xLjg3MywyMy42NDEtMS44NzMsMzMuODA1YzAsMTcuNjI3LDIuMjAxLDE3LjY2Niw0LjkxNywxNy42NjZzNC45MTctMC4wMzksNC45MTctMTcuNjY2ICAgYzAtMTAuMTY0LTAuNzMyLTIzLjk0Ny0xLjg3My0zMy44MDVDNTcuMDA1LDQxLjczMSw2MS45OSwzNS40NjMsNjEuOTksMjV6IiBmaWxsPSIjMDAwMDAwIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" value="favorite">
             </form>
             </c:if>
             </div>

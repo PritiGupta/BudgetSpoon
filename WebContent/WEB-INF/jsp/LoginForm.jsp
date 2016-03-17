@@ -29,8 +29,9 @@
 <!--   <div class = "header-banner">
   </div>
  -->
-    <form id = "Signup" method = "post" action="userLogin.html">
+ 	<div class = "form">
     <div class="container">
+    <form id = "Signup" method = "post" action="userLogin.html">
     	<div class = "sign-up">
     	<div class = "title">
     		<h2>Login</h2>
@@ -48,8 +49,9 @@
           </div>
         </div>
         </div>
+        </form>
         </div>
-  </form>
+        </div>
 
   <script type = "text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
   <script src="jquery-ui.js"></script>

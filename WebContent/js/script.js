@@ -1,6 +1,6 @@
-$(document).ready(function() {
-
-  $('#logo').hover(function() {
+$(document).ready(function() { 
+  
+	$('#logo').hover(function() {
     $(this).css("color", "#C0C0C0");
   },
   function() {
@@ -20,6 +20,13 @@ $(document).ready(function() {
   function() {
     $(this).css("color", "#D8D8D8");
   });
+  
+  $('input').hover(function() {
+	  $(this).css("background-color", "#A0A0A0");
+  },
+  function() {
+	  $(this.css("background-color", "#f8f7f7"));
+  });
 
   $('select').hover(function() {
     $(this).css("background-color", "#A0A0A0");
@@ -28,10 +35,10 @@ $(document).ready(function() {
     $(this).css("background-color", "#f8f7f7");
   });
 
-  // $('select').click(function() {
-  // $('select').selectmenu({
-  //   background: "#A0A0A0"
-  // });
+   $('select').click(function() {
+   $('select').selectmenu({
+     background: "#A0A0A0"
+   });
 
   $(':submit').hover(function() {
     $(this).css("background-color", "#A0A0A0");

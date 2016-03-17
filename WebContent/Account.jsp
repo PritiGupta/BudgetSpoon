@@ -28,8 +28,9 @@
     </nav>
   </header>
 
-<form id = "Signup" method = "get" action="AccountSuccess">
+<div class = "form">
 <div class="container">
+<form id = "Signup" method = "get" action="AccountSuccess">
 <div id = "title">
 	<h2>Create a User Profile</h2>
 	</div>
@@ -52,8 +53,9 @@
       <a href = "Signup.jsp">Click here to add a restaurant profile</a>
     </div>
     </div>
+    </form>
     </div>
-</form>
+    </div>
 
 <script type = "text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="jquery-ui.js"></script>

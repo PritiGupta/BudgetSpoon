@@ -118,11 +118,8 @@ a {
 }
 
 
-img {
-
-  display: block-inline;
-  width: 120px;
-  height: 100px;
+#myimage {
+max-width: 256px;max-height: 256px;background-image: black;
 }
 
 #globe {

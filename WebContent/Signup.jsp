@@ -33,6 +33,7 @@
     </nav>
   </header>
 
+	<div class = "form">
     <div class="container">
     <form id = "Signup" method = "get" action="Signupsuccess">
     	<div class = "sign-up">
@@ -129,6 +130,7 @@
       </div>
         </div>
         </form>
+        </div>
         </div>
 
 
