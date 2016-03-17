@@ -116,6 +116,7 @@
     	<div class = "row" id = "view">
     	<div class = "col-md-6" id = "results">
         <ol id = "search-list">
+        <h3>${noresults}</h3>
         <c:forEach items="${restList}" var="restaurant">
           <li class = "search-result-li">
             <div class = "row">
@@ -137,7 +138,7 @@
             <div class = "col-md-6" id = "prices"> 
              
              <c:choose>
-           
+          
            
             <c:when test="${mealChoice == 'breakfast'}">
 	          <p>Breakfast Price: <fmt:formatNumber type="currency" value="${restaurant.getBreakfast_price()* numberofdiners}" minFractionDigits="2" maxFractionDigits="2"/></p>
@@ -148,6 +149,7 @@
             <c:when test="${mealChoice == 'dinner'}">
 	          <p>Dinner Price: <fmt:formatNumber type="currency" value="${restaurant.getDinner_price()* numberofdiners}" minFractionDigits="2" maxFractionDigits="2"/></p>
             </c:when>
+            
             </c:choose>
             
             <c:if test="${username != null}">

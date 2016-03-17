@@ -77,7 +77,9 @@ public class siteControllerMappings {
 		
 		//Call the getResultsForPrice method found below
 		results = getResultsForPrice(pricePerDiner, mealOption);
-		
+		if(results.isEmpty()){
+			return new ModelAndView("resultspage", "noresults", "We didn't find any Restaurants matching your search");
+		}else
 		//Return the model and view for redirection
 		return new ModelAndView("resultspage", "restList", results);
 	}
@@ -300,44 +302,7 @@ public class siteControllerMappings {
 		return "Account";
 	}
 	
-//	@RequestMapping(value = "Signupsuccess")
-//	public String registerRestaurant(@RequestParam("name") String restName, @RequestParam("password") String password, 
-//			@RequestParam("streetAddress") String streetAddress, @RequestParam("cityAddress") String cityAddress, 
-//			@RequestParam("stateAddress") String stateAddress, @RequestParam("zipcodeAddress") String zipcodeAddress, 
-//			@RequestParam("emailAddress") String email, @RequestParam("website") String website, 
-//			@RequestParam("cuisine") String cuisine, @RequestParam("breakfast_price") Double breakfast_price, 
-//			@RequestParam("lunch_price") Double lunch_price, @RequestParam("dinner_price") Double dinner_price) {
-//		
-//		double bPrice, lPrice, dPrice;
-//		
-//		
-//		
-//		if(breakfast_price != null)
-//			bPrice = (double) breakfast_price;
-//		else
-//			bPrice = 0.0;
-//
-//		if(lunch_price != null)
-//			lPrice = (double) lunch_price;
-//		else
-//			lPrice = 0.0;
-//		
-//		if(dinner_price != null)
-//			dPrice = (double) dinner_price;
-//		else
-//			dPrice = 0.0;
-//		
-//		Restaurants rest = new Restaurants(restName, streetAddress, cityAddress, stateAddress, zipcodeAddress, 
-//				cuisine, bPrice, lPrice, dPrice, email, password, website);
-//		RestaurantDao restDao = new RestaurantDao();
-//		
-//		ArrayList<Restaurants> ls = new ArrayList<Restaurants>();
-//		ls.add(rest);
-//     
-//         restDao.addRestaurants(ls);
-//         return "index";
-//	}
-	
+
 	
 	
 	
