@@ -275,7 +275,7 @@ public class siteControllerMappings {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return null;
+			return new ModelAndView("userFavorites", "noFavMsg", "You haven't added any favorites to your profile yet.");
 		}
 	}
 	

@@ -98,7 +98,13 @@
     <h3>Pick a Place to Eat</h3>
       <h4>Where would you like to eat today?</h4>
   </div>
-  
+  	
+  	<c:choose>
+  	<c:when test="${favRest == null}">
+  	  <h2>${noFavMsg}</h2>
+  	</c:when>
+  	
+  	<c:when test="${favRest != null}">
     <section class = "search-results-container">
     	<div class = "row" id = "view">
     	<div class = "col-md-6" id = "results">
@@ -150,7 +156,8 @@
         
         </div>
     </section>
-            
+    </c:when>
+    </c:choose> 
 </body>
 </html>
 
