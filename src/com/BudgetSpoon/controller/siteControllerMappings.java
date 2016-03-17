@@ -32,77 +32,104 @@ import com.BudgetSpoon.dao.FavoriteDao;
  */
 @Controller
 public class siteControllerMappings {
-
+	
+	//Mapping to direct user to main page whenever needed
 	@RequestMapping("index")
 	public String goToMainPage() {
 		return "index";
 	}
 	
+	
+	/**Mapping used to direct user from index.jsp and forward them to resultspage.jsp.
+	 * Takes the following parameters from the form submission.
+	 * @param mealChoice
+	 * @param priceChoice
+	 * @param numberofdiners
+	 * 
+	 * Takes in an HttpSession to store attributes for later use in the same session
+	 * @param httpsession
+	 * 
+	 * Returns view directing to resultspage.jsp and forwards a Model consisting of an ArrayList of Restaurant Objects
+	 * that match the parameters that were passed
+	 * @return
+	 */
 	@RequestMapping("search")
 	public ModelAndView searchByMealType(@RequestParam("meal") String mealChoice,
 			@RequestParam("price") double priceChoice, @RequestParam("numofdiners") int numberofdiners,
 			HttpSession httpsession) {
-
+		
+		//Setting session attributes so they may be utilized later if needed
 		httpsession.setAttribute("price", priceChoice);
 		httpsession.setAttribute("numberofdiners", numberofdiners);
 		httpsession.setAttribute("mealChoice", mealChoice);
 		
+		//Declaration of ArrayList to be returned once populated
 		ArrayList<Restaurants> results = new ArrayList<Restaurants>();
-
-//			Session session = (new Configuration().configure().buildSessionFactory()).openSession();
-//	
-//			session.beginTransaction();
-//			Criteria criteria = session.createCriteria(Restaurants.class);
-//	
-//			if (mealChoice.equalsIgnoreCase("breakfast")) {
-//				if (priceChoice.equalsIgnoreCase("$10-20")) {
-//					criteria.add(Restrictions.between("breakfast_price", 10.00, 20.00));
-//					results = (ArrayList<Restaurants>) criteria.list();
-//				} else if (priceChoice.equalsIgnoreCase("$20-30")) {
-//					criteria.add(Restrictions.between("breakfast_price", 20.00, 30.00));
-//					results = (ArrayList<Restaurants>) criteria.list();
-//				} else if (priceChoice.equalsIgnoreCase("$30-40")) {
-//					criteria.add(Restrictions.between("breakfast_price", 30.00, 40.00));
-//					results = (ArrayList<Restaurants>) criteria.list();
-//				} else if (priceChoice.equalsIgnoreCase("$40-50")) {
-//					criteria.add(Restrictions.between("breakfast_price", 40.00, 50.00));
-//					results = (ArrayList<Restaurants>) criteria.list();
-//				}
-//			} else if (mealChoice.equalsIgnoreCase("lunch")) {
-//				if (priceChoice.equalsIgnoreCase("$10-20")) {
-//					criteria.add(Restrictions.between("lunch_price", 10.00, 20.00));
-//					results = (ArrayList<Restaurants>) criteria.list();
-//				} else if (priceChoice.equalsIgnoreCase("$20-30")) {
-//					criteria.add(Restrictions.between("lunch_price", 20.00, 30.00));
-//					results = (ArrayList<Restaurants>) criteria.list();
-//				} else if (priceChoice.equalsIgnoreCase("$30-40")) {
-//					criteria.add(Restrictions.between("lunch_price", 30.00, 40.00));
-//					results = (ArrayList<Restaurants>) criteria.list();
-//				} else if (priceChoice.equalsIgnoreCase("$40-50")) {
-//					criteria.add(Restrictions.between("lunch_price", 40.00, 50.00));
-//					results = (ArrayList<Restaurants>) criteria.list();
-//				}
-//			} else if (mealChoice.equalsIgnoreCase("dinner")) {
-//				if (priceChoice.equalsIgnoreCase("$10-20")) {
-//					criteria.add(Restrictions.between("dinner_price", 10.00, 20.00));
-//					results = (ArrayList<Restaurants>) criteria.list();
-//				} else if (priceChoice.equalsIgnoreCase("$20-30")) {
-//					criteria.add(Restrictions.between("dinner_price", 20.00, 30.00));
-//					results = (ArrayList<Restaurants>) criteria.list();
-//				} else if (priceChoice.equalsIgnoreCase("$30-40")) {
-//					criteria.add(Restrictions.between("dinner_price", 30.00, 40.00));
-//					results = (ArrayList<Restaurants>) criteria.list();
-//				} else if (priceChoice.equalsIgnoreCase("$40-50")) {
-//					criteria.add(Restrictions.between("dinner_price", 40.00, 50.00));
-//					results = (ArrayList<Restaurants>) criteria.list();
-//				}
-//			}
+		
+		//Take the user's price submission and divides it by number of diners to get average price per diner
 		double pricePerDiner = priceChoice / numberofdiners;
 		
+		//Call the getResultForMeal method found below
 		String mealOption = getResultForMeal(mealChoice);
+		
+		//Call the getResultsForPrice method found below
 		results = getResultsForPrice(pricePerDiner, mealOption);
+		
+		//Return the model and view for redirection
 		return new ModelAndView("resultspage", "restList", results);
 	}
+	
+	/**This method takes the value from the form submission of mealChoice and returns the appropriate value 
+	 * that can reference the Restaurant class and the database's restaurants table
+	 * 
+	 * @param mealChoice
+	 * @return
+	 */
+	public String getResultForMeal(String mealChoice) {
+		
+		if (mealChoice.equalsIgnoreCase("breakfast")) {
+			return "breakfast_price";
+		} else if (mealChoice.equalsIgnoreCase("lunch")) {
+			return "lunch_price";
+		} else if (mealChoice.equalsIgnoreCase("dinner")) {
+			return "dinner_price";
+		} else {
+			return null;
+		}
+
+	}
+	
+	/**This method takes the determined values of pricePerDiner and meal.
+	 * It then uses a Hibernate Criteria Query to check the database for restaurants that match the parameters passed.
+	 * Any results found are then returned as an ArrayList of Restaurant objects
+	 * 
+	 * @param pricePerDiner
+	 * @param meal
+	 * @return
+	 */
+	public ArrayList<Restaurants> getResultsForPrice (double pricePerDiner, String meal) {
+		
+		//Declaration of ArrayList to be returned once populated
+		ArrayList<Restaurants> results = new ArrayList<Restaurants>();
+		
+		//Opening a session as configured in hibernate.cfg.xml
+		Session session = (new Configuration().configure().buildSessionFactory()).openSession();
+		session.beginTransaction();
+		
+		//Creation of criteria that links to the Hibernate Mapping of Restaurants.class as defined in budgetSpoon.hbm.xml
+		Criteria criteria = session.createCriteria(Restaurants.class);
+		
+		//Establishment of criteria such that it only selects restaurants that serve the meal desired
+		//at an average cost less than the amount specified
+		criteria.add(Restrictions.between(meal, 0.01, pricePerDiner));
+		
+		//Store the results of the Hibernate Criteria Query in the ArrayList
+		results = (ArrayList<Restaurants>) criteria.list();
+		
+		//Return the ArrayList of results
+		return results;
+	}
+	
 	
 	@RequestMapping("addFavorite")
 	public ModelAndView addRestToFavs(@RequestParam("favorite") int restaurantId, HttpSession httpsession) {
@@ -296,41 +323,9 @@ public class siteControllerMappings {
 	
 	
 	
-	public String getResultForMeal(String mealChoice) {
-		
-		if (mealChoice.equalsIgnoreCase("breakfast")) {
-			return "breakfast_price";
-		} else if (mealChoice.equalsIgnoreCase("lunch")) {
-			return "lunch_price";
-		} else if (mealChoice.equalsIgnoreCase("dinner")) {
-			return "dinner_price";
-		} else {
-			return null;
-		}
-
-	}
 	
-	public ArrayList<Restaurants> getResultsForPrice (double pricePerDiner, String meal) {
-		ArrayList<Restaurants> results = new ArrayList<Restaurants>();
-		Session session = (new Configuration().configure().buildSessionFactory()).openSession();
-		session.beginTransaction();
-		Criteria criteria = session.createCriteria(Restaurants.class);
-		
-//		if (priceChoice.equalsIgnoreCase("$10-20")) {
-			criteria.add(Restrictions.between(meal, 0.01, pricePerDiner));
-			results = (ArrayList<Restaurants>) criteria.list();
-//		} else if (priceChoice.equalsIgnoreCase("$20-30")) {
-//			criteria.add(Restrictions.between(meal, 20.00, 30.00));
-//			results = (ArrayList<Restaurants>) criteria.list();
-//		} else if (priceChoice.equalsIgnoreCase("$30-40")) {
-//			criteria.add(Restrictions.between(meal, 30.00, 40.00));
-//			results = (ArrayList<Restaurants>) criteria.list();
-//		} else if (priceChoice.equalsIgnoreCase("$40-50")) {
-//			criteria.add(Restrictions.between(meal, 40.00, 50.00));
-//			results = (ArrayList<Restaurants>) criteria.list();
-//		}
-		return results;
-	}
+	
+	
 	
 	
 }
