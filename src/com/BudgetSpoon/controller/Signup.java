@@ -58,13 +58,13 @@ public class Signup {
 		{
 			rest.setDinner_price(0.0);
 		}
-     ArrayList<Restaurants> ls = new ArrayList<Restaurants>();
-     ls.add(rest);
+		ArrayList<Restaurants> ls = new ArrayList<Restaurants>();
+		ls.add(rest);
      
     	 
-         restDao.addRestaurants(ls);
+		restDao.addRestaurants(ls);
                	          
-         return "index";
+		return "index";
 	}
 	
 }

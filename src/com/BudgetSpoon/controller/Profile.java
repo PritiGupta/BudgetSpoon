@@ -31,16 +31,15 @@ public class Profile {
 		return new ModelAndView("Account", "command", new Users());
 	}
 
-@RequestMapping(value = "/AccountSuccess", method = RequestMethod.GET)
-public ArrayList<Users> registerUser(@ModelAttribute("SpringWeb")Users user1, Model model ) {
+@RequestMapping(value = "AccountSuccess", method = RequestMethod.POST)
+public String registerUser(@ModelAttribute("SpringWeb")Users user1, Model model ) {
 	UsersDao user1Dao = new UsersDao();
-	System.out.println(model.addAttribute(user1.getUsername() +"this is it"));
 	
- ArrayList<Users> ls = new ArrayList<Users>();
- ls.add(user1);
+	ArrayList<Users> ls = new ArrayList<Users>();
+	ls.add(user1);
  
-     user1Dao.addUsers(ls);
-     return ls;
+    user1Dao.addUsers(ls);
+    return "index";
 }
 	
 }

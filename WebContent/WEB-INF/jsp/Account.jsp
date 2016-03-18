@@ -40,7 +40,7 @@
 
 <div class = "form">
 <div class="container">
-<form id = "Signup" method = "get" action="AccountSuccess">
+<form id = "Signup" method = "post" action="AccountSuccess" onSubmit ="alert('User Profile Successfully Created');">
 <div id = "title">
 	<h2>Create a User Profile</h2>
 	</div>

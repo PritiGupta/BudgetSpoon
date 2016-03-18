@@ -45,7 +45,7 @@
 
 	<div class = "form">
     <div class="container">
-    <form id = "Signup" method = "post" action="Signupsuccess" ) onSubmit ="alert('Restaurant successfully Registered');" >
+    <form id = "Signup" method = "post" action="Signupsuccess" onSubmit ="alert('Restaurant Successfully Registered');" >
     	<div class = "sign-up">
     	<div class="title">
   		  <h2>New Restaurant Sign Up</h2>
