@@ -1,13 +1,13 @@
 $(document).ready(function() { 
   
-	$('#logo').hover(function() {
-    $(this).css("color", "#C0C0C0");
+	$('#BudgetSpoon').hover(function() {
+    $(this).css("color", "#E0E0E0");
   },
   function() {
-    $(this).css("color", "#D8D8D8");
+    $(this).css("color", "#F0F0F0");
   });
 
-  $('#logo').hover(function() {
+  $('#BudgetSpoon').hover(function() {
     $(this).css("border-color", "#C0C0C0");
   },
   function() {
@@ -15,10 +15,10 @@ $(document).ready(function() {
   });
 
   $('nav a').hover(function() {
-    $(this).css("color", "#606060");
+    $(this).css("color", "#F0F0F0");
   },
   function() {
-    $(this).css("color", "#D8D8D8");
+    $(this).css("color", "#C8C8C8");
   });
   
   $('input').hover(function() {

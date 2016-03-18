@@ -146,7 +146,7 @@
 
   <script type = "text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
   <script src="jquery-ui.js"></script>
-  <script type = "text/javascript" src="script.js"></script>
+  <script type = "text/javascript" src="${pageContext.request.contextPath}script.js"></script>
   <script type = "text/javascript" src="${pageContext.request.contextPath}/js/validation.js"></script>
 
 
