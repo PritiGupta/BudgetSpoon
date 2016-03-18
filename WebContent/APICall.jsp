@@ -26,7 +26,7 @@
 	//ArrayList of Restaurants		
 	ArrayList<Restaurants> addRests = new ArrayList<Restaurants>();
 	
-	//for 		
+	//looping through the results to get 4 pages of 20 results each		
 	for (int c = 0; c <= 80; c += 20) {
 		
 		HttpGet search = new HttpGet("https://developers.zomato.com/api/v2.1/search?q=48226&start="+c);
