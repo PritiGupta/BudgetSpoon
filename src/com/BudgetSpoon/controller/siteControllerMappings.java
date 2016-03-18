@@ -61,7 +61,7 @@ public class siteControllerMappings {
 			@RequestParam("price") double priceChoice, @RequestParam("numofdiners") int numberofdiners,
 			HttpSession httpsession) {
 		
-		//Setting session attributes so they may be utilized later if needed
+		//Setting session attributes to save state of a variable to carry it through in various pages
 		httpsession.setAttribute("price", priceChoice);
 		httpsession.setAttribute("numberofdiners", numberofdiners);
 		httpsession.setAttribute("mealChoice", mealChoice);
@@ -182,22 +182,25 @@ public class siteControllerMappings {
 		double priceChoice = (double) httpsession.getAttribute("price");
 		int numberofdiners = (int) httpsession.getAttribute("numberofdiners");
 		String mealChoice = (String) httpsession.getAttribute("mealChoice");
-		
+		//List of restaurants
 		ArrayList<Restaurants> results = new ArrayList<Restaurants>();
+		//logic for calculating budget for each person
 		double pricePerDiner = priceChoice / numberofdiners;
-		
+		//getting the mealchoice		
 		String mealOption = getResultForMeal(mealChoice);
+		// getting Results based on price, taking in  pricePerDiner and mealOption
 		results = getResultsForPrice(pricePerDiner, mealOption);
+		//returning results to the results page
 		return new ModelAndView("resultspage", "restList", results);
 	}
 
-	
+	//mapping user login
 	@RequestMapping(value = "userLogin", method = RequestMethod.POST)
 	public ModelAndView userLogin(@RequestParam("username") String username,
 			@RequestParam("password") String password, HttpSession httpsession) {
 		
-		
-		Connection myConn = establishDatabaseConnection();
+		//establishing a connection
+			Connection myConn = establishDatabaseConnection();
 
 			// Use prepared statement below: This allows us to leave the value
 			// of email and password unspecified,
@@ -209,9 +212,9 @@ public class siteControllerMappings {
 					.prepareStatement("SELECT username,password FROM users WHERE username=? AND password=?");
 			pst.setString(1, username);
 			pst.setString(2, password);
-			// Execute the mySQL prepared statement to query our table
+			// Execute the mySQL prepared statement to query our table and store it in a result set
 			ResultSet myRs = pst.executeQuery();
-
+//moving through the result set, setting session for user and returning users to index page
 			if (myRs.next()) {
 				httpsession.setAttribute("username", username);
 				return new ModelAndView("index", "favRest", username);

@@ -55,12 +55,12 @@
           <input class = "textbox" id = "second" type="password" name="password" placeholder = "Password" required/>
         </div>
         <div class = "row">
-           <input class = "textbox" type="text" name="streetAddress" placeholder = "Street Address" />
-            <input class = "textbox" type="text" id = "second" name="cityAddress" placeholder = "City" />
+           <input class = "textbox" type="text" name="streetAddress" placeholder = "Street Address" required/>
+            <input class = "textbox" type="text" id = "second" name="cityAddress" placeholder = "City" required/>
         </div>
         <div class = "row">
         
-               <select id ="states" name ="stateAddress">
+               <select id ="states" name ="stateAddress" required>
                <option selected disabled>State</option>
                 <option value="AL">AL</option>
                	<option value="AK">AK</option>
@@ -115,7 +115,7 @@
                	<option value="WY">WY</option>
 </select>
 
-            <input class = "textbox" id = "zip" type="text" name="zipcodeAddress" placeholder = "Zip Code" />
+            <input class = "textbox" id = "zip" type="text" name="zipcodeAddress" placeholder = "Zip Code" required/>
           </div>
         
 
