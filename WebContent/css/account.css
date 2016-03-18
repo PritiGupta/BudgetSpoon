@@ -143,6 +143,10 @@ input.textbox {
   float: none;
 }
 
+#errorMessage {
+	color: #b30000;
+}
+
 input.submit {
   width:150px;
   height:35px;

@@ -58,6 +58,7 @@
 						<input class = "submit" type="reset" value="Reset" >
           </div>
         </div>
+          <p id="errorMessage">${msg }</p>
         </div>
         </form>
         </div>

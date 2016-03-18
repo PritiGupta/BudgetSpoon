@@ -196,7 +196,7 @@ public class siteControllerMappings {
 	public ModelAndView userLogin(@RequestParam("username") String username,
 			@RequestParam("password") String password, HttpSession httpsession) {
 		
-		httpsession.setAttribute("username", username);
+		
 		Connection myConn = establishDatabaseConnection();
 
 			// Use prepared statement below: This allows us to leave the value
@@ -213,10 +213,11 @@ public class siteControllerMappings {
 			ResultSet myRs = pst.executeQuery();
 
 			if (myRs.next()) {
+				httpsession.setAttribute("username", username);
 				return new ModelAndView("index", "favRest", username);
 				
 			} else
-				return new ModelAndView("loginFailed", "msg", "Login Failed");
+				return new ModelAndView("LoginForm", "msg", "That username or password does not match our records. Please try again.");
 
 		} catch (Exception e) {
 			return new ModelAndView("loginFailed", "msg",
