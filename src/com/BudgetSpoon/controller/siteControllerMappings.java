@@ -214,21 +214,21 @@ public class siteControllerMappings {
 			pst.setString(2, password);
 			// Execute the mySQL prepared statement to query our table and store it in a result set
 			ResultSet myRs = pst.executeQuery();
-//moving through the result set, setting session for user and returning users to index page
+//moving through the result set, setting session for user and returning users to index page 
 			if (myRs.next()) {
 				httpsession.setAttribute("username", username);
 				return new ModelAndView("index", "favRest", username);
 				
 			} else
 				return new ModelAndView("LoginForm", "msg", "That username or password does not match our records. Please try again.");
-
-		} catch (Exception e) {
+// catching the error and returning a msg that login failed
+			} catch (Exception e) {
 			return new ModelAndView("loginFailed", "msg",
 					"Connection Error! Please Check your database connection and try again.");
 		}
 
 	}
-
+	
 	@RequestMapping(value = "userFavorites")
 	public ModelAndView showFavorites(HttpSession httpsession) {
 		
@@ -279,23 +279,28 @@ public class siteControllerMappings {
 			return new ModelAndView("userFavorites", "noFavMsg", "You haven't added any favorites to your profile yet.");
 		}
 	}
+	//Establishing a jdbc Connection with the database and returning a connection
 	
 	public Connection establishDatabaseConnection() {
 		try {
+			//defines the url String
 			String url = "jdbc:mysql://budgetspoondb.cm6l5hslk6or.us-west-2.rds.amazonaws.com:3306/BudgetSpoonDB";
+			//user name and password to the database
 			String user = "budgetspoon";
 			String database_password = "gcbudgetspoon";
+			//setting the Driver
 			Class.forName("com.mysql.jdbc.Driver");
+			//setting the connection
 			Connection myConn = DriverManager.getConnection(url, user, database_password);
 			return myConn;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			//catching exception
 			e.printStackTrace();
 			return null;
 		}
 	}
 	
-	@RequestMapping(value = "userLogout")
+	@RequestMapping(value = "userLogout")// mapping for logout by removing the session Atrribute for  the user
 	public String userLogout(HttpSession httpsession) {
 		httpsession.removeAttribute("username");
 		return "index";
@@ -305,12 +310,11 @@ public class siteControllerMappings {
 	public String userSignup() {
 		return "Account";
 	}
-	
-	@RequestMapping("restaurantSignup")
-	public String ResaurantSignup() {
+	//calls Signup for restaurants
+	@RequestMapping(value = "restaurantSignup")
+	public String Signup() {
 		return "Signup";
 	}
-	
 	
 	
 }
