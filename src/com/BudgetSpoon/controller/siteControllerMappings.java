@@ -310,8 +310,11 @@ public class siteControllerMappings {
 	public String userSignup() {
 		return "Account";
 	}
-	
-	
+	//calls Signup for restaurants
+	@RequestMapping(value = "restaurantSignup")
+	public String Signup() {
+		return "Signup";
+	}
 	
 	
 }

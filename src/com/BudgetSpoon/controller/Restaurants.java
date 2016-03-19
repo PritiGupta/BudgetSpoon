@@ -18,9 +18,6 @@ public class Restaurants {
 	private int numofdiners;
 	
 
-	
-	
-
 	public Restaurants() {}
 
 	public Restaurants(String name, String streetAddress, String cityAddress, String stateAddress, String zipcodeAddress, String cuisine) {
