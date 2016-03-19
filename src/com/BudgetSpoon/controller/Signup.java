@@ -34,7 +34,7 @@ import com.BudgetSpoon.dao.RestaurantDao;
 @Controller
 public class Signup {
 			//Mapping for a new Restaurant
-	@RequestMapping(value = "/Signup", method = RequestMethod.POST)
+	@RequestMapping(value = "/restaurantSignup", method = RequestMethod.POST)
 		public ModelAndView signUp(Model model) {
 			
 					return new ModelAndView("Signup", "command", new Restaurants());
@@ -42,7 +42,8 @@ public class Signup {
 	
 	//Mapping for adding a new Restaurant by sending values to the constructor from restaurant signup form
 	@RequestMapping(value = "Signupsuccess", method = RequestMethod.POST)
-//	using Model Attributes to build the Restaurant object and populating the RestaurantDao with 
+
+	//	using Model Attributes to build the Restaurant object and populating the RestaurantDao with 
 //a list of Restaurant objects 
 	public String registerRestaurant(@ModelAttribute("SpringWeb")Restaurants rest, Model model ) {
 		
@@ -65,9 +66,9 @@ public class Signup {
 		ArrayList<Restaurants> ls = new ArrayList<Restaurants>();
 		ls.add(rest);
      
-		// redirecting the user to the index page   
+		//adds the restaurant list to the Data Access Object
 		restDao.addRestaurants(ls);
-		
+		//directs to index page 
 			return "index";
 		}
 		

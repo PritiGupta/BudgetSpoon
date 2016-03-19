@@ -25,9 +25,7 @@ public class LoginUser {
 	public ModelAndView submitAdmissionsForm(@RequestParam("username") String username, 
 			@RequestParam("password") String password) {
 		
-		
-//		String infoFromDatabase = "Email: " + email 
-//				+ " Password: " + password;
+
 
 		try {
 			
