@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package com.BudgetSpoon.controller;
 
 import java.sql.Connection;
