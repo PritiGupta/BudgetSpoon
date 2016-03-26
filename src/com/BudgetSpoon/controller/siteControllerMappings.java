@@ -29,10 +29,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.BudgetSpoon.dao.FavoriteDao;
 import com.BudgetSpoon.dao.RestaurantDao;
 
-/**
- * @author Priti
- *
- */
+
 @Controller
 public class siteControllerMappings {
 	
