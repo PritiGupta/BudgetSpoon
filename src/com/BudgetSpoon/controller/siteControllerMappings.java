@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package com.BudgetSpoon.controller;
 
 import java.sql.Connection;
@@ -29,10 +27,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.BudgetSpoon.dao.FavoriteDao;
 import com.BudgetSpoon.dao.RestaurantDao;
 
-/**
- * @author Priti
- *
- */
+
 @Controller
 public class siteControllerMappings {
 	
@@ -140,7 +135,7 @@ public class siteControllerMappings {
 	 * That value is used along with the user's username, which was stored as a session attribute when they login.
 	 * This mapping then returns a view redirecting to resultspage.jsp.
 	 * To ensure that resultspage.jsp is still populated with the user's search results, this mapping executes
-	 * 		the same code as searchByMealType() as described above using the stored httpsession attributes.
+	 * the same code as searchByMealType() as described above using the stored httpsession attributes.
 	 * 
 	 * @param restaurantId
 	 * @param httpsession
@@ -199,7 +194,7 @@ public class siteControllerMappings {
 	public ModelAndView userLogin(@RequestParam("username") String username,
 			@RequestParam("password") String password, HttpSession httpsession) {
 		
-		//establishing a connection
+		//establishing a connection with database
 			Connection myConn = establishDatabaseConnection();
 
 			// Use prepared statement below: This allows us to leave the value
@@ -279,7 +274,7 @@ public class siteControllerMappings {
 			return new ModelAndView("userFavorites", "noFavMsg", "You haven't added any favorites to your profile yet.");
 		}
 	}
-	//Establishing a jdbc Connection with the database and returning a connection
+	//Establishing a jdbc Connection with the database and returning a working connection
 	
 	public Connection establishDatabaseConnection() {
 		try {
